@@ -1,0 +1,109 @@
+# Lines starting with hashtags are ignored by the reader
+# Setting file format: (key)=(value)
+#
+# Invalid values will be reset to default
+#
+
+# allowStockVessels - Allow Stock Vessels
+allowStockVessels=False
+
+# autoHireCrews - Auto-Hire Crewmemebers before Flight
+autoHireCrews=False
+
+# bypassEntryPurchaseAfterResearch - No Entry Purchase Required on Research
+bypassEntryPurchaseAfterResearch=True
+
+# indestructibleFacilities - Indestructible Facilities
+indestructibleFacilities=False
+
+# missingCrewsRespawn - Missing Crews Respawn
+missingCrewsRespawn=False
+
+# reentryHeatScale - Re-Entry Heating
+reentryHeatScale=1
+
+# resourceAbundance - Resource Abundance
+resourceAbundance=1.5
+
+# canQuickLoad - Allow Quickloading and Reverting Flights
+# Note that if set to true and warp mode isn't SUBSPACE, it will have no effect
+canQuickLoad=False
+
+# commNetwork - Enable Comm Network
+commNetwork=True
+
+# respawnTime - Crew Respawn Time
+respawnTime=2
+
+# fundsGainMultiplier - Funds Rewards
+fundsGainMultiplier=1
+
+# fundsLossMultiplier - Funds Penalties
+fundsLossMultiplier=0.5
+
+# repGainMultiplier - Reputation Rewards
+repGainMultiplier=1
+
+# repLossMultiplier - Reputation Penalties
+repLossMultiplier=0.5
+
+# repLossDeclined - Decline Penalty
+repLossDeclined=0.5
+
+# scienceGainMultiplier - Science Rewards
+scienceGainMultiplier=1.25
+
+# startingFunds - Starting Funds
+startingFunds=50000
+
+# startingReputation - Starting Reputation
+startingReputation=0
+
+# startingScience - Starting Science
+startingScience=0
+
+# kerbalExp - Enable Kerbal Exp
+kerbalExp=True
+
+# immediateLevelUp - Kerbals Level Up Immediately
+immediateLevelUp=False
+
+# allowNegativeCurrency - Allow Negative Currency
+allowNegativeCurrency=False
+
+# obeyCrossfeedRules - Obey Crossfeed Rules
+obeyCrossfeedRules=False
+
+# buildingDamageMultiplier - Building Damage Multiplier
+buildingDamageMultiplier=1
+
+# partUpgrades - Part Upgrades
+partUpgrades=True
+
+# partPressureFail - Should parts fail when they have exceeded their pressure/G-force limit, and kerbals go unconscious after sustaining too much G-force?
+partPressureFail=True
+
+# kerbalGToleranceMultiplier - Multiplier to how much G-force Kerbals tolerate before going unconscious
+kerbalGToleranceMultiplier=1
+
+# requireSignalForControl - Require Signal for Control
+requireSignalForControl=True
+
+# plasmaBlackout - Enable comm links weakening and going down when the link goes through atmospheric plasma.
+plasmaBlackout=True
+
+# rangeModifier - Range Modifier
+rangeModifier=0.5
+
+# dsnModifier - DSN Modifier
+dsnModifier=1
+
+# occlusionModifierVac - Occlusion Modifier, Vac
+occlusionModifierVac=0.9
+
+# occlusionModifierAtm - Occlusion Modifier, Atm
+occlusionModifierAtm=0.75
+
+# extraGroundstations - Enable Extra Groundstations
+extraGroundstations=True
+
