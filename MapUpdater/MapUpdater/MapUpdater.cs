@@ -1,3 +1,4 @@
+//Originally, this plugin was just going to be used for a private server, because of that, a lot of older code has/is being changed to be usable for other people.
 using System;
 using System.Collections.Specialized;
 using System.Net;
@@ -23,75 +24,75 @@ namespace MapJSONUpdate
     {
 
         private int updateCallCount = 0;
-        public String PublicVesselsList;
+        public String NormalVesselsList;
         public String DebrisVesselsList;
         public String FinalSentVesselsList;
         private int ServerClockLast = 0;
 
         public override void OnServerStart()
         {
-            DarkLog.Debug("[MapJSONUpdate] Starting!");
-            foreach (string file in Directory.GetFiles(Path.Combine(Server.universeDirectory, "Vessels")))
-            {
-                string croppedName = Path.GetFileNameWithoutExtension(file);
-                if (Guid.TryParse(croppedName, out Guid vesselID))
-                {
-                    byte[] vesselData = File.ReadAllBytes(file);
-                    UpdateVessel(null, vesselID, vesselData);
-                }
-            }
-
-
+            DarkLog.Debug("[MapUpdater] Starting!");
         }
 
         public override void OnServerStop()
         {
-            DarkLog.Debug("[MapJSONUpdate] Stopping!");
+            DarkLog.Debug("[MapUpdater] Stopping!");
         }
-
 
         public override void OnUpdate()
         {
+            //Don't set this too low.
             if (updateCallCount >= 300)
             {
-                PublicVesselsList = ",\"Public_Frequency\":{\"ID\":[";
                 updateCallCount = 0;
+                //TODO: use actual JSON, instead of creating and sending a string.
+                NormalVesselsList = ",\"NormalVessels\":{\"ID\":[";
+                DebrisVesselsList = "\"Debris\":{ \"ID\":[";
+                //Modified version of DarkMultiPlayerServer.Dekessler().
+                //The private server had a "public frequency", which was meant to be the only visible thing on the map, it has since been removed, but I likely will end up adding it back in a separate version for my server, so I have kept the code here: c3RyaW5nIGN1cnJlbnRMaW5lID0gc3IuUmVhZExpbmUoKTsKICAgICAgICAgICAgICAgICAgICAgICAgd2hpbGUgKGN1cnJlbnRMaW5lICE9IG51bGwgJiYgIXZlc3NlbElzUHVibGljRnJlcSkKICAgICAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgICAgICAgc3RyaW5nIHRyaW1tZWRMaW5lID0gY3VycmVudExpbmUuVHJpbSgpOwogICAgICAgICAgICAgICAgICAgICAgICAgICAgaWYgKHRyaW1tZWRMaW5lLlRyaW0oKS5TdGFydHNXaXRoKCJGcmVxdWVuY3kgPSIsIFN0cmluZ0NvbXBhcmlzb24uT3JkaW5hbCkpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3RyaW5nIFZlc3NlbEZyZXF1ZW5jeSA9IHRyaW1tZWRMaW5lLlN1YnN0cmluZyh0cmltbWVkTGluZS5JbmRleE9mKCI9IiwgU3RyaW5nQ29tcGFyaXNvbi5PcmRpbmFsKSArIDIpOwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGlmIChWZXNzZWxGcmVxdWVuY3kgPT0gIjIwIikKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZlc3NlbElzUHVibGljRnJlcSA9IHRydWU7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgY3VycmVudExpbmUgPSBzci5SZWFkTGluZSgpOwogICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgfQ==
                 string[] FullvesselList = Directory.GetFiles(Path.Combine(Server.universeDirectory, "Vessels"));
                 foreach (string vesselFile in FullvesselList)
                 {
                     string vesselID = Path.GetFileNameWithoutExtension(vesselFile);
-                    bool vesselIsPublicFreq = false;
+                    bool VesselIsDebris = false;
                     using (StreamReader sr = new StreamReader(vesselFile))
                     {
                         string currentLine = sr.ReadLine();
-                        while (currentLine != null && !vesselIsPublicFreq)
+                        while (currentLine != null && !VesselIsDebris)
                         {
                             string trimmedLine = currentLine.Trim();
-                            if (trimmedLine.Trim().StartsWith("Frequency =", StringComparison.Ordinal))
+                            if (trimmedLine.Trim().StartsWith("type =", StringComparison.Ordinal))
                             {
                                 string VesselFrequency = trimmedLine.Substring(trimmedLine.IndexOf("=", StringComparison.Ordinal) + 2);
-                                if (VesselFrequency == "20")
+                                if (VesselFrequency == "Debris")
                                 {
-                                    vesselIsPublicFreq = true;
+                                    VesselIsDebris = true;
                                 }
                             }
                             currentLine = sr.ReadLine();
                         }
                     }
-                    if (vesselIsPublicFreq)
+                    if (!VesselIsDebris)
                     {
-                        PublicVesselsList = PublicVesselsList + "[" + GetVesselValue(vesselFile, "lat") + "," + GetVesselValue(vesselFile, "lon") + "," + "\"KERBIN\"" + "," + GetVesselValue(vesselFile, "hgt") + "/" + GetVesselValue(vesselFile, "alt") + "," + "3200" + "," + GetVesselValue(vesselFile, "name") + "," + GetVesselValue(vesselFile, "type") + "],";
+                        //TODO: Orbit Body: https://wiki.kerbalspaceprogram.com/wiki/Orbit#Reference_code. Stored as: ORBIT { REF
+                        NormalVesselsList = NormalVesselsList + "[" + GetVesselValue(vesselFile, "lat") + "," + GetVesselValue(vesselFile, "lon") + "," + "\"KERBIN\"" + "," + GetVesselValue(vesselFile, "hgt") + "/" + GetVesselValue(vesselFile, "alt") + "," + "3200" + "," + GetVesselValue(vesselFile, "name") + "," + GetVesselValue(vesselFile, "type") + "],";
+                    }
+                    else
+                    {
+                        DebrisVesselsList = DebrisVesselsList + "[" + GetVesselValue(vesselFile, "lat") + "," + GetVesselValue(vesselFile, "lon") + "," + "\"KERBIN\"" + "," + GetVesselValue(vesselFile, "hgt") + "/" + GetVesselValue(vesselFile, "alt") + "," + "3200" + "," + GetVesselValue(vesselFile, "name") + "," + GetVesselValue(vesselFile, "type") + "],";
                     }
                 }
-                PublicVesselsList = PublicVesselsList.Remove(PublicVesselsList.Length - 1, 1) + "]}";
-                DebrisVesselsList = "\"Debris\":{ \"ID\":[[10,10,\"KERBIN\",1000,3000],[10,20,\"MUN\",0,0]]}";
-                FinalSentVesselsList = "{\"Main\":{" + DebrisVesselsList + PublicVesselsList + "}}";
+                //TODO: use actual JSON, instead of creating and sending a string.
+                NormalVesselsList = NormalVesselsList.Remove(NormalVesselsList.Length - 1, 1) + "]}";
+                DebrisVesselsList = DebrisVesselsList.Remove(DebrisVesselsList.Length - 1, 1) + "]}";
+                FinalSentVesselsList = "{\"Main\":{" + DebrisVesselsList + NormalVesselsList + "}}";
+                //TODO: send the request in C# instead of launching an executable.
                 Process proc = new Process
                 {
                     StartInfo = new ProcessStartInfo
                     {
                         FileName = "/opt/local/bin/curl",
-                        Arguments = " -i -X \"PUT\" -d \'" + FinalSentVesselsList + "\' -H \"Content-Type: application/json\" -H \"Accept: application/json\" https://jsonblob.com/api/jsonBlob/[PLACE_ID_HERE]",
+                        Arguments = " -i -X \"PUT\" -d \'" + FinalSentVesselsList + "\' -H \"Content-Type: application/json\" -H \"Accept: application/json\" https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7/",
                         UseShellExecute = false,
                         RedirectStandardOutput = true,
                         RedirectStandardError = true,
@@ -125,7 +126,7 @@ namespace MapJSONUpdate
                     }
                     currentLine = sr.ReadLine();
                 }
-            }
+            } //Used to join Surface and Sea Level Altitude.
             if (VesselValue != "alt" && VesselValue != "hgt")
             {
                 return "\"" + FinalVesselValue + "\"";
@@ -138,53 +139,10 @@ namespace MapJSONUpdate
                 return "\"" + FinalVesselValue;
             }
             else
-            {
+            { //Would not let me compile without this.
                 return "\"" + FinalVesselValue + "\"";
             }
 
-        }
-
-
-        public override void OnMessageReceived(ClientObject client, ClientMessage messageData)
-        {
-            if (messageData.type == ClientMessageType.VESSEL_PROTO)
-            {
-                using (MessageReader mr = new MessageReader(messageData.data))
-                {
-                    double planetTime = mr.Read<double>();
-                    bool vesselIdOK = Guid.TryParse(mr.Read<string>(), out Guid vesselID);
-                    bool isDockingUpdate = mr.Read<bool>();
-                    bool isFlyingUpdate = mr.Read<bool>();
-                    byte[] possibleCompressedBytes = mr.Read<byte[]>();
-                    byte[] vesselData = Compression.DecompressIfNeeded(possibleCompressedBytes);
-                    if (vesselIdOK)
-                    {
-                        UpdateVessel(client, vesselID, vesselData);
-                        
-                    }
-                }
-            }
-            if (messageData.type == ClientMessageType.VESSEL_REMOVE)
-            {
-                using (MessageReader mr = new MessageReader(messageData.data))
-                {
-                    double planetTime = mr.Read<double>();
-                    if (Guid.TryParse(mr.Read<string>(), out Guid vesselID))
-                    {
-                        RemoveVessel(client, vesselID);
-                    }
-                }
-            }
-        }
-
-        public void UpdateVessel(ClientObject client, Guid vesselID, byte[] vesselData)
-        {
-            Console.WriteLine("Updated vessel data: " + vesselID);
-        }
-
-        public void RemoveVessel(ClientObject client, Guid vesselID)
-        {
-            Console.WriteLine("Removing vessel data: " + vesselID);
         }
 
 
