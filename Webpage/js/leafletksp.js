@@ -7818,7 +7818,7 @@ function(t, i) {
         popupAnchor: [0, -35]
     }),
     L.KSP.Icon.DEBRIS = new L.Icon({
-        iconUrl: "img/markers-debris.png",
+        iconUrl: "img/markers-vessel-debris.png",
         shadowUrl: "img/markers-shadow.png",
         iconSize: [30, 40],
         shadowSize: [35, 16],
@@ -7828,6 +7828,132 @@ function(t, i) {
     }),
     L.KSP.Icon.VESSEL = new L.Icon({
         iconUrl: "img/markers-vessel.png",
+        shadowUrl: "img/markers-shadow.png",
+        iconSize: [30, 40],
+        shadowSize: [35, 16],
+        iconAnchor: [15, 40],
+        shadowAnchor: [10, 12],
+        popupAnchor: [0, -35]
+    }),
+    L.KSP.Icon.VESSELSpaceObject = new L.Icon({
+        iconUrl: "img/markers-vessel-spaceobject.png",
+        shadowUrl: "img/markers-shadow.png",
+        iconSize: [30, 40],
+        shadowSize: [35, 16],
+        iconAnchor: [15, 40],
+        shadowAnchor: [10, 12],
+        popupAnchor: [0, -35]
+    }),
+    L.KSP.Icon.VESSELUnknown = new L.Icon({
+        iconUrl: "img/markers-vessel-unknown.png",
+        shadowUrl: "img/markers-shadow.png",
+        iconSize: [30, 40],
+        shadowSize: [35, 16],
+        iconAnchor: [15, 40],
+        shadowAnchor: [10, 12],
+        popupAnchor: [0, -35]
+    }),
+    L.KSP.Icon.VESSELProbe = new L.Icon({
+        iconUrl: "img/markers-vessel-probe.png",
+        shadowUrl: "img/markers-shadow.png",
+        iconSize: [30, 40],
+        shadowSize: [35, 16],
+        iconAnchor: [15, 40],
+        shadowAnchor: [10, 12],
+        popupAnchor: [0, -35]
+    }),
+    L.KSP.Icon.VESSELRelay = new L.Icon({
+        iconUrl: "img/markers-vessel-relay.png",
+        shadowUrl: "img/markers-shadow.png",
+        iconSize: [30, 40],
+        shadowSize: [35, 16],
+        iconAnchor: [15, 40],
+        shadowAnchor: [10, 12],
+        popupAnchor: [0, -35]
+    }),
+    L.KSP.Icon.VESSELRover = new L.Icon({
+        iconUrl: "img/markers-vessel-rover.png",
+        shadowUrl: "img/markers-shadow.png",
+        iconSize: [30, 40],
+        shadowSize: [35, 16],
+        iconAnchor: [15, 40],
+        shadowAnchor: [10, 12],
+        popupAnchor: [0, -35]
+    }),
+    L.KSP.Icon.VESSELLander = new L.Icon({
+        iconUrl: "img/markers-vessel-lander.png",
+        shadowUrl: "img/markers-shadow.png",
+        iconSize: [30, 40],
+        shadowSize: [35, 16],
+        iconAnchor: [15, 40],
+        shadowAnchor: [10, 12],
+        popupAnchor: [0, -35]
+    }),
+    L.KSP.Icon.VESSELShip = new L.Icon({
+        iconUrl: "img/markers-vessel-ship.png",
+        shadowUrl: "img/markers-shadow.png",
+        iconSize: [30, 40],
+        shadowSize: [35, 16],
+        iconAnchor: [15, 40],
+        shadowAnchor: [10, 12],
+        popupAnchor: [0, -35]
+    }),
+    L.KSP.Icon.VESSELPlane = new L.Icon({
+        iconUrl: "img/markers-vessel-plane.png",
+        shadowUrl: "img/markers-shadow.png",
+        iconSize: [30, 40],
+        shadowSize: [35, 16],
+        iconAnchor: [15, 40],
+        shadowAnchor: [10, 12],
+        popupAnchor: [0, -35]
+    }),
+    L.KSP.Icon.VESSELStation = new L.Icon({
+        iconUrl: "img/markers-vessel-station.png",
+        shadowUrl: "img/markers-shadow.png",
+        iconSize: [30, 40],
+        shadowSize: [35, 16],
+        iconAnchor: [15, 40],
+        shadowAnchor: [10, 12],
+        popupAnchor: [0, -35]
+    }),
+    L.KSP.Icon.VESSELBase = new L.Icon({
+        iconUrl: "img/markers-vessel-base.png",
+        shadowUrl: "img/markers-shadow.png",
+        iconSize: [30, 40],
+        shadowSize: [35, 16],
+        iconAnchor: [15, 40],
+        shadowAnchor: [10, 12],
+        popupAnchor: [0, -35]
+    }),
+    L.KSP.Icon.VESSELEVA = new L.Icon({
+        iconUrl: "img/markers-vessel-eva.png",
+        shadowUrl: "img/markers-shadow.png",
+        iconSize: [30, 40],
+        shadowSize: [35, 16],
+        iconAnchor: [15, 40],
+        shadowAnchor: [10, 12],
+        popupAnchor: [0, -35]
+    }),
+    L.KSP.Icon.VESSELFlag = new L.Icon({
+        iconUrl: "img/markers-vessel-flag.png",
+        shadowUrl: "img/markers-shadow.png",
+        iconSize: [30, 40],
+        shadowSize: [35, 16],
+        iconAnchor: [15, 40],
+        shadowAnchor: [10, 12],
+        popupAnchor: [0, -35]
+    }),
+    L.KSP.Icon.VESSELDeployedScienceController = new L.Icon({
+        iconUrl: "img/markers-vessel-deployedsciencecontroller.png",
+        shadowUrl: "img/markers-shadow.png",
+        iconSize: [30, 40],
+        shadowSize: [35, 16],
+        iconAnchor: [15, 40],
+        shadowAnchor: [10, 12],
+        popupAnchor: [0, -35]
+    }),
+    L.KSP.Icon.VESSELDeployedSciencePart = new L.Icon({
+        iconUrl: "img/markers-vessel-deployedsciencepart.png",
         shadowUrl: "img/markers-shadow.png",
         iconSize: [30, 40],
         shadowSize: [35, 16],
