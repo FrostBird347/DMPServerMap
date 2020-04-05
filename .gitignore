@@ -352,4 +352,3 @@ MigrationBackup/
 # Custom stuff
 /TestServer/Universe/
 /TestServer/logs/
-/token.txt

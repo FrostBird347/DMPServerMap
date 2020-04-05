@@ -46,7 +46,7 @@ namespace MapJSONUpdate
             {
                 updateCallCount = 0;
                 //TODO: use actual JSON, instead of creating and sending a string.
-                NormalVesselsList = ",\"NormalVessels\":{\"ID\":[";
+                NormalVesselsList = ",\"Vessels\":{\"ID\":[";
                 DebrisVesselsList = "\"Debris\":{ \"ID\":[";
                 //Modified version of DarkMultiPlayerServer.Dekessler().
                 //The private server had a "public frequency", which was meant to be the only visible thing on the map, it has since been removed, but I likely will end up adding it back in a separate version for my server, so I have kept the code here: c3RyaW5nIGN1cnJlbnRMaW5lID0gc3IuUmVhZExpbmUoKTsKICAgICAgICAgICAgICAgICAgICAgICAgd2hpbGUgKGN1cnJlbnRMaW5lICE9IG51bGwgJiYgIXZlc3NlbElzUHVibGljRnJlcSkKICAgICAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgICAgICAgc3RyaW5nIHRyaW1tZWRMaW5lID0gY3VycmVudExpbmUuVHJpbSgpOwogICAgICAgICAgICAgICAgICAgICAgICAgICAgaWYgKHRyaW1tZWRMaW5lLlRyaW0oKS5TdGFydHNXaXRoKCJGcmVxdWVuY3kgPSIsIFN0cmluZ0NvbXBhcmlzb24uT3JkaW5hbCkpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3RyaW5nIFZlc3NlbEZyZXF1ZW5jeSA9IHRyaW1tZWRMaW5lLlN1YnN0cmluZyh0cmltbWVkTGluZS5JbmRleE9mKCI9IiwgU3RyaW5nQ29tcGFyaXNvbi5PcmRpbmFsKSArIDIpOwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGlmIChWZXNzZWxGcmVxdWVuY3kgPT0gIjIwIikKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZlc3NlbElzUHVibGljRnJlcSA9IHRydWU7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgY3VycmVudExpbmUgPSBzci5SZWFkTGluZSgpOwogICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgfQ==
@@ -74,12 +74,11 @@ namespace MapJSONUpdate
                     }
                     if (!VesselIsDebris)
                     {
-                        //TODO: Orbit Body: https://wiki.kerbalspaceprogram.com/wiki/Orbit#Reference_code. Stored as: ORBIT { REF
-                        NormalVesselsList = NormalVesselsList + "[" + GetVesselValue(vesselFile, "lat") + "," + GetVesselValue(vesselFile, "lon") + "," + "\"KERBIN\"" + "," + GetVesselValue(vesselFile, "hgt") + "/" + GetVesselValue(vesselFile, "alt") + "," + "3200" + "," + GetVesselValue(vesselFile, "name") + "," + GetVesselValue(vesselFile, "type") + "],";
+                        NormalVesselsList = NormalVesselsList + "[" + GetVesselValue(vesselFile, "lat") + "," + GetVesselValue(vesselFile, "lon") + "," + GetVesselValue(vesselFile, "REF") + "," + GetVesselValue(vesselFile, "hgt") + "/" + GetVesselValue(vesselFile, "alt") + "," + "\"?\"" + "," + GetVesselValue(vesselFile, "name") + "," + GetVesselValue(vesselFile, "type") + "],";
                     }
                     else
                     {
-                        DebrisVesselsList = DebrisVesselsList + "[" + GetVesselValue(vesselFile, "lat") + "," + GetVesselValue(vesselFile, "lon") + "," + "\"KERBIN\"" + "," + GetVesselValue(vesselFile, "hgt") + "/" + GetVesselValue(vesselFile, "alt") + "," + "3200" + "," + GetVesselValue(vesselFile, "name") + "," + GetVesselValue(vesselFile, "type") + "],";
+                        DebrisVesselsList = DebrisVesselsList + "[" + GetVesselValue(vesselFile, "lat") + "," + GetVesselValue(vesselFile, "lon") + "," + GetVesselValue(vesselFile, "REF") + "," + GetVesselValue(vesselFile, "hgt") + "/" + GetVesselValue(vesselFile, "alt") + "," + "\"?\"" + "," + GetVesselValue(vesselFile, "name") + "," + GetVesselValue(vesselFile, "type") + "],";
                     }
                 }
                 //TODO: use actual JSON, instead of creating and sending a string.
@@ -92,6 +91,7 @@ namespace MapJSONUpdate
                     StartInfo = new ProcessStartInfo
                     {
                         FileName = "/opt/local/bin/curl",
+                        //TODO: Get URL from a config.
                         Arguments = " -i -X \"PUT\" -d \'" + FinalSentVesselsList + "\' -H \"Content-Type: application/json\" -H \"Accept: application/json\" https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7/",
                         UseShellExecute = false,
                         RedirectStandardOutput = true,

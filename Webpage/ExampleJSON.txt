@@ -1,1 +1,0 @@
-{"Main":{"Debris":{"ID":[[10,10,"KERBIN",1000,3000], [10,20,"MUN",0,0]]},"Public_Frequency":{"ID":[[-10,-10,"KERBIN",1300,3200,"TESTSHIP","Ship"]]}}}

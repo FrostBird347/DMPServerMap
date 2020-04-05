@@ -1,0 +1,58 @@
+{
+  "Main": {
+    "Debris": {
+      "ID": [
+        [
+          10,
+          10,
+          1,
+          "1000/1000",
+          3000,
+          "Test Debris",
+          "Debris"
+        ],
+        [
+          10,
+          20,
+          2,
+          0,
+          0
+        ]
+      ]
+    },
+    "Vessels": {
+      "ID": [
+        [
+          -10,
+          -10,
+          1,
+          "1300/1500",
+          3200,
+          "TESTSHIP",
+          "Ship"
+        ]
+      ]
+    }
+  }
+}
+
+
+
+
+{
+  "Main": {
+    Type: {
+      "ID": [
+        [
+          Lat,
+          Long,
+          Planet Index https://wiki.kerbalspaceprogram.com/wiki/Orbit#Reference_code,
+          Height above Surface/Height above Sea Level,
+          Velocity,
+          Name,
+          Type
+        ]
+      ]
+    }
+  }
+}
