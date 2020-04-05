@@ -14,7 +14,7 @@
         
     async function startMapUpdate() {
     document.getElementsByClassName("leaflet-control-attribution")[0].style.textAlign = "right"
-    document.getElementsByClassName("leaflet-control-attribution")[0].innerHTML = "<a href='https://github.com/FrostBird347/DMPServerMap/blob/master/Attributions.md#Map-Attributions'>Map attributions</a> - <a href='https://github.com/FrostBird347/DMPServerMap/blob/master/Attributions.md'>Full list of attributions</a><br>" + document.getElementsByClassName("leaflet-control-attribution")[0].innerHTML
+    document.getElementsByClassName("leaflet-control-attribution")[0].innerHTML = "<a target='_blank' href='https://github.com/FrostBird347/DMPServerMap/blob/master/Attributions.md#Map-Attributions'>Map attributions</a> - <a target='_blank' href='https://github.com/FrostBird347/DMPServerMap/blob/master/Attributions.md'>Full list of attributions</a><br>" + document.getElementsByClassName("leaflet-control-attribution")[0].innerHTML
         while (true) {
         	const result = await updateMap();
   			resetMap()
