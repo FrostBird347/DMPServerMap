@@ -8427,7 +8427,7 @@ function(t, i) {
         lastModifiedVer: 38,
         baseLayers: {
             Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
-                body: "eloo",
+                body: "eeloo",
                 style: "sat",
                 maxZoom: 4
             })
