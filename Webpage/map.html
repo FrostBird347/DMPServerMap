@@ -10,7 +10,7 @@
 		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="js/jKSPWAPICore.js"></script>
 		<script>
-    	var UpdateMarkerJSON = JSON.parse('{"Main":{"Debris":{"ID":[[10,10, "GILLY", "1000/10", 3000, "NOT A REAL SHIP", "Rock"]]},"NormalVessels":{"ID":[[-10,-10, "GILLY", "100/10", 3000, "NOT A REAL SHIP", "Boat"]]}}}')
+    	var UpdateMarkerJSON = JSON.parse('{"Main":{"Debris":{"ID":[[10,10, "GILLY", "1000/10", 3000, "NOT A REAL SHIP", "Rock"]]},"Vessels":{"ID":[[-10,-10, "GILLY", "100/10", 3000, "NOT A REAL SHIP", "Boat"]]}}}')
         
     async function startMapUpdate() {
         while (true) {
@@ -19,14 +19,15 @@
   			try {
   			UpdateMarkerJSON.Main.Debris.ID.forEach((element) => {
  				var Heights = element[3].toString().split("/")
- 				var newmarker = [L.marker([element[0], element[1]], {icon: L.KSP.Icon.DEBRIS}).bindPopup("<strong>Debris</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + Math.round(Heights[0]) + "/" + Math.round(Heights[1]) + "m<br>Velocity: " + Math.round(element[4]) + "m/s")]; 
+ 				var newmarker = [L.marker([element[0], element[1]], {icon: L.KSP.Icon.DEBRIS}).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Type: " + element[6] + "<br>Altitude: " + Math.round(Heights[0]) + "m / " + Math.round(Heights[1]) + "m<br>Velocity: " + Math.round(element[4]) + "m/s<br>Type: " + element[6])]; 
  				//TODO: Replace eval with anything else
  				eval("newmarker[0].addTo(L.KSP.CelestialBody." + eval("element[2]") + ".overlays.Debris)")
 			})
-  			UpdateMarkerJSON.Main.Public_Frequency.ID.forEach((element) => {
+  			UpdateMarkerJSON.Main.Vessels.ID.forEach((element) => {
  				var Heights = element[3].toString().split("/")
- 				var newmarker = [L.marker([element[0], element[1]], {icon: L.KSP.Icon.PUBLIC}).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Type: " + element[6] + "<br>Altitude: " + Math.round(Heights[0]) + "m / " + Math.round(Heights[1]) + "m<br>Velocity: " + Math.round(element[4]) + "m/s")]; 
- 				eval("newmarker[0].addTo(L.KSP.CelestialBody." + eval("element[2]") + ".overlays.Public_Frequency)")
+ 				var newmarker = [L.marker([element[0], element[1]], {icon: L.KSP.Icon.VESSEL}).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Type: " + element[6] + "<br>Altitude: " + Math.round(Heights[0]) + "m / " + Math.round(Heights[1]) + "m<br>Velocity: " + Math.round(element[4]) + "m/s<br>Type: " + element[6])]; 
+ 				//TODO: Replace eval with anything else
+ 				eval("newmarker[0].addTo(L.KSP.CelestialBody." + eval("element[2]") + ".overlays.Vessels)")
 			})
 			} catch(e) {
 			console.warn("ERROR BELOW")
@@ -39,35 +40,35 @@
     //TODO: Update existing markers instead of replacing.
     function resetMap() {
     	L.KSP.CelestialBody.EELOO.overlays.Debris.clearLayers()
-		L.KSP.CelestialBody.EELOO.overlays.Public_Frequency.clearLayers()
+		L.KSP.CelestialBody.EELOO.overlays.Vessels.clearLayers()
 		L.KSP.CelestialBody.POL.overlays.Debris.clearLayers()
-		L.KSP.CelestialBody.POL.overlays.Public_Frequency.clearLayers()
+		L.KSP.CelestialBody.POL.overlays.Vessels.clearLayers()
 		L.KSP.CelestialBody.BOP.overlays.Debris.clearLayers()
-		L.KSP.CelestialBody.BOP.overlays.Public_Frequency.clearLayers()
+		L.KSP.CelestialBody.BOP.overlays.Vessels.clearLayers()
 		L.KSP.CelestialBody.TYLO.overlays.Debris.clearLayers()
-		L.KSP.CelestialBody.TYLO.overlays.Public_Frequency.clearLayers()
+		L.KSP.CelestialBody.TYLO.overlays.Vessels.clearLayers()
 		L.KSP.CelestialBody.VALL.overlays.Debris.clearLayers()
-		L.KSP.CelestialBody.VALL.overlays.Public_Frequency.clearLayers()
+		L.KSP.CelestialBody.VALL.overlays.Vessels.clearLayers()
 		L.KSP.CelestialBody.LAYTHE.overlays.Debris.clearLayers()
-		L.KSP.CelestialBody.LAYTHE.overlays.Public_Frequency.clearLayers()
+		L.KSP.CelestialBody.LAYTHE.overlays.Vessels.clearLayers()
 		L.KSP.CelestialBody.DRES.overlays.Debris.clearLayers()
-		L.KSP.CelestialBody.DRES.overlays.Public_Frequency.clearLayers()
+		L.KSP.CelestialBody.DRES.overlays.Vessels.clearLayers()
 		L.KSP.CelestialBody.IKE.overlays.Debris.clearLayers()
-		L.KSP.CelestialBody.IKE.overlays.Public_Frequency.clearLayers()
+		L.KSP.CelestialBody.IKE.overlays.Vessels.clearLayers()
 		L.KSP.CelestialBody.DUNA.overlays.Debris.clearLayers()
-		L.KSP.CelestialBody.DUNA.overlays.Public_Frequency.clearLayers()
+		L.KSP.CelestialBody.DUNA.overlays.Vessels.clearLayers()
 		L.KSP.CelestialBody.MINMUS.overlays.Debris.clearLayers()
-		L.KSP.CelestialBody.MINMUS.overlays.Public_Frequency.clearLayers()
+		L.KSP.CelestialBody.MINMUS.overlays.Vessels.clearLayers()
 		L.KSP.CelestialBody.MUN.overlays.Debris.clearLayers()
-		L.KSP.CelestialBody.MUN.overlays.Public_Frequency.clearLayers()
+		L.KSP.CelestialBody.MUN.overlays.Vessels.clearLayers()
 		L.KSP.CelestialBody.KERBIN.overlays.Debris.clearLayers()
-		L.KSP.CelestialBody.KERBIN.overlays.Public_Frequency.clearLayers()
+		L.KSP.CelestialBody.KERBIN.overlays.Vessels.clearLayers()
 		L.KSP.CelestialBody.GILLY.overlays.Debris.clearLayers()
-		L.KSP.CelestialBody.GILLY.overlays.Public_Frequency.clearLayers()
+		L.KSP.CelestialBody.GILLY.overlays.Vessels.clearLayers()
 		L.KSP.CelestialBody.EVE.overlays.Debris.clearLayers()
-		L.KSP.CelestialBody.EVE.overlays.Public_Frequency.clearLayers()
+		L.KSP.CelestialBody.EVE.overlays.Vessels.clearLayers()
 		L.KSP.CelestialBody.MOHO.overlays.Debris.clearLayers()
-		L.KSP.CelestialBody.MOHO.overlays.Public_Frequency.clearLayers()
+		L.KSP.CelestialBody.MOHO.overlays.Vessels.clearLayers()
     }
     //Obtain JSON
     function updateMap() {
@@ -117,7 +118,7 @@
                 var i = 0;
 				resetMap()
 				startMapUpdate()
-				//Was used in telemachus, it might have something to do with orbit lines.
+				//Was used in telemachus, it might have something to do with orbit lines (looks like it requires long, lat, surface velocity though).
                 /*jKSPWAPI.initPoll("longs=v.long&lat=v.lat&name=v.name&alt=v.altitude&m=v.surfaceVelocity&body=v.body", function (rawData) { }, function (rawData, d) {
 
                     if (previousBody != d.body) {

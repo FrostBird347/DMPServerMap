@@ -4476,7 +4476,7 @@ function(t, i, s) {
             var s = e.Icon.Default.imagePath;
             if (!s)
                 throw Error("Couldn't autodetect L.Icon.Default.imagePath, set it manually.");
-            return "marker-" + t + ".png"
+            return "img/marker-" + t + ".png"
         }
     }),
     e.Icon.Default.imagePath = function() {
@@ -7661,7 +7661,7 @@ function(t, i) {
             } else
                 this.crs = L.KSP.CRS.EPSG4326;
             t.hasOwnProperty("radius") || (this.radius = 1),
-            t.hasOwnProperty("thumbnail") || (this.thumbnail = "body-unknown.png"),
+            t.hasOwnProperty("thumbnail") || (this.thumbnail = "img/body-unknown.png"),
             t.hasOwnProperty("baseLayers") || (this.baseLayers = {}),
             L.Util.extend(this, t)
         },
@@ -7796,7 +7796,7 @@ function(t, i) {
             TYPE_SPACECENTER: 0,
             TYPE_ANOMALY: 1,
             TYPE_DEBRIS: 2,
-            TYPE_PUBLIC: 3
+            TYPE_VESSEL: 3
         },
         initialize: function(t, i) {
             this._type = t,
@@ -7809,8 +7809,8 @@ function(t, i) {
     ,
     L.KSP.Icon = {},
     L.KSP.Icon.SPACECENTER = new L.Icon({
-        iconUrl: "markers-spacecenter.png",
-        shadowUrl: "markers-shadow.png",
+        iconUrl: "img/markers-spacecenter.png",
+        shadowUrl: "img/markers-shadow.png",
         iconSize: [30, 40],
         shadowSize: [35, 16],
         iconAnchor: [15, 40],
@@ -7818,17 +7818,17 @@ function(t, i) {
         popupAnchor: [0, -35]
     }),
     L.KSP.Icon.DEBRIS = new L.Icon({
-        iconUrl: "markers-debris.png",
-        shadowUrl: "markers-shadow.png",
+        iconUrl: "img/markers-debris.png",
+        shadowUrl: "img/markers-shadow.png",
         iconSize: [30, 40],
         shadowSize: [35, 16],
         iconAnchor: [15, 40],
         shadowAnchor: [10, 12],
         popupAnchor: [0, -35]
     }),
-    L.KSP.Icon.PUBLIC = new L.Icon({
-        iconUrl: "markers-public.png",
-        shadowUrl: "markers-shadow.png",
+    L.KSP.Icon.VESSEL = new L.Icon({
+        iconUrl: "img/markers-vessel.png",
+        shadowUrl: "img/markers-shadow.png",
         iconSize: [30, 40],
         shadowSize: [35, 16],
         iconAnchor: [15, 40],
@@ -7836,8 +7836,8 @@ function(t, i) {
         popupAnchor: [0, -35]
     }),
     L.KSP.Icon.ANOMALY = new L.Icon({
-        iconUrl: "markers-anomaly.png",
-        shadowUrl: "markers-shadow.png",
+        iconUrl: "img/markers-anomaly.png",
+        shadowUrl: "img/markers-shadow.png",
         iconSize: [30, 40],
         shadowSize: [35, 16],
         iconAnchor: [15, 40],
@@ -8055,11 +8055,12 @@ function(t, i) {
         return new L.KSP.Control.Layers(t,i,s)
     }
     ,
+    //TODO: Finish adding all layers
     L.KSP.CelestialBody.MOHO = L.KSP.celestialBody({
         id: "moho",
         name: "Moho",
         crs: L.KSP.CRS.EPSG4326,
-        thumbnail: "body-moho.png",
+        thumbnail: "img/body-moho.png",
         radius: 25e4,
         addedOn: 13691808e5,
         lastUpdated: 13757472e5,
@@ -8073,15 +8074,15 @@ function(t, i) {
             })
         },
         overlays: {
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
-        "Public_Frequency": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PUBLIC)             
+        "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
         }
     }),
     L.KSP.CelestialBody.EVE = L.KSP.celestialBody({
         id: "eve",
         name: "Eve",
         crs: L.KSP.CRS.EPSG4326,
-        thumbnail: "body-eve.png",
+        thumbnail: "img/body-eve.png",
         radius: 7e5,
         addedOn: 13691808e5,
         lastUpdated: 13757472e5,
@@ -8095,15 +8096,15 @@ function(t, i) {
             })
         },
         overlays: {
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
-        "Public_Frequency": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PUBLIC)             
+        "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
         }
     }),
     L.KSP.CelestialBody.GILLY = L.KSP.celestialBody({
         id: "gilly",
         name: "Gilly",
         crs: L.KSP.CRS.EPSG4326,
-        thumbnail: "body-gilly.png",
+        thumbnail: "img/body-gilly.png",
         radius: 13e3,
         addedOn: 13691808e5,
         lastUpdated: 13691808e5,
@@ -8117,8 +8118,8 @@ function(t, i) {
             })
         },
         overlays: {
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
-        "Public_Frequency": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PUBLIC)             
+        "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
         }
     }),
     L.KSP.CelestialBody.KERBIN = L.KSP.celestialBody({
@@ -8128,7 +8129,7 @@ function(t, i) {
         radius: 6e5,
         addedOn: 1366416e6,
         lastUpdated: 1366416e6,
-        thumbnail: "body-kerbin.png",
+        thumbnail: "img/body-kerbin.png",
         baseLayers: {
             Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "kerbin",
@@ -8166,15 +8167,15 @@ function(t, i) {
                 icon: L.KSP.Icon.SPACECENTER
             }).bindPopup("<strong>Kerbal Space Center 2</strong><br>20.5829 : -146.5116"), L.marker([-1.5409, -71.9099], {
                 icon: L.KSP.Icon.SPACECENTER
-            }).bindPopup("<strong>Island Airfield</strong><br>-1.5409 : -71.9099")]),  
+            }).bindPopup("<strong>Island Airfield</strong><br>-1.5409 : -71.9099")]),
+        	"Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL),  
             "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS, [L.marker([-5, -5], {
                 icon: L.KSP.Icon.DEBRIS
             }).bindPopup("<strong>TEST1</strong><br>-5 : -5"), L.marker([5, -5], {
                 icon: L.KSP.Icon.DEBRIS
             }).bindPopup("<strong>TEST2</strong><br>5 : -5"), L.marker([-10, -10], {
                 icon: L.KSP.Icon.DEBRIS
-            }).bindPopup("<strong>TEST3</strong><br>-10 : -10")]),
-        "Public_Frequency": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PUBLIC)          
+            }).bindPopup("<strong>TEST3</strong><br>-10 : -10")])       
         }
     }),
     L.KSP.CelestialBody.MUN = L.KSP.celestialBody({
@@ -8184,7 +8185,7 @@ function(t, i) {
         radius: 2e5,
         addedOn: 13682304e5,
         lastUpdated: 1368144e6,
-        thumbnail: "body-mun.png",
+        thumbnail: "img/body-mun.png",
         baseLayers: {
             Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "mun",
@@ -8205,8 +8206,8 @@ function(t, i) {
             })
         },
         overlays: {
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
-        "Public_Frequency": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PUBLIC)             
+        "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
         }
     }),
     L.KSP.CelestialBody.MINMUS = L.KSP.celestialBody({
@@ -8216,7 +8217,7 @@ function(t, i) {
         radius: 6e4,
         addedOn: 13682304e5,
         lastUpdated: 13682304e5,
-        thumbnail: "body-minmus.png",
+        thumbnail: "img/body-minmus.png",
         baseLayers: {
             Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 style: "sat",
@@ -8234,8 +8235,8 @@ function(t, i) {
             })
         },
         overlays: {
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
-        "Public_Frequency": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PUBLIC)             
+        "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
         }
     }),
     L.KSP.CelestialBody.DUNA = L.KSP.celestialBody({
@@ -8245,7 +8246,7 @@ function(t, i) {
         radius: 32e4,
         addedOn: 13688352e5,
         lastUpdated: 13688352e5,
-        thumbnail: "body-duna.png",
+        thumbnail: "img/body-duna.png",
         baseLayers: {
             Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 style: "sat",
@@ -8253,8 +8254,8 @@ function(t, i) {
             })
         },
         overlays: {
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
-        "Public_Frequency": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PUBLIC)             
+        "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
         }
     }),
     L.KSP.CelestialBody.IKE = L.KSP.celestialBody({
@@ -8264,7 +8265,7 @@ function(t, i) {
         radius: 13e4,
         addedOn: 13688352e5,
         lastUpdated: 13688352e5,
-        thumbnail: "body-ike.png",
+        thumbnail: "img/body-ike.png",
         baseLayers: {
             Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 style: "sat",
@@ -8272,15 +8273,15 @@ function(t, i) {
             })
         },
         overlays: {
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
-        "Public_Frequency": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PUBLIC)             
+        "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
         }
     }),
     L.KSP.CelestialBody.DRES = L.KSP.celestialBody({
         id: "dres",
         name: "Dres",
         crs: L.KSP.CRS.EPSG4326,
-        thumbnail: "body-dres.png",
+        thumbnail: "img/body-dres.png",
         radius: 138e3,
         addedOn: 13691808e5,
         lastUpdated: 13757472e5,
@@ -8294,21 +8295,21 @@ function(t, i) {
             })
         },
         overlays: {
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
-        "Public_Frequency": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PUBLIC)             
+        "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
         }
     }),
     L.KSP.CelestialBody.JOOL = L.KSP.celestialBody({
         id: "jool",
         name: "Jool",
         crs: L.KSP.CRS.EPSG4326,
-        thumbnail: "body-jool.png"
+        thumbnail: "img/body-jool.png"
     }),
     L.KSP.CelestialBody.LAYTHE = L.KSP.celestialBody({
         id: "laythe",
         name: "Laythe",
         crs: L.KSP.CRS.EPSG4326,
-        thumbnail: "body-laythe.png",
+        thumbnail: "img/body-laythe.png",
         radius: 5e5,
         addedOn: 13691808e5,
         lastUpdated: 13757472e5,
@@ -8322,15 +8323,15 @@ function(t, i) {
             })
         },
         overlays: {
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
-        "Public_Frequency": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PUBLIC)             
+        "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
         }
     }),
     L.KSP.CelestialBody.VALL = L.KSP.celestialBody({
         id: "vall",
         name: "Vall",
         crs: L.KSP.CRS.EPSG4326,
-        thumbnail: "body-vall.png",
+        thumbnail: "img/body-vall.png",
         radius: 3e5,
         addedOn: 13691808e5,
         lastUpdated: 13757472e5,
@@ -8344,15 +8345,15 @@ function(t, i) {
             })
         },
         overlays: {
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
-        "Public_Frequency": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PUBLIC)             
+        "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
         }
     }),
     L.KSP.CelestialBody.TYLO = L.KSP.celestialBody({
         id: "tylo",
         name: "Tylo",
         crs: L.KSP.CRS.EPSG4326,
-        thumbnail: "body-tylo.png",
+        thumbnail: "img/body-tylo.png",
         radius: 6e5,
         addedOn: 13691808e5,
         lastUpdated: 13757472e5,
@@ -8366,15 +8367,15 @@ function(t, i) {
             })
         },
         overlays: {
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
-        "Public_Frequency": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PUBLIC)             
+        "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
         }
     }),
     L.KSP.CelestialBody.BOP = L.KSP.celestialBody({
         id: "bop",
         name: "Bop",
         crs: L.KSP.CRS.EPSG4326,
-        thumbnail: "body-bop.png",
+        thumbnail: "img/body-bop.png",
         radius: 65e3,
         addedOn: 13691808e5,
         lastUpdated: 13757472e5,
@@ -8388,15 +8389,15 @@ function(t, i) {
             })
         },
         overlays: {
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
-        "Public_Frequency": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PUBLIC)             
+        "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
         }
     }),
     L.KSP.CelestialBody.POL = L.KSP.celestialBody({
         id: "pol",
         name: "Pol",
         crs: L.KSP.CRS.EPSG4326,
-        thumbnail: "body-pol.png",
+        thumbnail: "img/body-pol.png",
         radius: 44e3,
         addedOn: 13691808e5,
         lastUpdated: 13757472e5,
@@ -8410,15 +8411,15 @@ function(t, i) {
             })
         },
         overlays: {
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
-        "Public_Frequency": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PUBLIC)             
+        "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
         }
     }),
     L.KSP.CelestialBody.EELOO = L.KSP.celestialBody({
         id: "eeloo",
         name: "Eeloo",
         crs: L.KSP.CRS.EPSG4326,
-        thumbnail: "body-eeloo.png",
+        thumbnail: "img/body-eeloo.png",
         radius: 21e4,
         addedOn: 13691808e5,
         lastUpdated: 13757472e5,
@@ -8432,8 +8433,8 @@ function(t, i) {
             })
         },
         overlays: {
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
-        "Public_Frequency": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PUBLIC)             
+        "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
         }
     }),
     L.KSP.CelestialBody.KERBIN.defaultLayer = L.KSP.CelestialBody.KERBIN.baseLayers.Satellite,
