@@ -20,7 +20,7 @@
   			UpdateMarkerJSON.Main.Debris.ID.forEach((element) => {
   			if (element[0] != "nil") {
  				var Heights = element[3].toString().split("/")
- 				var newmarker = [L.marker([element[0], element[1]], {icon: L.KSP.Icon.DEBRIS}).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Type: " + element[6] + "<br>Altitude: " + Math.round(Heights[0]) + "m / " + Math.round(Heights[1]) + "m<br>Velocity: " + Math.round(element[4]) + "m/s<br>Type: " + element[6])]; 
+ 				var newmarker = [L.marker([element[0], element[1]], {icon: L.KSP.Icon.DEBRIS}).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + Math.round(Heights[0]) + "m / " + Math.round(Heights[1]) + "m<br>Velocity: " + Math.round(element[4]) + "m/s<br>Type: " + element[6])]; 
  				//TODO: Replace eval with anything else
  				AddMarker(newmarker, "D", element[2]) //eval("newmarker[0].addTo(L.KSP.CelestialBody." + eval("element[2]") + ".overlays.Debris)")
 			} else {
@@ -31,7 +31,7 @@
   			UpdateMarkerJSON.Main.Vessels.ID.forEach((element) => {
   			if (element[0] != "nil") {
  				var Heights = element[3].toString().split("/")
- 				var newmarker = [L.marker([element[0], element[1]], {icon: L.KSP.Icon.VESSEL}).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Type: " + element[6] + "<br>Altitude: " + Math.round(Heights[0]) + "m / " + Math.round(Heights[1]) + "m<br>Velocity: " + Math.round(element[4]) + "m/s<br>Type: " + element[6])]; 
+ 				var newmarker = [L.marker([element[0], element[1]], {icon: L.KSP.Icon.VESSEL}).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + Math.round(Heights[0]) + "m / " + Math.round(Heights[1]) + "m<br>Velocity: " + Math.round(element[4]) + "m/s<br>Type: " + element[6])]; 
  				//TODO: Replace eval with anything else
  				AddMarker(newmarker, "V", element[2]) //eval("newmarker[0].addTo(L.KSP.CelestialBody." + eval("element[2]") + ".overlays.Vessels)")
  			} else {
