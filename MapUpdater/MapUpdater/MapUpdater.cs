@@ -24,6 +24,11 @@ namespace MapJSONUpdate
     {
 
         private int updateCallCount = 0;
+
+        public string SharedPluginDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PluginData");
+        public string MapPluginFolder;
+        public string VesselPosFolder;
+        public string MapConfigFolder;
         public String VesselsList;
         public String FinalSentVesselsList;
         private int ServerClockLast = 0;
@@ -31,6 +36,25 @@ namespace MapJSONUpdate
         public override void OnServerStart()
         {
             DarkLog.Debug("[MapUpdater] Starting!");
+            if (!Directory.Exists(SharedPluginDirectory))
+            {
+                Directory.CreateDirectory(SharedPluginDirectory);
+            }
+            MapPluginFolder = SharedPluginDirectory + "/DMPServerMap-FrostBird347";
+            if (!Directory.Exists(MapPluginFolder))
+            {
+                Directory.CreateDirectory(MapPluginFolder);
+            }
+            VesselPosFolder = MapPluginFolder + "/VesselPos";
+            if (!Directory.Exists(VesselPosFolder))
+            {
+                Directory.CreateDirectory(VesselPosFolder);
+            }
+            MapConfigFolder = MapPluginFolder + "/Config";
+            if (!Directory.Exists(MapConfigFolder))
+            {
+                Directory.CreateDirectory(MapConfigFolder);
+            }
         }
 
         public override void OnServerStop()
@@ -55,7 +79,13 @@ namespace MapJSONUpdate
                     //Check if valid file
                     if (vesselID.Length == 36)
                     {
-                        VesselsList = VesselsList + "[" + GetVesselValue(vesselFile, "lat") + "," + GetVesselValue(vesselFile, "lon") + "," + GetVesselValue(vesselFile, "REF") + "," + GetVesselValue(vesselFile, "hgt") + "/" + GetVesselValue(vesselFile, "alt") + "," + "\"?\"" + "," + GetVesselValue(vesselFile, "name") + "," + GetVesselValue(vesselFile, "type") + ",\"" + vesselID + "\"],";
+                        string VesselPosFile = VesselPosFolder + "/" + vesselID + ".txt";
+                        string VesselPosString = GetVesselValue(VesselPosFile, "pos");
+                        string[] VesselPosArray = VesselPosString.Trim('"','[', ']', '"').Split(',');
+                        //Console.WriteLine(VesselPosArray[0].ToString().Trim(' '));
+                        //Console.WriteLine(VesselPosArray[1].ToString().Trim(' '));
+                        //Console.WriteLine(VesselPosArray[2].ToString().Trim(' '));
+                        VesselsList = VesselsList + "[\"" + VesselPosArray[0].ToString().Trim(' ') + "\",\"" + VesselPosArray[1].ToString().Trim(' ') + "\"," + GetVesselValue(vesselFile, "REF") + ",\"" + VesselPosArray[2].ToString().Trim(' ') + "\"," + GetVesselValue(VesselPosFile, "vel") + "," + GetVesselValue(vesselFile, "name") + "," + GetVesselValue(vesselFile, "type") + ",\"" + vesselID + "\"],";
                     }
                 }
                 //TODO: use actual JSON, instead of creating and sending a string.
