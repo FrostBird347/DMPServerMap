@@ -35,7 +35,7 @@ namespace MapUpdater
                 File.WriteAllBytes(MapConfigFolder + "/MapUpdater.txt", NewConfigData);
             }
             Main.UploadFrequency = SetupConfigVarInt(MapConfigFolder, "Upload_Frequency", 3);
-            Main.PostURL = SetupConfigVarString(MapConfigFolder, "PostURL", "https://jsonblob.com/e7be982b-7620-11ea-84c8-85d74a3e24e7/");
+            Main.PostURL = SetupConfigVarString(MapConfigFolder, "PostURL", "https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7");
             Main.SetupFinished = true;
         }
 
