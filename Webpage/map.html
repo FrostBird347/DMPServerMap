@@ -13,8 +13,6 @@
     	var UpdateMarkerJSON = JSON.parse('{"Main":{"ID":[[10,10, 13, "1000/10", 3000, "NOT A REAL SHIP", "Debris", "0154348e-2ac9-4401-92b1-3df5a4e3f650"],[-10,-10, 13, "100/10", 3000, "NOT A REAL SHIP", "SpaceObject", "d708e8e6-9c67-4fcb-ab01-283e2e2ba858"]]}}')
         
     async function startMapUpdate() {
-    document.getElementsByClassName("leaflet-control-attribution")[0].style.textAlign = "right"
-    document.getElementsByClassName("leaflet-control-attribution")[0].innerHTML = "<a target='_blank' href='https://github.com/FrostBird347/DMPServerMap/blob/master/Attributions.md#Map-Attributions'>Map attributions</a> - <a target='_blank' href='https://github.com/FrostBird347/DMPServerMap/blob/master/Attributions.md'>Full list of attributions</a><br>" + document.getElementsByClassName("leaflet-control-attribution")[0].innerHTML
         while (true) {
         	const result = await updateMap();
   			resetMap()
@@ -252,6 +250,8 @@
                 rawData = [[0]];
                 var i = 0;
 				resetMap()
+				document.getElementsByClassName("leaflet-control-attribution")[0].style.textAlign = "right"
+    			document.getElementsByClassName("leaflet-control-attribution")[0].innerHTML = "<a target='_blank' href='https://github.com/FrostBird347/DMPServerMap/blob/master/Attributions.md#Map-Attributions'>Map attributions</a> - <a target='_blank' href='https://github.com/FrostBird347/DMPServerMap/blob/master/Attributions.md'>Full list of attributions</a><br>" + document.getElementsByClassName("leaflet-control-attribution")[0].innerHTML
 				startMapUpdate()
 				//Was used in telemachus, it might have something to do with orbit lines (looks like it requires long, lat, surface velocity though).
                 /*jKSPWAPI.initPoll("longs=v.long&lat=v.lat&name=v.name&alt=v.altitude&m=v.surfaceVelocity&body=v.body", function (rawData) { }, function (rawData, d) {
