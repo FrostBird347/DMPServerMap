@@ -24,10 +24,12 @@ namespace MapUpdater
     {
         private int updateCallCount = 0;
         public static Int32 UploadFrequency = 300000;
+        public static string PostURL;
         public static string SharedPluginDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PluginData");
         public static string MapPluginFolder;
         public static string VesselPosFolder;
         public static string MapConfigFolder;
+        public static bool SetupFinished = false;
         public String VesselsList;
         public String FinalSentVesselsList;
         private int ServerClockLast = 0;
@@ -49,48 +51,56 @@ namespace MapUpdater
 
         public override void OnUpdate()
         {
-            if (updateCallCount >= UploadFrequency)
+            if (SetupFinished)
             {
-                updateCallCount = 0;
-                //TODO: use actual JSON, instead of creating and sending a string.
-                VesselsList = "{\"Main\":{\"ID\":[";
-                string[] FullvesselList = Directory.GetFiles(Path.Combine(Server.universeDirectory, "Vessels"));
-                foreach (string vesselFile in FullvesselList)
+                if (updateCallCount >= UploadFrequency * 100)
                 {
-                    string vesselID = Path.GetFileNameWithoutExtension(vesselFile);
-                    //Check if valid file
-                    if (vesselID.Length == 36)
+                    updateCallCount = 0;
+                    //TODO: use actual JSON, instead of creating and sending a string.
+                    VesselsList = "{\"Main\":{\"ID\":[";
+                    string[] FullvesselList = Directory.GetFiles(Path.Combine(Server.universeDirectory, "Vessels"));
+                    foreach (string vesselFile in FullvesselList)
                     {
-                        string VesselPosFile = VesselPosFolder + "/" + vesselID + ".txt";
-                        string VesselPosString = FileReader.GetSavedValue(VesselPosFile, "pos");
-                        string[] VesselPosArray = VesselPosString.Trim('"','[', ']', '"').Split(',');
-                        VesselsList = VesselsList + "[\"" + VesselPosArray[0].ToString().Trim(' ') + "\",\"" + VesselPosArray[1].ToString().Trim(' ') + "\"," + FileReader.GetSavedValue(vesselFile, "REF") + ",\"" + VesselPosArray[2].ToString().Trim(' ') + "\"," + FileReader.GetSavedValue(VesselPosFile, "vel") + "," + FileReader.GetSavedValue(vesselFile, "name") + "," + FileReader.GetSavedValue(vesselFile, "type") + ",\"" + vesselID + "\"],";
+                        string vesselID = Path.GetFileNameWithoutExtension(vesselFile);
+                        //Check if valid file
+                        if (vesselID.Length == 36)
+                        {
+                            string VesselPosFile = VesselPosFolder + "/" + vesselID + ".txt";
+                            string VesselPosString = FileReader.GetSavedValue(VesselPosFile, "pos");
+                            string[] VesselPosArray = VesselPosString.Trim('"', '[', ']', '"').Split(',');
+                            VesselsList = VesselsList + "[\"" + VesselPosArray[0].ToString().Trim(' ') + "\",\"" + VesselPosArray[1].ToString().Trim(' ') + "\"," + FileReader.GetSavedValue(vesselFile, "REF") + ",\"" + VesselPosArray[2].ToString().Trim(' ') + "\"," + FileReader.GetSavedValue(VesselPosFile, "vel") + "," + FileReader.GetSavedValue(vesselFile, "name") + "," + FileReader.GetSavedValue(vesselFile, "type") + ",\"" + vesselID + "\"],";
+                        }
+                    }
+                    //TODO: use actual JSON, instead of creating and sending a string.
+                    VesselsList = VesselsList.Remove(VesselsList.Length - 1, 1) + "]}";
+                    FinalSentVesselsList = VesselsList + "}";
+                    //Sometimes it would send every \, I have no idea why it happens, but this should remove them from the JSON before it sends.
+                    FinalSentVesselsList.Replace("\\", string.Empty);
+                    //TODO: send the request in C# instead of launching an executable.
+                    Process proc = new Process
+                    {
+                        StartInfo = new ProcessStartInfo
+                        {
+                            FileName = "/opt/local/bin/curl",
+                            //TODO: Get URL from a config.
+                            Arguments = " -i -X \"PUT\" -d \'" + FinalSentVesselsList + "\' -H \"Content-Type: application/json\" -H \"Accept: application/json\" " + PostURL,
+                            UseShellExecute = false,
+                            RedirectStandardOutput = true,
+                            RedirectStandardError = true,
+                            CreateNoWindow = true
+                        }
+                    };
+                    proc.Start();
+                    //Default URL warning
+                    if (PostURL == "https://jsonblob.com/e7be982b-7620-11ea-84c8-85d74a3e24e7/")
+                    {
+                        DarkLog.Error("\n---\nJSON posted to https://jsonblob.com/e7be982b-7620-11ea-84c8-85d74a3e24e7/\nThe 'PostURL' value in the config should be changed ASAP. \nYou will need to restart the server to reload the config.\n---");
                     }
                 }
-                //TODO: use actual JSON, instead of creating and sending a string.
-                VesselsList = VesselsList.Remove(VesselsList.Length - 1, 1) + "]}";
-                FinalSentVesselsList = VesselsList + "}";
-                //Sometimes it would send every \, I have no idea why it happens, but this should remove them from the JSON before it sends.
-                FinalSentVesselsList.Replace("\\", string.Empty);
-                //TODO: send the request in C# instead of launching an executable.
-                Process proc = new Process
+                else
                 {
-                    StartInfo = new ProcessStartInfo
-                    {
-                        FileName = "/opt/local/bin/curl",
-                        //TODO: Get URL from a config.
-                        Arguments = " -i -X \"PUT\" -d \'" + FinalSentVesselsList + "\' -H \"Content-Type: application/json\" -H \"Accept: application/json\" https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7/",
-                        UseShellExecute = false,
-                        RedirectStandardOutput = true,
-                        RedirectStandardError = true,
-                        CreateNoWindow = true
-                    }
-                };
-                 proc.Start();
-            }
-            else
-            {
-                updateCallCount++;
+                    updateCallCount++;
+                }
             }
         }
 
