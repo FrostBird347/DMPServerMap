@@ -9,9 +9,10 @@
 		<script type="text/javascript" src="js/leafletksp.js"></script>
 		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="js/jKSPWAPICore.js"></script>
+		<script type="text/javascript" src="./JSON.url"></script>
 		<script>
     	var UpdateMarkerJSON = JSON.parse('{"Main":{"ID":[[10,10, 13, "1000/10", 3000, "NOT A REAL SHIP", "Debris", "0154348e-2ac9-4401-92b1-3df5a4e3f650"],[-10,-10, 13, "100/10", 3000, "NOT A REAL SHIP", "SpaceObject", "d708e8e6-9c67-4fcb-ab01-283e2e2ba858"]]}}')
-        
+        var JSONURL = getJSONUrl();
     async function startMapUpdate() {
         while (true) {
         	const result = await updateMap();
@@ -243,31 +244,45 @@
     function updateMap() {
     return new Promise(resolve => {
     setTimeout(() => {
-      var txtFile = new XMLHttpRequest();
+    var txtFile = new XMLHttpRequest();
     txtFile.onreadystatechange = function () {
-    var allText = "";
+    	var allText = "";
         if (txtFile.readyState === XMLHttpRequest.DONE && txtFile.status == 200) {
-        
             allText = txtFile.responseText;
             UpdateMarkerJSON = JSON.parse(allText);
-}
-        
-
+            if (JSONURL == "https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7") {
+            	console.error("\n---\nJSON obtained from https://jsonblob.com/e7be982b-7620-11ea-84c8-85d74a3e24e7\nThe url saved in the './JSON.url' file should be changed ASAP.\n---")
+            }
+		}
     }
     var seconds = new Date().getTime() / 1000;
-    txtFile.open("GET", 'https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7' + '?' + seconds, true);
+    txtFile.open("GET", JSONURL + '?' + seconds, true);
     txtFile.send(null);
-      resolve(UpdateMarkerJSON);
+    resolve(UpdateMarkerJSON);
     }, 2000);
   });
     }
     
-    function sleep(ms)
-	{
+    function sleep(ms) {
     	var date = new Date();
   	  var curDate = null;
  	   do { curDate = new Date(); }
   	  while(curDate-date < ms);
+	}
+	
+	function getJSONUrl() {
+		try {
+			var returnstring = GetRemoteJSONUrl()
+			if (returnstring == undefined ) {
+				console.error("Failed to get JSON URL, using default JSON URL instead!")
+				return "https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7"
+			} else {
+				return returnstring
+			}
+		} catch {
+			console.error("Failed to get JSON URL, using the default JSON URL instead!")
+			return "https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7"
+		}
 	}
 	
     //I have not touched this much
@@ -290,33 +305,7 @@
 				document.getElementsByClassName("leaflet-control-attribution")[0].style.textAlign = "right"
     			document.getElementsByClassName("leaflet-control-attribution")[0].innerHTML = "<a target='_blank' href='https://github.com/FrostBird347/DMPServerMap/blob/master/Attributions.md#Map-Attributions'>Map attributions</a> - <a target='_blank' href='https://github.com/FrostBird347/DMPServerMap/blob/master/Attributions.md'>Full list of attributions</a><br>" + document.getElementsByClassName("leaflet-control-attribution")[0].innerHTML
 				startMapUpdate()
-				//Was used in telemachus, it might have something to do with orbit lines (looks like it requires long, lat, surface velocity though).
-                /*jKSPWAPI.initPoll("longs=v.long&lat=v.lat&name=v.name&alt=v.altitude&m=v.surfaceVelocity&body=v.body", function (rawData) { }, function (rawData, d) {
-
-                    if (previousBody != d.body) {
-                        try {
-                            newBody = L.KSP.CelestialBody[d.body.toUpperCase()];
-                            newBody.addTo(map);
-                            previousBody = d.body;
-                        } catch (e) {
-                            if (d.body === undefined) {
-                                previousBody = d.body;
-                            } else {
-                                //alert("Body not supported yet. (" + d.body + ")")
-                                previousBody = -1;
-                            }
-                            
-                        }
-                    }
-
-                    if (!isNaN(d.lat) && !isNaN(d.longs)) {
-                        marker[0].setLatLng([d.lat, (d.longs > 180 ? d.longs - 360.0 : d.longs)]);
-                        marker[0].bindPopup(d.name + " 
-									</br>Altitude: " + d.alt + "
-								</br>Surface Velocity: " + d.m);
-                        marker[0].update();
-                    }
-                }, rawData)*/
+				
             });
         }
     
