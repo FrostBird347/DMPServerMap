@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using DarkMultiPlayerServer;
 using MapUpdater;
 namespace MapUpdater
 {
@@ -43,6 +44,12 @@ namespace MapUpdater
                 return "\"" + FinalVesselValue + "\"";
             }
 
+        }
+
+        public static string GetConfigValue(string Value)
+        {
+            string MapConfigFile = Main.MapConfigFolder + "/MapUpdater.txt";
+            return GetSavedValue(MapConfigFile, Value).Trim('"');
         }
 
     }
