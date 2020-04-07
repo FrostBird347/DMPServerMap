@@ -23,12 +23,14 @@ namespace MapUpdater
     public class Main : DMPPlugin
     {
         private int updateCallCount = 0;
-        public static Int32 UploadFrequency = 300000;
+        public static double UploadFrequency = 300000;
+        public static double SOIAdd;
         public static string PostURL;
         public static string SharedPluginDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PluginData");
         public static string MapPluginFolder;
         public static string VesselPosFolder;
         public static string MapConfigFolder;
+        public static string EscapeVesselHash;
         public static bool SetupFinished = false;
         public String VesselsList;
         public String FinalSentVesselsList;
@@ -40,7 +42,8 @@ namespace MapUpdater
             MapPluginFolder = SharedPluginDirectory + "/DMPServerMap-FrostBird347";
             VesselPosFolder = MapPluginFolder + "/VesselPos";
             MapConfigFolder = MapPluginFolder + "/Config";
-            Setup.SetUpFolders(SharedPluginDirectory, MapPluginFolder, VesselPosFolder, MapConfigFolder);
+            EscapeVesselHash = MapPluginFolder + "/SOI_Fix";
+            Setup.SetUpFolders(SharedPluginDirectory, MapPluginFolder, VesselPosFolder, MapConfigFolder, EscapeVesselHash);
             Setup.SetUpConfig(MapConfigFolder);
         }
 
@@ -63,7 +66,7 @@ namespace MapUpdater
                     {
                         string vesselID = Path.GetFileNameWithoutExtension(vesselFile);
                         //Check if valid file
-                        if (vesselID.Length == 36)
+                        if (vesselID.Length == 36 && EscapeDetect.HasEscaped(vesselFile))
                         {
                             string VesselPosFile = VesselPosFolder + "/" + vesselID + ".txt";
                             string VesselPosString = FileReader.GetSavedValue(VesselPosFile, "pos");
@@ -92,9 +95,9 @@ namespace MapUpdater
                     };
                     proc.Start();
                     //Default URL warning
-                    if (PostURL == "https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7/")
+                    if (PostURL == "https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7")
                     {
-                        DarkLog.Error("\n---\nJSON posted to https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7/\nThe 'PostURL' value in the config should be changed ASAP. \nYou will need to restart the server to reload the config.\n---");
+                        DarkLog.Error("\n---\nJSON posted to https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7\nThe 'PostURL' value in the config should be changed ASAP. \nYou will need to restart the server to reload the config.\n---");
                     }
                 }
                 else

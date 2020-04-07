@@ -7,7 +7,7 @@ namespace MapUpdater
 {
     public static class Setup
     {
-        public static void SetUpFolders(string SharedPluginDirectory, string MapPluginFolder, string VesselPosFolder, string MapConfigFolder)
+        public static void SetUpFolders(string SharedPluginDirectory, string MapPluginFolder, string VesselPosFolder, string MapConfigFolder, string EscapeVesselHash)
         {
             if (!Directory.Exists(SharedPluginDirectory))
             {
@@ -25,30 +25,35 @@ namespace MapUpdater
             {
                 Directory.CreateDirectory(MapConfigFolder);
             }
+            if (!Directory.Exists(EscapeVesselHash))
+            {
+                Directory.CreateDirectory(EscapeVesselHash);
+            }
         }
 
         public static void SetUpConfig(string MapConfigFolder)
         {
             if (!File.Exists(MapConfigFolder + "/MapUpdater.txt"))
             {
-                byte[] NewConfigData = Encoding.Default.GetBytes("MapUpdater Config:\n\\\\Upload_Frequency: JSON data is uploaded every --- seconds.\n\\\\PostURL: Url that the JSON is posted to. CHANGE IT FROM THE DEFAULT VALUE ASAP!");
+                byte[] NewConfigData = Encoding.Default.GetBytes("MapUpdater Config:\n\\\\Upload_Frequency: JSON data is uploaded every --- seconds.\n\\\\PostURL: Url that the JSON is posted to. CHANGE IT FROM THE DEFAULT VALUE ASAP!\n\\\\SOI_Fix: A higher value can increase the likelyhood of a marker not being removed when it should. https://github.com/FrostBird347/DMPServerMap/issues/1 \n");
                 File.WriteAllBytes(MapConfigFolder + "/MapUpdater.txt", NewConfigData);
             }
-            Main.UploadFrequency = SetupConfigVarInt(MapConfigFolder, "Upload_Frequency", 3);
+            Main.UploadFrequency = SetupConfigVarDouble(MapConfigFolder, "Upload_Frequency", 3);
             Main.PostURL = SetupConfigVarString(MapConfigFolder, "PostURL", "https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7");
+            Main.SOIAdd = SetupConfigVarDouble(MapConfigFolder, "SOI_Fix", 100);
             Main.SetupFinished = true;
         }
 
-        public static Int32 SetupConfigVarInt(string MapConfigFolder, string ConfigValue, Int32 DefaultValue)
+        public static double SetupConfigVarDouble(string MapConfigFolder, string ConfigValue, double DefaultValue)
         {
             string MapConfigFile = MapConfigFolder + "/MapUpdater.txt";
-            Int32 FinalInt = 1;
+            double FinalInt = 1;
             if (File.Exists(MapConfigFile))
             {
                 string ConfigReturn = FileReader.GetConfigValue(ConfigValue);
                 if (ConfigReturn != "nil")
                 {
-                    FinalInt = int.Parse(ConfigReturn, System.Globalization.CultureInfo.InvariantCulture);
+                    FinalInt = double.Parse(ConfigReturn, System.Globalization.CultureInfo.InvariantCulture);
                 }
                 else
                 {
