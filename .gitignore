@@ -350,6 +350,4 @@ MigrationBackup/
 .ionide/
 
 # Custom stuff
-TestServer/Universe/
-TestServer/logs/
-TestServer/PluginData/DMPServerMap-FrostBird347/
+TestServer/
