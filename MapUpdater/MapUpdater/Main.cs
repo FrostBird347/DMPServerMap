@@ -65,8 +65,8 @@ namespace MapUpdater
                     foreach (string vesselFile in FullvesselList)
                     {
                         string vesselID = Path.GetFileNameWithoutExtension(vesselFile);
-                        //Check if valid file
-                        if (vesselID.Length == 36 && EscapeDetect.HasEscaped(vesselFile))
+                        //Check if valid file and if the vessel is in the SOI
+                        if (vesselID.Length == 36 && !EscapeDetect.HasEscaped(vesselFile))
                         {
                             string VesselPosFile = VesselPosFolder + "/" + vesselID + ".txt";
                             string VesselPosString = FileReader.GetSavedValue(VesselPosFile, "pos");
