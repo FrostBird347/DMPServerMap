@@ -32,8 +32,7 @@ namespace MapUpdater
         public static string MapConfigFolder;
         public static string EscapeVesselHash;
         public static bool SetupFinished = false;
-        public String VesselsList;
-        public String FinalSentVesselsList;
+        public static String FinalSentVesselsList;
         private int ServerClockLast = 0;
         
         public override void OnServerStart()
@@ -59,26 +58,7 @@ namespace MapUpdater
                 if (updateCallCount >= UploadFrequency * 100)
                 {
                     updateCallCount = 0;
-                    //TODO: use actual JSON, instead of creating and sending a string.
-                    VesselsList = "{\"Main\":{\"ID\":[";
-                    string[] FullvesselList = Directory.GetFiles(Path.Combine(Server.universeDirectory, "Vessels"));
-                    foreach (string vesselFile in FullvesselList)
-                    {
-                        string vesselID = Path.GetFileNameWithoutExtension(vesselFile);
-                        //Check if valid file and if the vessel is in the SOI
-                        if (vesselID.Length == 36 && !EscapeDetect.HasEscaped(vesselFile))
-                        {
-                            string VesselPosFile = VesselPosFolder + "/" + vesselID + ".txt";
-                            string VesselPosString = FileReader.GetSavedValue(VesselPosFile, "pos");
-                            string[] VesselPosArray = VesselPosString.Trim('"', '[', ']', '"').Split(',');
-                            VesselsList = VesselsList + "[\"" + VesselPosArray[0].ToString().Trim(' ') + "\",\"" + VesselPosArray[1].ToString().Trim(' ') + "\"," + FileReader.GetSavedValue(vesselFile, "REF") + ",\"" + VesselPosArray[2].ToString().Trim(' ') + "\"," + FileReader.GetSavedValue(VesselPosFile, "vel") + "," + FileReader.GetSavedValue(vesselFile, "name") + "," + FileReader.GetSavedValue(vesselFile, "type") + ",\"" + vesselID + "\"],";
-                        }
-                    }
-                    //TODO: use actual JSON, instead of creating and sending a string.
-                    VesselsList = VesselsList.Remove(VesselsList.Length - 1, 1) + "]}";
-                    FinalSentVesselsList = VesselsList + "}";
-                    //Sometimes it would send every \, I have no idea why it happens, but this should remove them from the JSON before it sends.
-                    FinalSentVesselsList.Replace("\\", string.Empty);
+                    CreateJSON.CreateSentJSON();
                     //TODO: send the request in C# instead of launching an executable.
                     Process proc = new Process
                     {

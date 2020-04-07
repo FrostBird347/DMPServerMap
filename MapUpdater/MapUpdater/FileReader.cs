@@ -2,6 +2,7 @@
 using System.IO;
 using DarkMultiPlayerServer;
 using MapUpdater;
+
 namespace MapUpdater
 {
     public static class FileReader
@@ -26,23 +27,9 @@ namespace MapUpdater
                     }
                     currentLine = sr.ReadLine();
                 }
-            } //Used to join Surface and Sea Level Altitude.
-            if (VesselValue != "alt" && VesselValue != "hgt")
-            {
-                return "\"" + FinalVesselValue + "\"";
-            }
-            else if (VesselValue == "alt")
-            {
-                return FinalVesselValue + "\"";
-            }
-            else if (VesselValue == "hgt")
-            {
-                return "\"" + FinalVesselValue;
-            }
-            else
-            { //Would not let me compile without this.
-                return "\"" + FinalVesselValue + "\"";
-            }
+            } 
+            
+                return FinalVesselValue;
 
         }
 

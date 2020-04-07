@@ -39,6 +39,7 @@
     <Compile Include="FileReader.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="EscapeDetect.cs" />
+    <Compile Include="CreateJSON.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DarkMultiPlayer-Common">
@@ -80,6 +81,9 @@
     </Reference>
     <Reference Include="System.Text.RegularExpressions">
       <HintPath>..\packages\System.Text.RegularExpressions.4.3.1\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
