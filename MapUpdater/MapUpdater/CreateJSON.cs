@@ -27,6 +27,7 @@ namespace MapUpdater
                 }
             }
             ShortvesselList = PreShortVesselList.ToArray();
+            PreShortVesselList.Clear();
             JObject SentJSON = new JObject(
             new JProperty("Main",
                 new JObject(
@@ -46,7 +47,7 @@ namespace MapUpdater
             {
                 VesselPosJArray = JArray.Parse(VesselPosString);
             }
-            catch(Exception e)
+            catch
             {
                 VesselPosJArray = new JArray(new JValue("NaN"), new JValue("NaN"), new JValue("NaN"));
             }
