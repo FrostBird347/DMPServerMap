@@ -7795,8 +7795,12 @@ function(t, i) {
         statics: {
             TYPE_SPACECENTER: 0,
             TYPE_ANOMALY: 1,
-            TYPE_DEBRIS: 2,
-            TYPE_VESSEL: 3
+            TYPE_POI: 2,
+            TYPE_SPACEOBJECT: 3,
+            TYPE_DEBRIS: 4,
+            TYPE_VESSEL: 5,
+            TYPE_FLAG: 6,
+            TYPE_KERBAL: 7
         },
         initialize: function(t, i) {
             this._type = t,
@@ -7963,6 +7967,24 @@ function(t, i) {
     }),
     L.KSP.Icon.ANOMALY = new L.Icon({
         iconUrl: "img/markers-anomaly.png",
+        shadowUrl: "img/markers-shadow.png",
+        iconSize: [30, 40],
+        shadowSize: [35, 16],
+        iconAnchor: [15, 40],
+        shadowAnchor: [10, 12],
+        popupAnchor: [0, -35]
+    }),
+    L.KSP.Icon.LOWPOS = new L.Icon({
+        iconUrl: "img/markers-lowpos.png",
+        shadowUrl: "img/markers-shadow.png",
+        iconSize: [30, 40],
+        shadowSize: [35, 16],
+        iconAnchor: [15, 40],
+        shadowAnchor: [10, 12],
+        popupAnchor: [0, -35]
+    }),
+    L.KSP.Icon.HIGHPOS = new L.Icon({
+        iconUrl: "img/markers-highpos.png",
         shadowUrl: "img/markers-shadow.png",
         iconSize: [30, 40],
         shadowSize: [35, 16],
@@ -8197,11 +8219,36 @@ function(t, i) {
                 body: "moho",
                 style: "sat",
                 maxZoom: 4
+            }),
+            "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "moho",
+                style: "color",
+                legend: {
+                    "7000 m": "#cdbea5",
+                    "6000 m": "#a08773",
+                    "3000 m": "#786455",
+                    "1500 m": "#645046",
+                    "500 m": "#4b3c32",
+                    "0 m": "#322823"
+                }
+            }),
+            Slope: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SLOPE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "moho",
+                style: "slope",
+                legend: L.KSP.Legend.SLOPE
             })
         },
         overlays: {
         "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS), 
+        "Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
+        "Flags": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_FLAG),
+        "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
+            "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([54.679, 153.49], {
+                icon: L.KSP.Icon.HIGHPOS
+            }).bindPopup("<strong>Highest Elevation</strong><br>6817.3765 m<br>54.6790 : 153.4900"), L.marker([-19.6545, -166.2341], {
+                icon: L.KSP.Icon.LOWPOS
+            }).bindPopup("<strong>Lowest Elevation</strong><br>28.5585 m<br>-19.6545 : -166.2341")])
         }
     }),
     L.KSP.CelestialBody.EVE = L.KSP.celestialBody({
@@ -8219,11 +8266,39 @@ function(t, i) {
                 body: "eve",
                 style: "sat",
                 maxZoom: 4
+            }),
+            "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "eve",
+                style: "color",
+                legend: {
+                    "7540 m": "#000000",
+                    "6500 m": "#0f0f1e",
+                    "6000 m": "#1e1728",
+                    "3000 m": "#2d1e37",
+                    "1500 m": "#37283c",
+                    "500 m": "#3c2841",
+                    "5 m": "#4b3c55",
+                    "-5 m": "#8c7d9b",
+                    "-500 m": "#645573"
+                }
+            }),
+            Slope: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SLOPE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "eve",
+                style: "slope",
+                legend: L.KSP.Legend.SLOPE
             })
         },
         overlays: {
         "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS), 
+        "Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
+        "Flags": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_FLAG),
+        "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
+            "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([-25.0159, -158.4558], {
+                icon: L.KSP.Icon.HIGHPOS
+            }).bindPopup("<strong>Highest Elevation</strong><br>7526.0112 m<br>-25.0159 : -158.4558"), L.marker([-44.7473, -107.8528], {
+                icon: L.KSP.Icon.LOWPOS
+            }).bindPopup("<strong>Lowest Elevation</strong><br>-1876.8985 m<br>-44.7473 : -107.8528")])
         }
     }),
     L.KSP.CelestialBody.GILLY = L.KSP.celestialBody({
@@ -8241,11 +8316,34 @@ function(t, i) {
                 body: "gilly",
                 style: "sat",
                 maxZoom: 4
+            }),
+            "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "gilly",
+                style: "color",
+                legend: {
+                    "6500 m": "#b99b82",
+                    "4500 m": "#a08273",
+                    "2500 m": "#78695a",
+                    "1500 m": "#554b41"
+                }
+            }),
+            Slope: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SLOPE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "gilly",
+                style: "slope",
+                legend: L.KSP.Legend.SLOPE
             })
         },
         overlays: {
         "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS), 
+        "Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
+        "Flags": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_FLAG),
+        "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
+            "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([-29.2566, -123.8708], {
+                icon: L.KSP.Icon.HIGHPOS
+            }).bindPopup("<strong>Highest Elevation</strong><br>6400.6353 m<br>-29.2566 : -123.8708"), L.marker([56.7883, -7.24], {
+                icon: L.KSP.Icon.LOWPOS
+            }).bindPopup("<strong>Lowest Elevation</strong><br>1493.2832 m<br>56.7883 : -7.2400")])
         }
     }),
     L.KSP.CelestialBody.KERBIN = L.KSP.celestialBody({
@@ -8283,7 +8381,22 @@ function(t, i) {
             Slope: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SLOPE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "kerbin",
                 style: "slope",
-                maxZoom: 4
+                legend: L.KSP.Legend.SLOPE
+            }),
+            Biome: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_BIOME, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "kerbin",
+                style: "biome",
+                legend: {
+                    Water: "#00245E",
+                    Shores: "#B5D3D1",
+                    Grasslands: "#4BAC00",
+                    Highlands: "#1C7800",
+                    Mountains: "#824600",
+                    Deserts: "#CCB483",
+                    Badlands: "#FCD037",
+                    Tundra: "#89FA91",
+                    "Ice Caps": "#FEFEFE"
+                }
             })
         },
         overlays: {
@@ -8295,13 +8408,30 @@ function(t, i) {
                 icon: L.KSP.Icon.SPACECENTER
             }).bindPopup("<strong>Island Airfield</strong><br>-1.5409 : -71.9099")]),
         	"Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL),  
-            "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS, [L.marker([-5, -5], {
-                icon: L.KSP.Icon.DEBRIS
-            }).bindPopup("<strong>TEST1</strong><br>-5 : -5"), L.marker([5, -5], {
-                icon: L.KSP.Icon.DEBRIS
-            }).bindPopup("<strong>TEST2</strong><br>5 : -5"), L.marker([-10, -10], {
-                icon: L.KSP.Icon.DEBRIS
-            }).bindPopup("<strong>TEST3</strong><br>-10 : -10")])       
+            "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
+        "Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
+        "Flags": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_FLAG),
+        "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
+            Anomalies: L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_ANOMALY, [L.marker([.1023, -74.5684], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("0.1023 : -74.5684"), L.marker([20.6709, -146.4968], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("20.6709 : -146.4968"), L.marker([35.5705, -74.9773], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("35.5705 : -74.9773"), L.marker([-.6402, -80.7668], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("-0.6402 : -80.7668"), L.marker([-28.8083, -13.4401], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("-28.8083 : -13.4401"), L.marker([-6.5057, -141.6856], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("-6.5057 : -141.6856"), L.marker([81.9551, -128.518], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("-81.9551 : -128.518")]),
+            "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([61.5784, 46.3733], {
+                icon: L.KSP.Icon.HIGHPOS
+            }).bindPopup("<strong>Highest Elevation</strong><br>6761.0483 m<br>61.5784 : 46.3733"), L.marker([-28.905, -83.1116], {
+                icon: L.KSP.Icon.LOWPOS
+            }).bindPopup("<strong>Lowest Elevation</strong><br>-1390.9353 m<br>-28.9050 : -83.1116")])
         }
     }),
     L.KSP.CelestialBody.MUN = L.KSP.celestialBody({
@@ -8321,19 +8451,65 @@ function(t, i) {
                 body: "mun",
                 style: "color",
                 legend: {
-                    "3150 m": "#EBEBEB",
-                    "-180 m": "#232323"
+                    "6700 m": "#EBEBEB",
+                    "-70 m": "#232323"
                 }
             }),
             Slope: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SLOPE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "mun",
                 style: "slope",
                 legend: L.KSP.Legend.SLOPE
+            }),
+            Biome: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_BIOME, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "mun",
+                style: "biome",
+                legend: {
+                    Midlands: "#737373",
+                    "Midland Craters": "#4C3B4A",
+                    Highlands: "#ACACAC",
+                    "Highland Craters": "#9E7FA3",
+                    Poles: "#65D4D9",
+                    "Polar Lowlands": "#289C93",
+                    "Polar Crater": "#2E2E63",
+                    "Northern Basin": "#3A5B3B",
+                    "East Crater": "#CFCF87",
+                    "Northwest Crater": "#580707",
+                    "Southwest Crater": "#B12D78",
+                    "Farside Crater": "#63A53C",
+                    "East Farside Crater": "#AA4848",
+                    "Twin Craters": "#B3761A",
+                    Canyons: "#534600"
+                }
             })
         },
         overlays: {
         "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS), 
+        "Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
+        "Flags": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_FLAG),
+        "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
+            Anomalies: L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_ANOMALY, [L.marker([-9.8314, 25.9177], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("-9.8314 : 25.9177"), L.marker([-82.2063, 102.9305], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("-82.2063 : 102.9305"), L.marker([57.6604, 9.1422], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("57.6604 : 9.1422"), L.marker([2.4695, 81.5133], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("2.4695 : 81.5133"), L.marker([12.4432, 39.178], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("12.4432 : 39.1780"), L.marker([-12.4431, -140.822], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("-12.4431 : -140.8220"), L.marker([.7027, 22.747], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("0.7027 : 22.7470"), L.marker([-70.9556, -68.1378], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("-70.9556,-68.1378")]),
+            "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([-82.5183, -152.3254], {
+                icon: L.KSP.Icon.HIGHPOS
+            }).bindPopup("<strong>Highest Elevation</strong><br>7061.1416 m<br>-82.5183 : -152.3254"), L.marker([35.321, -76.6296], {
+                icon: L.KSP.Icon.LOWPOS
+            }).bindPopup("<strong>Lowest Elevation</strong><br>-247.9042 m<br>35.3210 : -76.6296")])
         }
     }),
     L.KSP.CelestialBody.MINMUS = L.KSP.celestialBody({
@@ -8358,11 +8534,25 @@ function(t, i) {
                     "1 m": "#96CDB4",
                     "0 m": "#87B9A5"
                 }
+            }),
+            Slope: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SLOPE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                style: "slope",
+                body: "minmus",
+                legend: L.KSP.Legend.SLOPE
             })
         },
         overlays: {
         "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS), 
+        "Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
+        "Flags": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_FLAG),
+        "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
+            Anomalies: L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_ANOMALY, [L.marker([23.7768, 60.0462], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("23.7768 : 60.0462")]),
+            "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([-62.9297, 74.729], {
+                icon: L.KSP.Icon.HIGHPOS
+            }).bindPopup("<strong>Highest Elevation</strong><br>5724.6001 m<br>-62.9297 : 74.7290")])
         }
     }),
     L.KSP.CelestialBody.DUNA = L.KSP.celestialBody({
@@ -8377,11 +8567,43 @@ function(t, i) {
             Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 style: "sat",
                 body: "duna"
+            }),
+            "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                style: "color",
+                body: "duna",
+                legend: {
+                    "8265 m": "#C3A082",
+                    "6640 m": "#966446",
+                    "5010 m": "#733219",
+                    "3380 m": "#501E14",
+                    "1750 m": "#3C140F",
+                    "125 m": "#280F0A"
+                }
+            }),
+            Slope: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SLOPE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                style: "slope",
+                body: "duna",
+                legend: L.KSP.Legend.SLOPE
             })
         },
         overlays: {
         "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS), 
+        "Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
+        "Flags": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_FLAG),
+        "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
+            Anomalies: L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_ANOMALY, [L.marker([17.0483, -85.4717], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("17.0483 : -85.4717"), L.marker([-30.3525, -28.6828], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("-30.3525 : -28.6828"), L.marker([-66.1344, -160.7432], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("-66.1344 : -160.7432")]),
+            "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([20.885, -106.7981], {
+                icon: L.KSP.Icon.HIGHPOS
+            }).bindPopup("<strong>Highest Elevation</strong><br>8264.3242 m<br>20.8850 : -106.7981"), L.marker([-5.9436, -50.5481], {
+                icon: L.KSP.Icon.LOWPOS
+            }).bindPopup("<strong>Lowest Elevation</strong><br>124.5119 m<br>-5.9436 : -50.5481")])
         }
     }),
     L.KSP.CelestialBody.IKE = L.KSP.celestialBody({
@@ -8396,11 +8618,37 @@ function(t, i) {
             Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 style: "sat",
                 body: "ike"
+            }),
+            "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                style: "color",
+                body: "ike",
+                legend: {
+                    "13000 m": "#828282",
+                    "11000 m": "#6E6E6E",
+                    "9000 m": "#5A5A5A",
+                    "7000 m": "#464646",
+                    "5000 m": "#323232",
+                    "2500 m": "#191919",
+                    "70 m": "#070707"
+                }
+            }),
+            Slope: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SLOPE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                style: "slope",
+                body: "ike",
+                legend: L.KSP.Legend.SLOPE
             })
         },
         overlays: {
         "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS), 
+        "Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
+        "Flags": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_FLAG),
+        "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
+            "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([25.2795, 178.2971], {
+                icon: L.KSP.Icon.HIGHPOS
+            }).bindPopup("<strong>Highest Elevation</strong><br>12735.1406 m<br>25.2795 : 178.2971"), L.marker([-14.425, 25.4553], {
+                icon: L.KSP.Icon.LOWPOS
+            }).bindPopup("<strong>Lowest Elevation</strong><br>73.1864 m<br>-14.4250 : 25.4553")])
         }
     }),
     L.KSP.CelestialBody.DRES = L.KSP.celestialBody({
@@ -8418,11 +8666,35 @@ function(t, i) {
                 body: "dres",
                 style: "sat",
                 maxZoom: 4
+            }),
+            "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "dres",
+                style: "color",
+                legend: {
+                    "6000 m": "#beb9b4",
+                    "3500 m": "#96918c",
+                    "2000 m": "#504646",
+                    "500 m": "#2d2828",
+                    "25 m": "#191919"
+                }
+            }),
+            Slope: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SLOPE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "dres",
+                style: "slope",
+                legend: L.KSP.Legend.SLOPE
             })
         },
         overlays: {
         "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS), 
+        "Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
+        "Flags": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_FLAG),
+        "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
+            "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([-85.0012, 42.6379], {
+                icon: L.KSP.Icon.HIGHPOS
+            }).bindPopup("<strong>Highest Elevation</strong><br>5669.7266 m<br>-85.0012 : 42.6379"), L.marker([19.01733, -57.1399], {
+                icon: L.KSP.Icon.LOWPOS
+            }).bindPopup("<strong>Lowest Elevation</strong><br>25.4619 m<br>19.01733 : -57.1399")])
         }
     }),
     L.KSP.CelestialBody.JOOL = L.KSP.celestialBody({
@@ -8446,11 +8718,38 @@ function(t, i) {
                 body: "laythe",
                 style: "sat",
                 maxZoom: 4
+            }),
+            "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "laythe",
+                style: "color",
+                legend: {
+                    "6050 m": "#cdcd9b",
+                    "3000 m": "#aaaa7d",
+                    "1500 m": "#8c8c69",
+                    "500 m": "#696950",
+                    "0.001 m": "#464637",
+                    "-0 m": "#46505a",
+                    "-50 m": "#1e4173",
+                    "-500 m": "#192d55"
+                }
+            }),
+            Slope: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SLOPE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "laythe",
+                style: "slope",
+                legend: L.KSP.Legend.SLOPE
             })
         },
         overlays: {
         "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS), 
+        "Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
+        "Flags": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_FLAG),
+        "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
+            "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([-17.5891, 172.5842], {
+                icon: L.KSP.Icon.HIGHPOS
+            }).bindPopup("<strong>Highest Elevation</strong><br>6044.7422 m<br>-17.5891 : 172.5842"), L.marker([29.4543, 7.3499], {
+                icon: L.KSP.Icon.LOWPOS
+            }).bindPopup("<strong>Lowest Elevation</strong><br>-2799.8879 m<br>29.4543 : 7.3499")])
         }
     }),
     L.KSP.CelestialBody.VALL = L.KSP.celestialBody({
@@ -8468,11 +8767,39 @@ function(t, i) {
                 body: "vall",
                 style: "sat",
                 maxZoom: 4
+            }),
+            "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "vall",
+                style: "color",
+                legend: {
+                    "8000 m": "#e6f0f0",
+                    "4000 m": "#bed7dc",
+                    "2000 m": "#91b9be",
+                    "1000 m": "#87aaaf",
+                    "0 m": "#739196",
+                    "-400 m": "#647d82"
+                }
+            }),
+            Slope: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SLOPE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "vall",
+                style: "slope",
+                legend: L.KSP.Legend.SLOPE
             })
         },
         overlays: {
         "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS), 
+        "Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
+        "Flags": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_FLAG),
+        "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
+            Anomalies: L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_ANOMALY, [L.marker([-60.3289, 84.0579], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("-60.3289 : 84.0579")]),
+            "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([-57.4915, -144.4592], {
+                icon: L.KSP.Icon.HIGHPOS
+            }).bindPopup("<strong>Highest Elevation</strong><br>7989.1372 m<br>-57.4915 : -144.4592"), L.marker([11.6345, 145.4919], {
+                icon: L.KSP.Icon.LOWPOS
+            }).bindPopup("<strong>Lowest Elevation</strong><br>-394.3332 m<br>11.6345 : 145.4919")])
         }
     }),
     L.KSP.CelestialBody.TYLO = L.KSP.celestialBody({
@@ -8490,11 +8817,40 @@ function(t, i) {
                 body: "tylo",
                 style: "sat",
                 maxZoom: 4
+            }),
+            "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "tylo",
+                style: "color",
+                legend: {
+                    "11300 m": "#f5f0f0",
+                    "10000 m": "#e6e1dc",
+                    "5000 m": "#b4afaa",
+                    "2500 m": "#878278",
+                    "1000 m": "#645f5a",
+                    "250 m": "#322d2d",
+                    "1 m": "#141414"
+                }
+            }),
+            Slope: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SLOPE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "tylo",
+                style: "slope",
+                legend: L.KSP.Legend.SLOPE
             })
         },
         overlays: {
         "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS), 
+        "Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
+        "Flags": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_FLAG),
+        "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
+            Anomalies: L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_ANOMALY, [L.marker([-8.9969, 17.7375], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("-8.9969 : 17.7375"), L.marker([40.2671, 174.0467], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("40.2671 : 174.0467")]),
+            "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([-51.7786, 20.5774], {
+                icon: L.KSP.Icon.HIGHPOS
+            }).bindPopup("<strong>Highest Elevation</strong><br>11282.5488 m<br>-51.7786 : 20.5774")])
         }
     }),
     L.KSP.CelestialBody.BOP = L.KSP.celestialBody({
@@ -8512,11 +8868,38 @@ function(t, i) {
                 body: "bop",
                 style: "sat",
                 maxZoom: 4
+            }),
+            "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "bop",
+                style: "color",
+                legend: {
+                    "22000 m": "#918c7d",
+                    "18000 m": "#645a55",
+                    "12000 m": "#413732",
+                    "6000 m": "#2d2823",
+                    "2000 m": "#1e1914"
+                }
+            }),
+            Slope: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SLOPE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "bop",
+                style: "slope",
+                legend: L.KSP.Legend.SLOPE
             })
         },
         overlays: {
         "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS), 
+        "Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
+        "Flags": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_FLAG),
+        "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
+            Anomalies: L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_ANOMALY, [L.marker([68.211, 118.4473], {
+                icon: L.KSP.Icon.ANOMALY
+            }).bindPopup("68.211 : 118.4473")]),
+            "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([23.8733, -64.5667], {
+                icon: L.KSP.Icon.HIGHPOS
+            }).bindPopup("<strong>Highest Elevation</strong><br>21754.9961 m<br>23.8733 : -64.5667"), L.marker([37.5842, -139.2737], {
+                icon: L.KSP.Icon.LOWPOS
+            }).bindPopup("<strong>Lowest Elevation</strong><br>2003.2421 m<br>37.5842 : -139.2737")])
         }
     }),
     L.KSP.CelestialBody.POL = L.KSP.celestialBody({
@@ -8534,11 +8917,35 @@ function(t, i) {
                 body: "pol",
                 style: "sat",
                 maxZoom: 4
+            }),
+            "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "pol",
+                style: "color",
+                legend: {
+                    "5600 m": "#ebd296",
+                    "5000 m": "#d2b982",
+                    "2500 m": "#91785f",
+                    "1000 m": "#505055",
+                    "780 m": "#4b4b50"
+                }
+            }),
+            Slope: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SLOPE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "pol",
+                style: "slope",
+                legend: L.KSP.Legend.SLOPE
             })
         },
         overlays: {
         "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS), 
+        "Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
+        "Flags": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_FLAG),
+        "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
+        "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([-62.8308, 164.5862], {
+            icon: L.KSP.Icon.HIGHPOS
+        }).bindPopup("<strong>Highest Elevation</strong><br>5590.2134 m<br>-62.8308 : 164.5862"), L.marker([-25.1257, 173.7708], {
+            icon: L.KSP.Icon.LOWPOS
+        }).bindPopup("<strong>Lowest Elevation</strong><br>782.5003 m<br>-25.1257 : 173.7708")])
         }
     }),
     L.KSP.CelestialBody.EELOO = L.KSP.celestialBody({
@@ -8556,11 +8963,36 @@ function(t, i) {
                 body: "eeloo",
                 style: "sat",
                 maxZoom: 4
+            }),
+            "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "eeloo",
+                style: "color",
+                legend: {
+                    "3900 m": "#c3cdcd",
+                    "3500 m": "#afb9b9",
+                    "2000 m": "#879191",
+                    "1000 m": "#787878",
+                    "500 m": "#4b4637",
+                    "-400 m": "#322d23"
+                }
+            }),
+            Slope: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SLOPE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+                body: "eeloo",
+                style: "slope",
+                legend: L.KSP.Legend.SLOPE
             })
         },
         overlays: {
         "Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL), 
-        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS)            
+        "Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS), 
+        "Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
+        "Flags": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_FLAG),
+        "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
+         "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([24.3347, 27.9602], {
+                icon: L.KSP.Icon.HIGHPOS
+            }).bindPopup("<strong>Highest Elevation</strong><br>3873.4644 m<br>24.3347 : 27.9602"), L.marker([51.7786, -32.2888], {
+                icon: L.KSP.Icon.LOWPOS
+            }).bindPopup("<strong>Lowest Elevation</strong><br>-386.8858 m<br>51.7786 : -32.2888")])
         }
     }),
     L.KSP.CelestialBody.KERBIN.defaultLayer = L.KSP.CelestialBody.KERBIN.baseLayers.Satellite,

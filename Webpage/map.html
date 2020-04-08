@@ -64,7 +64,7 @@
  				AddMarker(newmarker, "D", element[2])
  				} else if (element[6] == "SpaceObject") {
  				var newmarker = [L.marker([element[0], element[1]], {icon: L.KSP.Icon.VESSELSpaceObject}).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6])]; 
- 				AddMarker(newmarker, "V", element[2])
+ 				AddMarker(newmarker, "O", element[2])
  				} else if (element[6] == "Probe") {
  				var newmarker = [L.marker([element[0], element[1]], {icon: L.KSP.Icon.VESSELProbe}).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6])]; 
  				AddMarker(newmarker, "V", element[2])
@@ -91,10 +91,10 @@
  				AddMarker(newmarker, "V", element[2])
  				} else if (element[6] == "EVA") {
  				var newmarker = [L.marker([element[0], element[1]], {icon: L.KSP.Icon.VESSELEVA}).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6])]; 
- 				AddMarker(newmarker, "V", element[2])
+ 				AddMarker(newmarker, "K", element[2])
  				} else if (element[6] == "Flag") {
  				var newmarker = [L.marker([element[0], element[1]], {icon: L.KSP.Icon.VESSELFlag}).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6])]; 
- 				AddMarker(newmarker, "V", element[2])
+ 				AddMarker(newmarker, "F", element[2])
  				} else if (element[6] == "DeployedScienceController") {
  				var newmarker = [L.marker([element[0], element[1]], {icon: L.KSP.Icon.VESSELDeployedScienceController}).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6])]; 
  				AddMarker(newmarker, "V", element[2])
@@ -160,6 +160,120 @@
     } else {
     console.warn("UNKNOWN PLANET: " + Planet + ". Marker not added!")
     }
+    } else if (Type == "O") {
+    if (Planet == 0) {
+    //There is no map for the sun.
+    } else if (Planet == 1) {
+    Marker[0].addTo(L.KSP.CelestialBody.KERBIN.overlays.SpaceObjects)
+    } else if (Planet == 2) {
+    Marker[0].addTo(L.KSP.CelestialBody.MUN.overlays.SpaceObjects)
+    } else if (Planet == 3) {
+    Marker[0].addTo(L.KSP.CelestialBody.MINMUS.overlays.SpaceObjects)
+    } else if (Planet == 4) {
+    Marker[0].addTo(L.KSP.CelestialBody.MOHO.overlays.SpaceObjects)
+    } else if (Planet == 5) {
+    Marker[0].addTo(L.KSP.CelestialBody.EVE.overlays.SpaceObjects)
+    } else if (Planet == 6) {
+    Marker[0].addTo(L.KSP.CelestialBody.DUNA.overlays.SpaceObjects)
+    } else if (Planet == 7) {
+    Marker[0].addTo(L.KSP.CelestialBody.IKE.overlays.SpaceObjects)
+    } else if (Planet == 8) {
+    //There is no map for jool.
+    } else if (Planet == 9) {
+    Marker[0].addTo(L.KSP.CelestialBody.LAYTHE.overlays.SpaceObjects)
+    } else if (Planet == 10) {
+    Marker[0].addTo(L.KSP.CelestialBody.VALL.overlays.SpaceObjects)
+    } else if (Planet == 11) {
+    Marker[0].addTo(L.KSP.CelestialBody.BOP.overlays.SpaceObjects)
+    } else if (Planet == 12) {
+    Marker[0].addTo(L.KSP.CelestialBody.TYLO.overlays.SpaceObjects)
+    } else if (Planet == 13) {
+    Marker[0].addTo(L.KSP.CelestialBody.GILLY.overlays.SpaceObjects)
+    } else if (Planet == 14) {
+    Marker[0].addTo(L.KSP.CelestialBody.POL.overlays.SpaceObjects)
+    } else if (Planet == 15) {
+    Marker[0].addTo(L.KSP.CelestialBody.DRES.overlays.SpaceObjects)
+    } else if (Planet == 16) {
+    Marker[0].addTo(L.KSP.CelestialBody.EELOO.overlays.SpaceObjects)
+    } else {
+    console.warn("UNKNOWN PLANET: " + Planet + ". Marker not added!")
+    }
+    } else if (Type == "K") {
+    if (Planet == 0) {
+    //There is no map for the sun.
+    } else if (Planet == 1) {
+    Marker[0].addTo(L.KSP.CelestialBody.KERBIN.overlays.Kerbals)
+    } else if (Planet == 2) {
+    Marker[0].addTo(L.KSP.CelestialBody.MUN.overlays.Kerbals)
+    } else if (Planet == 3) {
+    Marker[0].addTo(L.KSP.CelestialBody.MINMUS.overlays.Kerbals)
+    } else if (Planet == 4) {
+    Marker[0].addTo(L.KSP.CelestialBody.MOHO.overlays.Kerbals)
+    } else if (Planet == 5) {
+    Marker[0].addTo(L.KSP.CelestialBody.EVE.overlays.Kerbals)
+    } else if (Planet == 6) {
+    Marker[0].addTo(L.KSP.CelestialBody.DUNA.overlays.Kerbals)
+    } else if (Planet == 7) {
+    Marker[0].addTo(L.KSP.CelestialBody.IKE.overlays.Kerbals)
+    } else if (Planet == 8) {
+    //There is no map for jool.
+    } else if (Planet == 9) {
+    Marker[0].addTo(L.KSP.CelestialBody.LAYTHE.overlays.Kerbals)
+    } else if (Planet == 10) {
+    Marker[0].addTo(L.KSP.CelestialBody.VALL.overlays.Kerbals)
+    } else if (Planet == 11) {
+    Marker[0].addTo(L.KSP.CelestialBody.BOP.overlays.Kerbals)
+    } else if (Planet == 12) {
+    Marker[0].addTo(L.KSP.CelestialBody.TYLO.overlays.Kerbals)
+    } else if (Planet == 13) {
+    Marker[0].addTo(L.KSP.CelestialBody.GILLY.overlays.Kerbals)
+    } else if (Planet == 14) {
+    Marker[0].addTo(L.KSP.CelestialBody.POL.overlays.Kerbals)
+    } else if (Planet == 15) {
+    Marker[0].addTo(L.KSP.CelestialBody.DRES.overlays.Kerbals)
+    } else if (Planet == 16) {
+    Marker[0].addTo(L.KSP.CelestialBody.EELOO.overlays.Kerbals)
+    } else {
+    console.warn("UNKNOWN PLANET: " + Planet + ". Marker not added!")
+    }
+    } else if (Type == "F") {
+    if (Planet == 0) {
+    //There is no map for the sun.
+    } else if (Planet == 1) {
+    Marker[0].addTo(L.KSP.CelestialBody.KERBIN.overlays.Flags)
+    } else if (Planet == 2) {
+    Marker[0].addTo(L.KSP.CelestialBody.MUN.overlays.Flags)
+    } else if (Planet == 3) {
+    Marker[0].addTo(L.KSP.CelestialBody.MINMUS.overlays.Flags)
+    } else if (Planet == 4) {
+    Marker[0].addTo(L.KSP.CelestialBody.MOHO.overlays.Flags)
+    } else if (Planet == 5) {
+    Marker[0].addTo(L.KSP.CelestialBody.EVE.overlays.Flags)
+    } else if (Planet == 6) {
+    Marker[0].addTo(L.KSP.CelestialBody.DUNA.overlays.Flags)
+    } else if (Planet == 7) {
+    Marker[0].addTo(L.KSP.CelestialBody.IKE.overlays.Flags)
+    } else if (Planet == 8) {
+    //There is no map for jool.
+    } else if (Planet == 9) {
+    Marker[0].addTo(L.KSP.CelestialBody.LAYTHE.overlays.Flags)
+    } else if (Planet == 10) {
+    Marker[0].addTo(L.KSP.CelestialBody.VALL.overlays.Flags)
+    } else if (Planet == 11) {
+    Marker[0].addTo(L.KSP.CelestialBody.BOP.overlays.Flags)
+    } else if (Planet == 12) {
+    Marker[0].addTo(L.KSP.CelestialBody.TYLO.overlays.Flags)
+    } else if (Planet == 13) {
+    Marker[0].addTo(L.KSP.CelestialBody.GILLY.overlays.Flags)
+    } else if (Planet == 14) {
+    Marker[0].addTo(L.KSP.CelestialBody.POL.overlays.Flags)
+    } else if (Planet == 15) {
+    Marker[0].addTo(L.KSP.CelestialBody.DRES.overlays.Flags)
+    } else if (Planet == 16) {
+    Marker[0].addTo(L.KSP.CelestialBody.EELOO.overlays.Flags)
+    } else {
+    console.warn("UNKNOWN PLANET: " + Planet + ". Marker not added!")
+    }
     } else if (Type == "D") {
     
     if (Planet == 0) {
@@ -209,6 +323,36 @@
     
     //TODO: Update existing markers instead of replacing.
     function resetMap() {
+    	L.KSP.CelestialBody.EELOO.overlays.Flags.clearLayers()
+		L.KSP.CelestialBody.EELOO.overlays.SpaceObjects.clearLayers()
+		L.KSP.CelestialBody.POL.overlays.Flags.clearLayers()
+		L.KSP.CelestialBody.POL.overlays.SpaceObjects.clearLayers()
+		L.KSP.CelestialBody.BOP.overlays.Flags.clearLayers()
+		L.KSP.CelestialBody.BOP.overlays.SpaceObjects.clearLayers()
+		L.KSP.CelestialBody.TYLO.overlays.Flags.clearLayers()
+		L.KSP.CelestialBody.TYLO.overlays.SpaceObjects.clearLayers()
+		L.KSP.CelestialBody.VALL.overlays.Flags.clearLayers()
+		L.KSP.CelestialBody.VALL.overlays.SpaceObjects.clearLayers()
+		L.KSP.CelestialBody.LAYTHE.overlays.Flags.clearLayers()
+		L.KSP.CelestialBody.LAYTHE.overlays.SpaceObjects.clearLayers()
+		L.KSP.CelestialBody.DRES.overlays.Flags.clearLayers()
+		L.KSP.CelestialBody.DRES.overlays.SpaceObjects.clearLayers()
+		L.KSP.CelestialBody.IKE.overlays.Flags.clearLayers()
+		L.KSP.CelestialBody.IKE.overlays.SpaceObjects.clearLayers()
+		L.KSP.CelestialBody.DUNA.overlays.Flags.clearLayers()
+		L.KSP.CelestialBody.DUNA.overlays.SpaceObjects.clearLayers()
+		L.KSP.CelestialBody.MINMUS.overlays.Flags.clearLayers()
+		L.KSP.CelestialBody.MINMUS.overlays.SpaceObjects.clearLayers()
+		L.KSP.CelestialBody.MUN.overlays.Flags.clearLayers()
+		L.KSP.CelestialBody.MUN.overlays.SpaceObjects.clearLayers()
+		L.KSP.CelestialBody.KERBIN.overlays.Flags.clearLayers()
+		L.KSP.CelestialBody.KERBIN.overlays.SpaceObjects.clearLayers()
+		L.KSP.CelestialBody.GILLY.overlays.Flags.clearLayers()
+		L.KSP.CelestialBody.GILLY.overlays.SpaceObjects.clearLayers()
+		L.KSP.CelestialBody.EVE.overlays.Flags.clearLayers()
+		L.KSP.CelestialBody.EVE.overlays.SpaceObjects.clearLayers()
+		L.KSP.CelestialBody.MOHO.overlays.Flags.clearLayers()
+		L.KSP.CelestialBody.MOHO.overlays.SpaceObjects.clearLayers()
     	L.KSP.CelestialBody.EELOO.overlays.Debris.clearLayers()
 		L.KSP.CelestialBody.EELOO.overlays.Vessels.clearLayers()
 		L.KSP.CelestialBody.POL.overlays.Debris.clearLayers()
@@ -239,6 +383,21 @@
 		L.KSP.CelestialBody.EVE.overlays.Vessels.clearLayers()
 		L.KSP.CelestialBody.MOHO.overlays.Debris.clearLayers()
 		L.KSP.CelestialBody.MOHO.overlays.Vessels.clearLayers()
+    	L.KSP.CelestialBody.EELOO.overlays.Kerbals.clearLayers()
+		L.KSP.CelestialBody.POL.overlays.Kerbals.clearLayers()
+		L.KSP.CelestialBody.BOP.overlays.Kerbals.clearLayers()
+		L.KSP.CelestialBody.TYLO.overlays.Kerbals.clearLayers()
+		L.KSP.CelestialBody.VALL.overlays.Kerbals.clearLayers()
+		L.KSP.CelestialBody.LAYTHE.overlays.Kerbals.clearLayers()
+		L.KSP.CelestialBody.DRES.overlays.Kerbals.clearLayers()
+		L.KSP.CelestialBody.IKE.overlays.Kerbals.clearLayers()
+		L.KSP.CelestialBody.DUNA.overlays.Kerbals.clearLayers()
+		L.KSP.CelestialBody.MINMUS.overlays.Kerbals.clearLayers()
+		L.KSP.CelestialBody.MUN.overlays.Kerbals.clearLayers()
+		L.KSP.CelestialBody.KERBIN.overlays.Kerbals.clearLayers()
+		L.KSP.CelestialBody.GILLY.overlays.Kerbals.clearLayers()
+		L.KSP.CelestialBody.EVE.overlays.Kerbals.clearLayers()
+		L.KSP.CelestialBody.MOHO.overlays.Kerbals.clearLayers()
     }
     //Obtain JSON
     function updateMap() {
