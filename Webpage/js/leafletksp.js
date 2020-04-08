@@ -8414,19 +8414,19 @@ function(t, i) {
         "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
             Anomalies: L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_ANOMALY, [L.marker([.1023, -74.5684], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("0.1023 : -74.5684"), L.marker([20.6709, -146.4968], {
+            }).bindPopup("<strong>Anomaly</strong><br>0.1023 : -74.5684"), L.marker([20.6709, -146.4968], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("20.6709 : -146.4968"), L.marker([35.5705, -74.9773], {
+            }).bindPopup("<strong>Anomaly</strong><br>20.6709 : -146.4968"), L.marker([35.5705, -74.9773], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("35.5705 : -74.9773"), L.marker([-.6402, -80.7668], {
+            }).bindPopup("<strong>Anomaly</strong><br>35.5705 : -74.9773"), L.marker([-.6402, -80.7668], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("-0.6402 : -80.7668"), L.marker([-28.8083, -13.4401], {
+            }).bindPopup("<strong>Anomaly</strong><br>-0.6402 : -80.7668"), L.marker([-28.8083, -13.4401], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("-28.8083 : -13.4401"), L.marker([-6.5057, -141.6856], {
+            }).bindPopup("<strong>Anomaly</strong><br>-28.8083 : -13.4401"), L.marker([-6.5057, -141.6856], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("-6.5057 : -141.6856"), L.marker([81.9551, -128.518], {
+            }).bindPopup("<strong>Anomaly</strong><br>-6.5057 : -141.6856"), L.marker([81.9551, -128.518], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("-81.9551 : -128.518")]),
+            }).bindPopup("<strong>Anomaly</strong><br>-81.9551 : -128.518")]),
             "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([61.5784, 46.3733], {
                 icon: L.KSP.Icon.HIGHPOS
             }).bindPopup("<strong>Highest Elevation</strong><br>6761.0483 m<br>61.5784 : 46.3733"), L.marker([-28.905, -83.1116], {
@@ -8490,21 +8490,21 @@ function(t, i) {
         "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
             Anomalies: L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_ANOMALY, [L.marker([-9.8314, 25.9177], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("-9.8314 : 25.9177"), L.marker([-82.2063, 102.9305], {
+            }).bindPopup("<strong>Anomaly</strong><br>-9.8314 : 25.9177"), L.marker([-82.2063, 102.9305], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("-82.2063 : 102.9305"), L.marker([57.6604, 9.1422], {
+            }).bindPopup("<strong>Anomaly</strong><br>-82.2063 : 102.9305"), L.marker([57.6604, 9.1422], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("57.6604 : 9.1422"), L.marker([2.4695, 81.5133], {
+            }).bindPopup("<strong>Anomaly</strong><br>57.6604 : 9.1422"), L.marker([2.4695, 81.5133], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("2.4695 : 81.5133"), L.marker([12.4432, 39.178], {
+            }).bindPopup("<strong>Anomaly</strong><br>2.4695 : 81.5133"), L.marker([12.4432, 39.178], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("12.4432 : 39.1780"), L.marker([-12.4431, -140.822], {
+            }).bindPopup("<strong>Anomaly</strong><br>12.4432 : 39.1780"), L.marker([-12.4431, -140.822], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("-12.4431 : -140.8220"), L.marker([.7027, 22.747], {
+            }).bindPopup("<strong>Anomaly</strong><br>-12.4431 : -140.8220"), L.marker([.7027, 22.747], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("0.7027 : 22.7470"), L.marker([-70.9556, -68.1378], {
+            }).bindPopup("<strong>Anomaly</strong><br>0.7027 : 22.7470"), L.marker([-70.9556, -68.1378], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("-70.9556,-68.1378")]),
+            }).bindPopup("<strong>Anomaly</strong><br>-70.9556,-68.1378")]),
             "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([-82.5183, -152.3254], {
                 icon: L.KSP.Icon.HIGHPOS
             }).bindPopup("<strong>Highest Elevation</strong><br>7061.1416 m<br>-82.5183 : -152.3254"), L.marker([35.321, -76.6296], {
@@ -8549,7 +8549,7 @@ function(t, i) {
         "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
             Anomalies: L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_ANOMALY, [L.marker([23.7768, 60.0462], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("23.7768 : 60.0462")]),
+            }).bindPopup("<strong>Anomaly</strong><br>23.7768 : 60.0462")]),
             "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([-62.9297, 74.729], {
                 icon: L.KSP.Icon.HIGHPOS
             }).bindPopup("<strong>Highest Elevation</strong><br>5724.6001 m<br>-62.9297 : 74.7290")])
@@ -8594,11 +8594,11 @@ function(t, i) {
         "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
             Anomalies: L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_ANOMALY, [L.marker([17.0483, -85.4717], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("17.0483 : -85.4717"), L.marker([-30.3525, -28.6828], {
+            }).bindPopup("<strong>Anomaly</strong><br>17.0483 : -85.4717"), L.marker([-30.3525, -28.6828], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("-30.3525 : -28.6828"), L.marker([-66.1344, -160.7432], {
+            }).bindPopup("<strong>Anomaly</strong><br>-30.3525 : -28.6828"), L.marker([-66.1344, -160.7432], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("-66.1344 : -160.7432")]),
+            }).bindPopup("<strong>Anomaly</strong><br>-66.1344 : -160.7432")]),
             "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([20.885, -106.7981], {
                 icon: L.KSP.Icon.HIGHPOS
             }).bindPopup("<strong>Highest Elevation</strong><br>8264.3242 m<br>20.8850 : -106.7981"), L.marker([-5.9436, -50.5481], {
@@ -8794,7 +8794,7 @@ function(t, i) {
         "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
             Anomalies: L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_ANOMALY, [L.marker([-60.3289, 84.0579], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("-60.3289 : 84.0579")]),
+            }).bindPopup("<strong>Anomaly</strong><br>-60.3289 : 84.0579")]),
             "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([-57.4915, -144.4592], {
                 icon: L.KSP.Icon.HIGHPOS
             }).bindPopup("<strong>Highest Elevation</strong><br>7989.1372 m<br>-57.4915 : -144.4592"), L.marker([11.6345, 145.4919], {
@@ -8845,9 +8845,9 @@ function(t, i) {
         "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
             Anomalies: L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_ANOMALY, [L.marker([-8.9969, 17.7375], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("-8.9969 : 17.7375"), L.marker([40.2671, 174.0467], {
+            }).bindPopup("<strong>Anomaly</strong><br>-8.9969 : 17.7375"), L.marker([40.2671, 174.0467], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("40.2671 : 174.0467")]),
+            }).bindPopup("<strong>Anomaly</strong><br>40.2671 : 174.0467")]),
             "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([-51.7786, 20.5774], {
                 icon: L.KSP.Icon.HIGHPOS
             }).bindPopup("<strong>Highest Elevation</strong><br>11282.5488 m<br>-51.7786 : 20.5774")])
@@ -8894,7 +8894,7 @@ function(t, i) {
         "SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT),
             Anomalies: L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_ANOMALY, [L.marker([68.211, 118.4473], {
                 icon: L.KSP.Icon.ANOMALY
-            }).bindPopup("68.211 : 118.4473")]),
+            }).bindPopup("<strong>Anomaly</strong><br>68.211 : 118.4473")]),
             "Points of Interest": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_POI, [L.marker([23.8733, -64.5667], {
                 icon: L.KSP.Icon.HIGHPOS
             }).bindPopup("<strong>Highest Elevation</strong><br>21754.9961 m<br>23.8733 : -64.5667"), L.marker([37.5842, -139.2737], {
