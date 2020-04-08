@@ -33,8 +33,9 @@ namespace MapUpdater
         public static string MapConfigFolder;
         public static string EscapeVesselHash;
         public static bool SetupFinished = false;
+        public static bool SaveJSONSetting = false;
+        public static bool SendJSONSetting = false;
         public static String FinalSentVesselsList;
-        private int ServerClockLast = 0;
         
         public override void OnServerStart()
         {
@@ -71,11 +72,19 @@ namespace MapUpdater
                 {
                     updateCallCount = 0;
                     CreateJSON.CreateSentJSON();
-                    SendJSON.SendJSONData(FinalSentVesselsList, PostURL);
-                    //Default URL warning
-                    if (PostURL == "https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7")
+                    if (SaveJSONSetting)
                     {
-                        DarkLog.Error("\n---\nJSON posted to https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7\nThe 'PostURL' value in the config should be changed ASAP. \nYou will need to run the command '/reloadmap' to reload the config.\n---");
+                        byte[] FinalSentVesselsDataList = Encoding.Default.GetBytes(FinalSentVesselsList);
+                        File.WriteAllBytes(MapPluginFolder + "/SavedJSON.json", FinalSentVesselsDataList);
+                    }
+                    if (SendJSONSetting)
+                    {
+                        SendJSON.SendJSONData(FinalSentVesselsList, PostURL);
+                        //Default URL warning
+                        if (PostURL == "https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7")
+                        {
+                            DarkLog.Error("\n---\nJSON posted to https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7\nThe 'PostURL' value in the config should be changed ASAP. \nYou will need to run the command '/reloadmap' to reload the config.\n---");
+                        }
                     }
                 }
                 else
