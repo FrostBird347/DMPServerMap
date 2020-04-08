@@ -25,6 +25,7 @@ namespace MapUpdater
         private int updateCallCount = 0;
         public static double UploadFrequency = 300000;
         public static double SOIAdd;
+        public static double SendTimeout;
         public static string PostURL;
         public static string SharedPluginDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PluginData");
         public static string MapPluginFolder;
@@ -37,18 +38,29 @@ namespace MapUpdater
         
         public override void OnServerStart()
         {
-            DarkLog.Debug("[MapUpdater] Starting!");
+            DarkLog.Normal("[MapUpdater] Starting!");
             MapPluginFolder = SharedPluginDirectory + "/DMPServerMap-FrostBird347";
             VesselPosFolder = MapPluginFolder + "/VesselPos";
             MapConfigFolder = MapPluginFolder + "/Config";
             EscapeVesselHash = MapPluginFolder + "/SOI_Fix";
             Setup.SetUpFolders(SharedPluginDirectory, MapPluginFolder, VesselPosFolder, MapConfigFolder, EscapeVesselHash);
             Setup.SetUpConfig(MapConfigFolder);
+            CommandHandler.RegisterCommand("reloadmap", ReloadConfig, "Reload the MapUpdater plugin's config.");
+            DarkLog.Normal("[MapUpdater] Started!");
         }
 
         public override void OnServerStop()
         {
             DarkLog.Debug("[MapUpdater] Stopping!");
+        }
+
+        public void ReloadConfig(string input)
+        {
+            SetupFinished = false;
+            DarkLog.Normal("[MapUpdater] Reloading config...");
+            Setup.SetUpFolders(SharedPluginDirectory, MapPluginFolder, VesselPosFolder, MapConfigFolder, EscapeVesselHash);
+            Setup.SetUpConfig(MapConfigFolder);
+            DarkLog.Normal("[MapUpdater] Finished.");
         }
 
         public override void OnUpdate()
@@ -59,25 +71,11 @@ namespace MapUpdater
                 {
                     updateCallCount = 0;
                     CreateJSON.CreateSentJSON();
-                    //TODO: send the request in C# instead of launching an executable.
-                    Process proc = new Process
-                    {
-                        StartInfo = new ProcessStartInfo
-                        {
-                            FileName = "/opt/local/bin/curl",
-                            //TODO: Get URL from a config.
-                            Arguments = " -i -X \"PUT\" -d \'" + FinalSentVesselsList + "\' -H \"Content-Type: application/json\" -H \"Accept: application/json\" " + PostURL,
-                            UseShellExecute = false,
-                            RedirectStandardOutput = true,
-                            RedirectStandardError = true,
-                            CreateNoWindow = true
-                        }
-                    };
-                    proc.Start();
+                    SendJSON.SendJSONData(FinalSentVesselsList, PostURL);
                     //Default URL warning
                     if (PostURL == "https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7")
                     {
-                        DarkLog.Error("\n---\nJSON posted to https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7\nThe 'PostURL' value in the config should be changed ASAP. \nYou will need to restart the server to reload the config.\n---");
+                        DarkLog.Error("\n---\nJSON posted to https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7\nThe 'PostURL' value in the config should be changed ASAP. \nYou will need to run the command '/reloadmap' to reload the config.\n---");
                     }
                 }
                 else
