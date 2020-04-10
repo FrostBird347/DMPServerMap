@@ -61,91 +61,91 @@ async function startMapUpdate() {
                     if (element[6] == "Debris") {
                         var newmarker = [L.marker([element[0], element[1]], {
                             icon: L.KSP.Icon.DEBRIS
-                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6])];
+                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8])];
                         icon = L.KSP.Icon.DEBRIS
                         MarkerMode = "D"
                     } else if (element[6] == "SpaceObject") {
                         var newmarker = [L.marker([element[0], element[1]], {
                             icon: L.KSP.Icon.VESSELSpaceObject
-                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6])];
+                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8])];
                         icon = L.KSP.Icon.VESSELSpaceObject
                         MarkerMode = "O"
                     } else if (element[6] == "Probe") {
                         var newmarker = [L.marker([element[0], element[1]], {
                             icon: L.KSP.Icon.VESSELProbe
-                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6])];
+                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8])];
                         icon = L.KSP.Icon.VESSELProbe
                         MarkerMode = "V"
                     } else if (element[6] == "Relay") {
                         var newmarker = [L.marker([element[0], element[1]], {
                             icon: L.KSP.Icon.VESSELRelay
-                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6])];
+                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8])];
                         icon = L.KSP.Icon.VESSELRelay
                         MarkerMode = "V"
                     } else if (element[6] == "Rover") {
                         var newmarker = [L.marker([element[0], element[1]], {
                             icon: L.KSP.Icon.VESSELRover
-                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6])];
+                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8])];
                         icon = L.KSP.Icon.VESSELRover
                         MarkerMode = "V"
                     } else if (element[6] == "Lander") {
                         var newmarker = [L.marker([element[0], element[1]], {
                             icon: L.KSP.Icon.VESSELLander
-                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6])];
+                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8])];
                         icon = L.KSP.Icon.VESSELLander
                         MarkerMode = "V"
                     } else if (element[6] == "Ship") {
                         var newmarker = [L.marker([element[0], element[1]], {
                             icon: L.KSP.Icon.VESSELShip
-                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6])];
+                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8])];
                         icon = L.KSP.Icon.VESSELShip
                         MarkerMode = "V"
                     } else if (element[6] == "Plane") {
                         var newmarker = [L.marker([element[0], element[1]], {
                             icon: L.KSP.Icon.VESSELPlane
-                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6])];
+                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8])];
                         icon = L.KSP.Icon.VESSELPlane
                         MarkerMode = "V"
                     } else if (element[6] == "Station") {
                         var newmarker = [L.marker([element[0], element[1]], {
                             icon: L.KSP.Icon.VESSELStation
-                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6])];
+                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8])];
                         MarkerMode = "V"
                         icon = L.KSP.Icon.VESSELStation
                     } else if (element[6] == "Base") {
                         var newmarker = [L.marker([element[0], element[1]], {
                             icon: L.KSP.Icon.VESSELBase
-                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6])];
+                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8])];
                         MarkerMode = "V"
                         icon = L.KSP.Icon.VESSELBase
                     } else if (element[6] == "EVA") {
                         var newmarker = [L.marker([element[0], element[1]], {
                             icon: L.KSP.Icon.VESSELEVA
-                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6])];
+                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8])];
                         MarkerMode = "V"
                         icon = L.KSP.Icon.VESSELEVA
                     } else if (element[6] == "Flag") {
                         var newmarker = [L.marker([element[0], element[1]], {
                             icon: L.KSP.Icon.VESSELFlag
-                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6])];
+                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8])];
                         MarkerMode = "V"
                         icon = L.KSP.Icon.VESSELFlag
                     } else if (element[6] == "DeployedScienceController") {
                         var newmarker = [L.marker([element[0], element[1]], {
                             icon: L.KSP.Icon.VESSELDeployedScienceController
-                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6])];
+                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8])];
                         MarkerMode = "V"
                         icon = L.KSP.Icon.VESSELDeployedScienceController
                     } else if (element[6] == "DeployedSciencePart") {
                         var newmarker = [L.marker([element[0], element[1]], {
                             icon: L.KSP.Icon.VESSELDeployedSciencePart
-                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6])];
+                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8])];
                         MarkerMode = "V"
                         icon = L.KSP.Icon.VESSELDeployedSciencePart
                     } else {
                         var newmarker = [L.marker([element[0], element[1]], {
                             icon: L.KSP.Icon.VESSELUnknown
-                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6])];
+                        }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8])];
                         MarkerMode = "V"
                         icon = L.KSP.Icon.VESSELUnknown
                     }
@@ -163,7 +163,7 @@ async function startMapUpdate() {
                             IsNewMarker = "Y"
                             MapIDPlanet.push(element[2])
                         }
-                        var bindthing = "<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6]
+                        var bindthing = "<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8]
                         if (IsNewMarker != "Y") {
                             UpdateMarker(newmarker, MarkerMode, element[2], MarkerIDIndex, MapID, MapIDUpdate[MarkerIDIndex], IsNewMarker, element, icon, bindthing)
                         } else {

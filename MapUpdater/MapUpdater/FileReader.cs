@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using DarkMultiPlayerServer;
 using MapUpdater;
 
@@ -30,13 +31,19 @@ namespace MapUpdater
             } 
             
                 return FinalVesselValue;
-
         }
 
         public static string GetConfigValue(string Value)
         {
             string MapConfigFile = Main.MapConfigFolder + "/MapUpdater.txt";
             return GetSavedValue(MapConfigFile, Value).Trim('"');
+        }
+
+        public static string GetPermissionValue(string VesselFile, int linevalue)
+        {
+            int newlinevalue = linevalue - 1;
+            return File.ReadLines(VesselFile).Skip(newlinevalue).Take(1).First();
+
         }
 
     }

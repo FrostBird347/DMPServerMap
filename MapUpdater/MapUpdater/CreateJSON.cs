@@ -21,7 +21,7 @@ namespace MapUpdater
             foreach (string vesselFile in FullvesselList)
             {
                 string vesselID = Path.GetFileNameWithoutExtension(vesselFile);
-                if (vesselID.Length == 36 && !EscapeDetect.HasEscaped(vesselFile))
+                if (vesselID.Length == 36 && !EscapeDetect.HasEscaped(vesselFile) && !VesselCheck.VesselisPrivate(vesselFile))
                 {
                     PreShortVesselList.Add(vesselFile);
                 }
@@ -43,6 +43,19 @@ namespace MapUpdater
             string vesselID = Path.GetFileNameWithoutExtension(vesselFile);
             string VesselPosFile = Main.VesselPosFolder + "/" + vesselID + ".txt";
             string VesselPosString = FileReader.GetSavedValue(VesselPosFile, "pos");
+            string VesselPermissionsFile = Main.VesselPermissionFolder + "/" + vesselID + ".txt";
+            string VesselPermission;
+            string VesselOwner;
+            try
+            {
+                VesselPermission = FileReader.GetPermissionValue(VesselPermissionsFile, 2);
+                VesselOwner = FileReader.GetPermissionValue(VesselPermissionsFile, 1);
+            }
+            catch
+            {
+                VesselPermission = "Error";
+                VesselOwner = "Error";
+            }
             try
             {
                 VesselPosJArray = JArray.Parse(VesselPosString);
@@ -52,7 +65,7 @@ namespace MapUpdater
                 VesselPosJArray = new JArray(new JValue("NaN"), new JValue("NaN"), new JValue("NaN"));
             }
             string[] VesselPosArray = VesselPosJArray.ToObject<string[]>();
-            JArray VesselsJSON = new JArray(new JValue(VesselPosArray[0].ToString()), new JValue(VesselPosArray[1].ToString()), new JValue(FileReader.GetSavedValue(vesselFile, "REF")), new JValue(VesselPosArray[2].ToString()), new JValue(FileReader.GetSavedValue(VesselPosFile, "vel")), new JValue(FileReader.GetSavedValue(vesselFile, "name")), new JValue(FileReader.GetSavedValue(vesselFile, "type")), new JValue(vesselID));
+            JArray VesselsJSON = new JArray(new JValue(VesselPosArray[0].ToString()), new JValue(VesselPosArray[1].ToString()), new JValue(FileReader.GetSavedValue(vesselFile, "REF")), new JValue(VesselPosArray[2].ToString()), new JValue(FileReader.GetSavedValue(VesselPosFile, "vel")), new JValue(FileReader.GetSavedValue(vesselFile, "name")), new JValue(FileReader.GetSavedValue(vesselFile, "type")), new JValue(vesselID), new JValue(VesselPermission), new JValue(VesselOwner));
             return VesselsJSON;
         }
 

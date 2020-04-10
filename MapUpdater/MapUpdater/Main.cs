@@ -28,6 +28,7 @@ namespace MapUpdater
         public static double SendTimeout;
         public static string PostURL;
         public static string SharedPluginDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PluginData");
+        public static string VesselPermissionFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Universe", "Permissions", "Vessels");
         public static string MapPluginFolder;
         public static string VesselPosFolder;
         public static string MapConfigFolder;
@@ -35,6 +36,7 @@ namespace MapUpdater
         public static bool SetupFinished = false;
         public static bool SaveJSONSetting = false;
         public static bool SendJSONSetting = false;
+        public static bool HidePrivateVessels = false;
         public static String FinalSentVesselsList;
         
         public override void OnServerStart()

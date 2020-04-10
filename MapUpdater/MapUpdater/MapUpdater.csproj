@@ -41,6 +41,7 @@
     <Compile Include="EscapeDetect.cs" />
     <Compile Include="CreateJSON.cs" />
     <Compile Include="SendJSON.cs" />
+    <Compile Include="VesselCheck.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DarkMultiPlayer-Common">

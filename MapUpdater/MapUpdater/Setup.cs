@@ -36,7 +36,7 @@ namespace MapUpdater
         {
             if (!File.Exists(MapConfigFolder + "/MapUpdater.txt"))
             {
-                byte[] NewConfigData = Encoding.Default.GetBytes("MapUpdater Config:\n\\\\Upload_Frequency: JSON data is uploaded every --- seconds.\n\\\\PostURL: Url that the JSON is posted to. CHANGE IT FROM THE DEFAULT VALUE ASAP!\n\\\\SOI_Fix: A higher value can increase the likelyhood of a marker not being removed when it should. https://github.com/FrostBird347/DMPServerMap/issues/1 \n\\\\SendJSONTimeout: In seconds.\n");
+                byte[] NewConfigData = Encoding.Default.GetBytes("MapUpdater Config:\n");
                 File.WriteAllBytes(MapConfigFolder + "/MapUpdater.txt", NewConfigData);
             }
             Main.UploadFrequency = SetupConfigVarDouble(MapConfigFolder, "Upload_Frequency", 3);
@@ -45,6 +45,7 @@ namespace MapUpdater
             Main.SendTimeout = SetupConfigVarDouble(MapConfigFolder, "SendJSONTimeout", 10);
             Main.SendJSONSetting = SetupConfigVarBool(MapConfigFolder, "SendJSON", false);
             Main.SaveJSONSetting = SetupConfigVarBool(MapConfigFolder, "SaveJSON", true);
+            Main.HidePrivateVessels = SetupConfigVarBool(MapConfigFolder, "HidePrivateVessels", false);
             Main.SetupFinished = true;
         }
 
