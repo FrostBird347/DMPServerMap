@@ -4533,6 +4533,9 @@ function(t, i, s) {
                 latlng: this._latlng
             })
         },
+        isOpen: function() {
+            return !!this._map && this._map.hasLayer(this)
+        },
         setZIndexOffset: function(t) {
             return this.options.zIndexOffset = t,
             this.update(),
@@ -4843,6 +4846,9 @@ function(t, i, s) {
             this._popup || this.on("click", this.openPopup, this).on("remove", this.closePopup, this).on("move", this._movePopup, this),
             this._popup = new e.Popup(i,this).setContent(t),
             this
+        },
+        isPopupOpen: function() {
+            return !!this._popup && this._map.hasLayer(this._popup)
         },
         unbindPopup: function() {
             return this._popup && (this._popup = null,
@@ -5497,6 +5503,9 @@ function(t, i, s) {
         setLatLngs: function(t) {
             return this._latlngs = this._convertLatLngs(t),
             this.redraw()
+        },
+        isOpen: function() {
+            return !!this._map && this._map.hasLayer(this)
         },
         addLatLng: function(t) {
             return this._latlngs.push(e.latLng(t)),
