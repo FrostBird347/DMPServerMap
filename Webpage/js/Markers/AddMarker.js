@@ -44,11 +44,7 @@ function AddMarker(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate, IsNewM
         if (Planet == 0) {
             //There is no map for the sun.
         } else if (Planet == 1) {
-            if (MapUpdate == "Y") {
-                MapMarkerArray[MarkerIDIndex] = Marker[0]
-            } else {
-                MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.KERBIN.overlays.SpaceObjects)
-            }
+            MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.KERBIN.overlays.SpaceObjects)
         } else if (Planet == 2) {
             MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.MUN.overlays.SpaceObjects)
         } else if (Planet == 3) {
@@ -87,11 +83,7 @@ function AddMarker(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate, IsNewM
         if (Planet == 0) {
             //There is no map for the sun.
         } else if (Planet == 1) {
-            if (MapUpdate == "Y") {
-                MapMarkerArray[MarkerIDIndex] = Marker[0]
-            } else {
-                MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.KERBIN.overlays.Kerbals)
-            }
+            MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.KERBIN.overlays.Kerbals)
         } else if (Planet == 2) {
             MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.MUN.overlays.Kerbals)
         } else if (Planet == 3) {
@@ -130,11 +122,7 @@ function AddMarker(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate, IsNewM
         if (Planet == 0) {
             //There is no map for the sun.
         } else if (Planet == 1) {
-            if (MapUpdate == "Y") {
-                MapMarkerArray[MarkerIDIndex] = Marker[0]
-            } else {
-                MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.KERBIN.overlays.Flags)
-            }
+            MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.KERBIN.overlays.Flags)
         } else if (Planet == 2) {
             MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.MUN.overlays.Flags)
         } else if (Planet == 3) {

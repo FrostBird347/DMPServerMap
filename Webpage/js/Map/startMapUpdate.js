@@ -122,13 +122,13 @@ async function startMapUpdate() {
                         var newmarker = [L.marker([element[0], element[1]], {
                             icon: L.KSP.Icon.VESSELEVA
                         }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8])];
-                        MarkerMode = "V"
+                        MarkerMode = "K"
                         icon = L.KSP.Icon.VESSELEVA
                     } else if (element[6] == "Flag") {
                         var newmarker = [L.marker([element[0], element[1]], {
                             icon: L.KSP.Icon.VESSELFlag
                         }).bindPopup("<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8])];
-                        MarkerMode = "V"
+                        MarkerMode = "F"
                         icon = L.KSP.Icon.VESSELFlag
                     } else if (element[6] == "DeployedScienceController") {
                         var newmarker = [L.marker([element[0], element[1]], {
