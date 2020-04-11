@@ -17,6 +17,10 @@ async function startMapUpdate() {
             })
             UpdateMarkerJSON.Main.ID.forEach((element) => {
                 if (element[0] != "nil" && element[0] != "NaN") {
+                	//xss fix
+                	element.forEach(function(part, index, FullArray) {
+                		FullArray[index] = basicxss(part)
+                	})
                     //Height stuff
                     var height = Math.round(element[3])
                     var heightstatus = " m"
@@ -54,6 +58,10 @@ async function startMapUpdate() {
                         velocity = Math.round(velocity)
                         velocity = velocity / 100
                         velocitystatus = " km/s"
+                    }
+                    if (element[8] == "File_Missing") {
+                    	element[8] = "PUBLIC"
+                    	element[9] = "<span style='color:red'>None</span>"
                     }
                     MarkerMode = "V"
                     //https://kerbalspaceprogram.com/api/_vessel_8cs.html#afa39c7ec7cc0926b332fcd2d77425edb
