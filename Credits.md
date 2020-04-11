@@ -7,7 +7,7 @@
 # Map credits
 
 ## Telemachus Reborn
-Without [Telemachus Reborn](https://forum.kerbalspaceprogram.com/index.php?/topic/179887-telemachus-reborn-ksp-v15x-17x/)'s map, I likely would have never made this plugin.
+Without [Telemachus Reborn](https://forum.kerbalspaceprogram.com/index.php?/topic/179887-telemachus-reborn-ksp-v15x-17x/)'s map, I would have never made this plugin.
 
 ## Kerbal Maps
 [Kerbal Maps](https://forum.kerbalspaceprogram.com/index.php?/topic/23154-022-kerbal-maps-web-maps-of-all-bodies-biomes-and-text-info-v011-oct-8/) for the map, which both Telemachus and this plugin uses.
