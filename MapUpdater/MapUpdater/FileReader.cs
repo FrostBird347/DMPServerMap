@@ -15,20 +15,24 @@ namespace MapUpdater
             string findvalue = VesselValue + " =";
             string FinalVesselValue = "nil";
             bool foundvar = false;
-            using (StreamReader sr = new StreamReader(VesselFile))
+
+            if (File.Exists(VesselFile))
             {
-                string currentLine = sr.ReadLine();
-                while (currentLine != null && !foundvar)
+                using (StreamReader sr = new StreamReader(VesselFile))
                 {
-                    string trimmedLine = currentLine.Trim();
-                    if (trimmedLine.Trim().StartsWith(findvalue, StringComparison.Ordinal))
+                    string currentLine = sr.ReadLine();
+                    while (currentLine != null && !foundvar)
                     {
-                        FinalVesselValue = trimmedLine.Substring(trimmedLine.IndexOf("=", StringComparison.Ordinal) + 2);
-                        foundvar = true;
+                        string trimmedLine = currentLine.Trim();
+                        if (trimmedLine.Trim().StartsWith(findvalue, StringComparison.Ordinal))
+                        {
+                            FinalVesselValue = trimmedLine.Substring(trimmedLine.IndexOf("=", StringComparison.Ordinal) + 2);
+                            foundvar = true;
+                        }
+                        currentLine = sr.ReadLine();
                     }
-                    currentLine = sr.ReadLine();
                 }
-            } 
+            }
             
                 return FinalVesselValue;
         }
@@ -42,8 +46,11 @@ namespace MapUpdater
         public static string GetPermissionValue(string VesselFile, int linevalue)
         {
             int newlinevalue = linevalue - 1;
-            return File.ReadLines(VesselFile).Skip(newlinevalue).Take(1).First();
-
+            if (File.Exists(VesselFile))
+            {
+                return File.ReadLines(VesselFile).Skip(newlinevalue).Take(1).First();
+            }
+            return "File_Missing";
         }
 
     }
