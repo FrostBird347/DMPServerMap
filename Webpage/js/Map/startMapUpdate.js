@@ -1,7 +1,6 @@
 async function startMapUpdate() {
     while (true) {
         const result = await updateMap();
-        SetCredits()
         MapIDUpdate.forEach(function(part, index, FullArray) {
             try {
                 if (part == "N") {

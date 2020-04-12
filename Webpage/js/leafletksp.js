@@ -7781,7 +7781,11 @@ function(t, i) {
             TYPE_SATELLITE: 0,
             TYPE_COLORRELIEF: 1,
             TYPE_SLOPE: 2,
-            DEFAULT_URL: "http://ksp.deringenieur.net/kmaps/tiles/{body}/{style}/{z}/{x}/{y}.png"
+            TYPE_SATELLITE2: 3,
+            TYPE_SATELLITE3: 4,
+            DEFAULT_URL: "http://ksp.deringenieur.net/kmaps/tiles/{body}/{style}/{z}/{x}/{y}.png",
+            ALT_URL: "http://d3kmnwgldcmvsd.cloudfront.net/tiles/{body}/{style}/{z}/{x}/{y}.png",
+            ALT_URL2: "./img/AltTileLoad.png?{body}/{style}/{z}/{x}/{y}"
         },
         options: {
             continuousWorld: !1,
@@ -8226,8 +8230,15 @@ function(t, i) {
         baseLayers: {
             Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "moho",
-                style: "sat",
-                maxZoom: 4
+                style: "sat"
+            }),
+            "Alternate Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE2, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "moho",
+                style: "sat"
+            }),
+            "Hybrid Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE3, L.KSP.TileLayer.ALT_URL2, L.KSP.CRS.EPSG4326, {
+                body: "moho",
+                style: "sat"
             }),
             "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "moho",
@@ -8273,8 +8284,15 @@ function(t, i) {
         baseLayers: {
             Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "eve",
-                style: "sat",
-                maxZoom: 4
+                style: "sat"
+            }),
+            "Alternate Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE2, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "eve",
+                style: "sat"
+            }),
+            "Hybrid Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE3, L.KSP.TileLayer.ALT_URL2, L.KSP.CRS.EPSG4326, {
+                body: "eve",
+                style: "sat"
             }),
             "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "eve",
@@ -8323,8 +8341,15 @@ function(t, i) {
         baseLayers: {
             Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "gilly",
-                style: "sat",
-                maxZoom: 4
+                style: "sat"
+            }),
+            "Alternate Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE2, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "gilly",
+                style: "sat"
+            }),
+            "Hybrid Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE3, L.KSP.TileLayer.ALT_URL2, L.KSP.CRS.EPSG4326, {
+                body: "gilly",
+                style: "sat"
             }),
             "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "gilly",
@@ -8366,8 +8391,15 @@ function(t, i) {
         baseLayers: {
             Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "kerbin",
-                style: "sat",
-                maxZoom: 4
+                style: "sat"
+            }),
+            "Alternate Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE2, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "kerbin",
+                style: "sat"
+            }),
+            "Hybrid Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE3, L.KSP.TileLayer.ALT_URL2, L.KSP.CRS.EPSG4326, {
+                body: "kerbin",
+                style: "sat"
             }),
             "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "kerbin",
@@ -8456,6 +8488,14 @@ function(t, i) {
                 body: "mun",
                 style: "sat"
             }),
+            "Alternate Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE2, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "mun",
+                style: "sat"
+            }),
+            "Hybrid Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE3, L.KSP.TileLayer.ALT_URL2, L.KSP.CRS.EPSG4326, {
+                body: "mun",
+                style: "sat"
+            }),
             "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "mun",
                 style: "color",
@@ -8534,6 +8574,14 @@ function(t, i) {
                 style: "sat",
                 body: "minmus"
             }),
+            "Alternate Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE2, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "minmus",
+                style: "sat"
+            }),
+            "Hybrid Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE3, L.KSP.TileLayer.ALT_URL2, L.KSP.CRS.EPSG4326, {
+                body: "minmus",
+                style: "sat"
+            }),
             "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 style: "color",
                 body: "minmus",
@@ -8576,6 +8624,14 @@ function(t, i) {
             Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 style: "sat",
                 body: "duna"
+            }),
+            "Alternate Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE2, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "duna",
+                style: "sat"
+            }),
+            "Hybrid Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE3, L.KSP.TileLayer.ALT_URL2, L.KSP.CRS.EPSG4326, {
+                body: "duna",
+                style: "sat"
             }),
             "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 style: "color",
@@ -8628,6 +8684,14 @@ function(t, i) {
                 style: "sat",
                 body: "ike"
             }),
+            "Alternate Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE2, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "ike",
+                style: "sat"
+            }),
+            "Hybrid Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE3, L.KSP.TileLayer.ALT_URL2, L.KSP.CRS.EPSG4326, {
+                body: "ike",
+                style: "sat"
+            }),
             "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 style: "color",
                 body: "ike",
@@ -8673,8 +8737,15 @@ function(t, i) {
         baseLayers: {
             Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "dres",
-                style: "sat",
-                maxZoom: 4
+                style: "sat"
+            }),
+            "Alternate Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE2, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "dres",
+                style: "sat"
+            }),
+            "Hybrid Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE3, L.KSP.TileLayer.ALT_URL2, L.KSP.CRS.EPSG4326, {
+                body: "dres",
+                style: "sat"
             }),
             "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "dres",
@@ -8725,8 +8796,15 @@ function(t, i) {
         baseLayers: {
             Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "laythe",
-                style: "sat",
-                maxZoom: 4
+                style: "sat"
+            }),
+            "Alternate Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE2, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "laythe",
+                style: "sat"
+            }),
+            "Hybrid Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE3, L.KSP.TileLayer.ALT_URL2, L.KSP.CRS.EPSG4326, {
+                body: "laythe",
+                style: "sat"
             }),
             "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "laythe",
@@ -8774,8 +8852,15 @@ function(t, i) {
         baseLayers: {
             Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "vall",
-                style: "sat",
-                maxZoom: 4
+                style: "sat"
+            }),
+            "Alternate Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE2, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "vall",
+                style: "sat"
+            }),
+            "Hybrid Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE3, L.KSP.TileLayer.ALT_URL2, L.KSP.CRS.EPSG4326, {
+                body: "vall",
+                style: "sat"
             }),
             "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "vall",
@@ -8824,8 +8909,15 @@ function(t, i) {
         baseLayers: {
             Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "tylo",
-                style: "sat",
-                maxZoom: 4
+                style: "sat"
+            }),
+            "Alternate Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE2, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "tylo",
+                style: "sat"
+            }),
+            "Hybrid Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE3, L.KSP.TileLayer.ALT_URL2, L.KSP.CRS.EPSG4326, {
+                body: "tylo",
+                style: "sat"
             }),
             "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "tylo",
@@ -8875,8 +8967,15 @@ function(t, i) {
         baseLayers: {
             Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "bop",
-                style: "sat",
-                maxZoom: 4
+                style: "sat"
+            }),
+            "Alternate Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE2, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "bop",
+                style: "sat"
+            }),
+            "Hybrid Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE3, L.KSP.TileLayer.ALT_URL2, L.KSP.CRS.EPSG4326, {
+                body: "bop",
+                style: "sat"
             }),
             "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "bop",
@@ -8924,8 +9023,15 @@ function(t, i) {
         baseLayers: {
             Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "pol",
-                style: "sat",
-                maxZoom: 4
+                style: "sat"
+            }),
+            "Alternate Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE2, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "pol",
+                style: "sat"
+            }),
+            "Hybrid Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE3, L.KSP.TileLayer.ALT_URL2, L.KSP.CRS.EPSG4326, {
+                body: "pol",
+                style: "sat"
             }),
             "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "pol",
@@ -8970,8 +9076,15 @@ function(t, i) {
         baseLayers: {
             Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "eeloo",
-                style: "sat",
-                maxZoom: 4
+                style: "sat"
+            }),
+            "Alternate Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE2, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "eeloo",
+                style: "sat"
+            }),
+            "Hybrid Satellite": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE3, L.KSP.TileLayer.ALT_URL2, L.KSP.CRS.EPSG4326, {
+                body: "eeloo",
+                style: "sat"
             }),
             "Color Relief": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "eeloo",
