@@ -14,6 +14,7 @@ async function startMapUpdate() {
                     FullArray[index] = "N"
                 }
             })
+            UpdateStatusBarText(UpdateMarkerJSON.Main.Server)
             UpdateMarkerJSON.Main.ID.forEach((element) => {
                 if (element[0] != "nil" && element[0] != "NaN") {
                 	//xss fix

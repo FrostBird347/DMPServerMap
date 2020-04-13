@@ -25,6 +25,7 @@
 		<script type="text/javascript" src="js/Other/basicxss.js"></script>
 		<script type="text/javascript" src="js/Status/ToggleStatus.js"></script>
 		<script type="text/javascript" src="js/Status/StatusH.js"></script>
+		<script type="text/javascript" src="js/Status/UpdateStatusBarText.js"></script>
 		<script>
     	var UpdateMarkerJSON = JSON.parse('{"Main":{"ID":[[10,10, 13, "1000/10", 3000, "NOT A REAL SHIP", "Debris", "0154348e-2ac9-4401-92b1-3df5a4e3f650"],[-10,-10, 13, "100/10", 3000, "NOT A REAL SHIP", "SpaceObject", "d708e8e6-9c67-4fcb-ab01-283e2e2ba858"]]}}')
         var JSONURL = getJSONUrl();
@@ -38,14 +39,8 @@
 	<body onload="startMap(); MapFix();" style="padding: 0; margin: 0;">
 		<div id="sidebarslider" class="mainstatus sidebarslide">
 			<div id="statusbar" class="mainstatus statusbar">
-				<span>Server name: Loading...</span>
-				<br>
-				<span>Server version: <br>Loading...</span>
-				<span>Server port: <br>Loading...</span>
-				<span>Gamemode: <br>Loading...</span>
-				<span>Max players: <br>Loading...</span>
-				<span>Player count: <br>Loading...</span>
-				<span>Warp mode: <br>Loading...</span>
+				<span style='font-size: 15px;'>Server Info: </span>
+				<span>Loading...</span>
 			</div>
 			<div onclick="ToggleStatus()" class="mainstatus" style="left: 150px; cursor: pointer; width: 36px; height: 36px; margin-left: 8px; margin-top: 10px; float: left; box-shadow: 0 1px 7px rgba(0,0,0,0.4); background: #f8f8f9; -webkit-border-radius: 8px; border-radius: 8px;">
 				<a class="mainstatus" title="Server Status" style="color: black; width: 36px; height: 36px; text-align: center; font-size: 25px; background-repeat: no-repeat;">☰</a>

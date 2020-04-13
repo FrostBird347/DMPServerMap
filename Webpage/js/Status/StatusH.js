@@ -1,5 +1,5 @@
 var StatusH2 = "1000px";
-function StatusH(){
+function StatusH() {
 	var body = document.body, html = document.documentElement;
 	var height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.offsetHeight );
     if (height > 0) {

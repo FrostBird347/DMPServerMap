@@ -34,8 +34,24 @@ namespace MapUpdater
                     new JProperty("ID",
                         new JArray(
                             from vesselFile in ShortvesselList
-                            select new JArray(GetJSONValues(vesselFile)))))));
+                            select new JArray(GetJSONValues(vesselFile)))),
+                                new JProperty("Server",
+                                    new JArray(GetJSONServerValues())))));
             Main.FinalSentVesselsList = SentJSON.ToString();
+        }
+
+        public static JArray GetJSONServerValues()
+        {
+            string server_name = Settings.settingsStore.serverName.ToString();
+            string version = DarkMultiPlayerCommon.Common.PROGRAM_VERSION.ToString();
+            string protocol_version = DarkMultiPlayerCommon.Common.PROTOCOL_VERSION.ToString();
+            string player_count = Server.playerCount.ToString();
+            string players = Server.players.ToString();
+            string max_players = Settings.settingsStore.maxPlayers.ToString();
+            string game_mode = Settings.settingsStore.gameMode.ToString();
+            string warp_mode = Settings.settingsStore.warpMode.ToString();
+            
+            return new JArray(new JValue(server_name), new JValue(version), new JValue(protocol_version), new JValue(player_count), new JValue(players), new JValue(max_players), new JValue(game_mode), new JValue(warp_mode));
         }
 
         public static JArray GetJSONValues(string vesselFile)
