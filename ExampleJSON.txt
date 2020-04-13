@@ -1,506 +1,680 @@
 JSON Structure:
 
 {
-   "Main":{
-      "ID":[
-         [
-            Lat,
-            Long,
-            Planet Index https://wiki.kerbalspaceprogram.com/wiki/Orbit#Reference_code,
-            Height above Sea Level,
-            Velocity,
-            Name,
-            Ship Type,
-            Ship ID
-         ]
-      ]
-   }
+	"Main":{
+		"ID":[
+			[
+				Lat,
+				Long,
+				Planet Index https://wiki.kerbalspaceprogram.com/wiki/Orbit#Reference_code,
+				Height above Sea Level,
+				Velocity,
+				Name,
+				Ship Type,
+				Ship ID,
+				Ship Protection,
+				Ship Owner
+			]
+		],
+		"Server": [
+			Server Name,
+			Server version,
+			Protocol version,
+			Online players,
+			Online player names,
+			Max players,
+			Game mode,
+			Warp mode
+	 ]
+	}
 }
 
 
 Example 1:
 {
-   "Main":{
-      "ID":[
-         [
-            10,
-            10,
-            1,
-            "1000",
-            3000,
-            "Test Debris",
-            "Debris",
-            "55e34ee0-85d9-4f2d-a39f-1a20f58247ea"
-         ],
-         [
-            10,
-            20,
-            2,
-            0,
-            0,
-            "Test Rover",
-            "Rover",
-            "0154348e-2ac9-4401-92b1-3df5a4e3f650"
-         ],
-         [
-            -10,
-            -10,
-            1,
-            "1500",
-            3200,
-            "TESTSHIP",
-            "Ship",
-            "f835ecd5-5a29-4375-be3b-36696467ec94"
-         ]
-      ]
-   }
+	"Main":{
+		"ID":[
+			[
+				10,
+				10,
+				1,
+				"1000",
+				3000,
+				"Test Debris",
+				"Debris",
+				"55e34ee0-85d9-4f2d-a39f-1a20f58247ea",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				10,
+				20,
+				2,
+				0,
+				0,
+				"Test Rover",
+				"Rover",
+				"0154348e-2ac9-4401-92b1-3df5a4e3f650",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				-10,
+				-10,
+				1,
+				"1500",
+				3200,
+				"TESTSHIP",
+				"Ship",
+				"f835ecd5-5a29-4375-be3b-36696467ec94",
+				"PUBLIC",
+				"FrostBird347"
+			]
+		],
+		"Server":[
+			"TEST",
+			"v0.3.4.0",
+			"53",
+			"0",
+			"",
+			"5",
+			"SCIENCE",
+			"SUBSPACE"
+		]
+	}
 }
 
 
 Example 2: 
 {
-  "Main": {
-    "ID": [
-      [
-        "0.88",
-        "-105.46",
-        "1",
-        "6109941559.32",
-        "2708.8",
-        "Map Test 3 Debris",
-        "Debris",
-        "d1101534-e0f5-4135-9a54-bdd1adaaf56e"
-      ],
-      [
-        "0.88",
-        "-105.47",
-        "1",
-        "6111507039.21",
-        "2709.5",
-        "Map Test 3 Debris",
-        "Debris",
-        "bead9caf-bdc6-47cf-85fe-3e3a1b0e5fe6"
-      ],
-      [
-        "NaN",
-        "NaN",
-        "13",
-        "NaN",
-        "NaN",
-        "Gilly Test Debris",
-        "Debris",
-        "0154348e-2ac9-4401-92b1-3df5a4e3f650"
-      ],
-      [
-        "0.89",
-        "-105.46",
-        "1",
-        "6110425532.42",
-        "2709.0",
-        "Map Test 3 Debris",
-        "Debris",
-        "cfcb4217-c2f1-4171-9b90-36339273f1e9"
-      ],
-      [
-        "0.86",
-        "-105.46",
-        "1",
-        "6112967252.24",
-        "2710.1",
-        "Map Test 3 Debris",
-        "Debris",
-        "e36d78d6-c276-4e26-8265-d611363423f6"
-      ],
-      [
-        "-0.10",
-        "-74.56",
-        "5",
-        "2251.76",
-        "0.0",
-        "eve Test Relay",
-        "Relay",
-        "d708e8e6-9c67-4fcb-ab01-283e2e2ba858"
-      ],
-      [
-        "5.98",
-        "-174.06",
-        "11",
-        "571407.69",
-        "63.1",
-        "Bop Test",
-        "Ship",
-        "e1d9aa53-5d2f-4152-99fe-e9cda1d882b0"
-      ],
-      [
-        "-0.06",
-        "-168.96",
-        "12",
-        "45945.65",
-        "2091.0",
-        "Tylo Test Debris",
-        "Debris",
-        "1a3c5253-14d3-4b32-8117-f1721b837c21"
-      ],
-      [
-        "-0.10",
-        "-74.56",
-        "13",
-        "4733.40",
-        "0.0",
-        "Gilly Test",
-        "Ship",
-        "ca7cf4da-726c-4c3c-abfa-2dc460d966ea"
-      ],
-      [
-        "80.02",
-        "1.03",
-        "1",
-        "31.26",
-        "0.0",
-        "Map Test Debris",
-        "Debris",
-        "874a04b9-de0a-40bb-a768-0e7c5e43f6a8"
-      ],
-      [
-        "0.89",
-        "-105.47",
-        "1",
-        "6111468065.17",
-        "2709.5",
-        "Map Test 3 Debris",
-        "Debris",
-        "c1841fe9-4d0e-4a0e-bbff-ab5f7d700ae2"
-      ],
-      [
-        "-29.01",
-        "-12.19",
-        "4",
-        "30850172.62",
-        "1352.8",
-        "Genegas Kerman",
-        "EVA",
-        "557fcaf2-a53a-4e69-9bec-e6518ec1cb43"
-      ],
-      [
-        "0.00",
-        "68.81",
-        "10",
-        "263750.00",
-        "606.7",
-        "Ast. YTR-292",
-        "SpaceObject",
-        "b49b06fc-ab7d-4769-bbd7-ffac58535077"
-      ],
-      [
-        "-0.90",
-        "145.05",
-        "0",
-        "14392908509.95",
-        "8758.9",
-        "Ast. HFR-268",
-        "SpaceObject",
-        "a4b487f0-b828-4564-bf0d-4d0936d09463"
-      ],
-      [
-        "-3.41",
-        "-78.73",
-        "2",
-        "327895001.97",
-        "133.7",
-        "Mun Test",
-        "Ship",
-        "c340fb4f-3aba-4852-a323-4415cec30269"
-      ],
-      [
-        "0.88",
-        "-105.46",
-        "1",
-        "6111272907.24",
-        "2709.4",
-        "Map Test 3 Debris",
-        "Debris",
-        "93d60a7e-4358-48f6-b3ff-c82b68885f51"
-      ],
-      [
-        "39.86",
-        "70.62",
-        "15",
-        "96378638.60",
-        "31.3",
-        "[INSERT PLANET] Test Debris",
-        "Debris",
-        "70445d59-a0cf-4194-b26c-60b208cee911"
-      ],
-      [
-        "1.95",
-        "-114.07",
-        "1",
-        "4584902.19",
-        "510.1",
-        "Kerbin Test Debris",
-        "Debris",
-        "2b2d8cce-43df-486d-a96c-95f689749c9d"
-      ],
-      [
-        "80.01",
-        "1.03",
-        "1",
-        "31.16",
-        "0.0",
-        "Map Test Debris",
-        "Debris",
-        "bfb7e0c2-f9e2-46fd-8546-4abd6f87ec1f"
-      ],
-      [
-        "-0.09",
-        "-0.14",
-        "14",
-        "412859.58",
-        "40.1",
-        "Pol Test Debris",
-        "Debris",
-        "2124ea6f-304a-431a-8bb6-d3b98d077f95"
-      ],
-      [
-        "-0.10",
-        "-74.56",
-        "5",
-        "2251.47",
-        "0.0",
-        "Eve Test",
-        "Rover",
-        "2aa766eb-e0bd-4619-98dc-4918e0e3dab7"
-      ],
-      [
-        "-0.31",
-        "-31.84",
-        "1",
-        "483887.44",
-        "2034.3",
-        "Dooddard Kerman",
-        "EVA",
-        "1f5f108a-f360-4db7-b58e-c709d302f495"
-      ],
-      [
-        "0.44",
-        "-6.92",
-        "14",
-        "259126910.08",
-        "109.6",
-        "Pol Test Debris",
-        "Debris",
-        "f9164a4d-b7fe-4ca1-a2bb-ef5db034a358"
-      ],
-      [
-        "-88.93",
-        "23.77",
-        "9",
-        "-249999.82",
-        "2225.6",
-        "Laythe Test",
-        "Relay",
-        "deba96c1-aed2-4225-a547-cab688ce83ae"
-      ],
-      [
-        "6.72",
-        "-140.12",
-        "4",
-        "335438.70",
-        "424.4",
-        "Moho Test",
-        "Ship",
-        "e88942a1-328e-4b67-b1df-5d6911d08b36"
-      ],
-      [
-        "0.87",
-        "-106.60",
-        "1",
-        "6394814126.10",
-        "2835.3",
-        "Map Test 3 Debris",
-        "Debris",
-        "fe82eb0e-7660-4f01-ab27-d68d70a0fb63"
-      ],
-      [
-        "0.04",
-        "103.47",
-        "0",
-        "13504975348.51",
-        "9213.0",
-        "Ast. FXR-439",
-        "SpaceObject",
-        "26edcfb8-9971-4d73-971d-8503c8146191"
-      ],
-      [
-        "-0.01",
-        "-69.79",
-        "10",
-        "4524655734.98",
-        "1916.3",
-        "[INSERT PLANET] Test Debris",
-        "Debris",
-        "7e0c1ca4-62c5-4931-9209-8de78fc2d3b4"
-      ],
-      [
-        "35.08",
-        "62.17",
-        "3",
-        "202838.78",
-        "57.5",
-        "Min Test Debris",
-        "Debris",
-        "90486843-ef3c-4736-baea-edf589aa7a4f"
-      ],
-      [
-        "0.32",
-        "118.47",
-        "0",
-        "13331196242.13",
-        "9371.1",
-        "Ast. NHJ-714",
-        "SpaceObject",
-        "f835ecd5-5a29-4375-be3b-36696467ec94"
-      ],
-      [
-        "7.25",
-        "-140.99",
-        "4",
-        "334985.97",
-        "424.9",
-        "Moho Test Debris",
-        "Debris",
-        "74620bd8-ecb2-40ce-89f5-e28b1894c952"
-      ],
-      [
-        "0.89",
-        "-105.46",
-        "1",
-        "6110039939.14",
-        "2708.8",
-        "Map Test 3 Debris",
-        "Debris",
-        "c92ab16f-c234-421b-b0a8-a5e927ae530b"
-      ],
-      [
-        "0.00",
-        "-74.32",
-        "6",
-        "5350.79",
-        "0.0",
-        "Test?",
-        "Flag",
-        "c6155383-4ad2-411f-990e-0b37b34e64dd"
-      ],
-      [
-        "0.21",
-        "163.92",
-        "0",
-        "3921458874.86",
-        "18539.7",
-        "Map Test 3",
-        "Rover",
-        "76271d7e-a17b-416a-9086-c8e48f518289"
-      ],
-      [
-        "-0.14",
-        "98.57",
-        "0",
-        "13785669520.24",
-        "9264.4",
-        "[INSERT PLANET] Test Debris",
-        "Debris",
-        "ded9aede-6e13-4b77-926e-c0fa988d423c"
-      ],
-      [
-        "0.00",
-        "-140.47",
-        "10",
-        "264616.90",
-        "606.0",
-        "Vall Test",
-        "Ship",
-        "eb46d393-f83e-4f0a-80a6-4a339114871b"
-      ],
-      [
-        "29.44",
-        "-5.73",
-        "7",
-        "46661.85",
-        "329.8",
-        "Ike Test",
-        "Ship",
-        "4ab20c30-51bc-43f1-895f-582adb59c033"
-      ],
-      [
-        "0.41",
-        "-113.24",
-        "1",
-        "3285912.89",
-        "556.4",
-        "Kerbin Test",
-        "Ship",
-        "3a86e2cf-cc0d-4f7a-ab01-9165d5bca6d2"
-      ],
-      [
-        "-3.42",
-        "-78.77",
-        "2",
-        "328337757.90",
-        "133.9",
-        "Mun Test Debris",
-        "Debris",
-        "cd7756eb-a7ad-414f-b241-980308be72ce"
-      ],
-      [
-        "-0.10",
-        "-74.56",
-        "5",
-        "2251.79",
-        "0.0",
-        "eve Test Debris",
-        "Debris",
-        "f8370db4-03d9-4e22-a979-1db1cec31b87"
-      ],
-      [
-        "0.32",
-        "-16.67",
-        "12",
-        "46243.26",
-        "2091.5",
-        "Tylo Test Debris",
-        "Debris",
-        "08543df0-3ced-4e4b-a020-324064abd67b"
-      ],
-      [
-        "0.20",
-        "-100.91",
-        "1",
-        "10248179.81",
-        "209.3",
-        "Kerbin Test Debris",
-        "Debris",
-        "fb34fa1a-3e7f-4f9c-8dea-31111480006d"
-      ],
-      [
-        "-13.22",
-        "-100.31",
-        "2",
-        "881121566.31",
-        "371.5",
-        "Mun Test Debris",
-        "Debris",
-        "55e34ee0-85d9-4f2d-a39f-1a20f58247ea"
-      ],
-      [
-        "80.02",
-        "1.03",
-        "1",
-        "30.00",
-        "0.0",
-        "Map Test Debris",
-        "Debris",
-        "5d5417a0-ab67-41f6-a0b4-2e20934edfcf"
-      ]
-    ]
-  }
+	"Main":{
+		"ID":[
+			[
+				"-9.34",
+				"27.07",
+				"1",
+				"171316.67",
+				"2208.6",
+				"Map Test",
+				"Probe",
+				"788d9a1c-7e19-475b-ba2a-1b02f24d162a",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"0",
+				"-50.01",
+				"1",
+				"86749.95",
+				"2267.7",
+				"Ast. HSJ-227",
+				"SpaceObject",
+				"cfa6310f-a9df-428b-9525-2ce5903419ea",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-0.19",
+				"30.4",
+				"1",
+				"172978.12",
+				"2254.0",
+				"Map Test Debris",
+				"Debris",
+				"356cd8f7-e01b-4057-aed7-c915aaabb36e",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"0",
+				"98.7",
+				"1",
+				"86750.25",
+				"2267.7",
+				"Map Test",
+				"Rover",
+				"464224b5-7cf2-451a-80b0-5b0194b06124",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-0.05",
+				"120.93",
+				"1",
+				"518423.71",
+				"1568.3",
+				"Map Test Debris",
+				"Debris",
+				"ce80727c-02cb-4975-a3e9-6b5484d6d902",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-1.6",
+				"95.65",
+				"1",
+				"175831.52",
+				"2132.6",
+				"Map Test Debris",
+				"Debris",
+				"62a6af04-e72e-4767-803e-ffd2a93afaed",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-0.2",
+				"37",
+				"1",
+				"190068.73",
+				"2209.6",
+				"Map Test Debris",
+				"Debris",
+				"003d2079-790f-42f9-93b9-617b5d51b60d",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-0.35",
+				"-101.91",
+				"0",
+				"14469936068.37",
+				"8750.7",
+				"Ast. QGV-665",
+				"SpaceObject",
+				"21b23af7-3453-41f1-837e-5486658f08ea",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-1.55",
+				"151.33",
+				"1",
+				"507264.92",
+				"1564.6",
+				"[INSERT PLANET] Test Debris",
+				"Debris",
+				"f5d2e8c9-fb34-459f-954e-95cc13823e37",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"0",
+				"18.55",
+				"1",
+				"101413.04",
+				"2220.8",
+				"Gifen Kerman",
+				"EVA",
+				"6e455c26-3af4-417c-a2f6-080223a1967e",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"9.15",
+				"-100.39",
+				"1",
+				"538755.12",
+				"1589.9",
+				"Catlas Kerman",
+				"EVA",
+				"b4e2283e-fe3a-483f-a309-8e0309a08a21",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"0.2",
+				"155.45",
+				"1",
+				"423126.51",
+				"1672.3",
+				"Map Test Debris",
+				"Debris",
+				"9f023d46-7b0f-4f85-8961-d8ed805726e4",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-5.46",
+				"-63.75",
+				"1",
+				"123727.52",
+				"2412.3",
+				"[INSERT PLANET] Test Debris",
+				"Debris",
+				"03d7f25c-f284-4870-aaa1-6d95cc1a5a64",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-1.59",
+				"93.91",
+				"1",
+				"175704.44",
+				"2133.0",
+				"Map Test Debris",
+				"Debris",
+				"9310764b-1420-4bb4-8bec-443315ad6476",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-1.99",
+				"24.87",
+				"1",
+				"170466.26",
+				"2224.4",
+				"Map Test Debris",
+				"Debris",
+				"f86bb6cc-8be7-4e3e-b8cf-112a20abe86c",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"0.07",
+				"-87.91",
+				"0",
+				"13992281060.96",
+				"9021.5",
+				"Ast. QDB-433",
+				"SpaceObject",
+				"a115d0f1-37d1-4645-b157-89ecc33ed79a",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"0.14",
+				"-66.11",
+				"1",
+				"90960.35",
+				"2359.4",
+				"Map Test Debris",
+				"Debris",
+				"eb42e934-93ef-46a3-b6a4-814d86567ac8",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"0",
+				"-30.52",
+				"1",
+				"86747.67",
+				"2267.8",
+				"Test????",
+				"Plane",
+				"f1887f31-53eb-4bd4-a5c1-005136131f18",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"0",
+				"-168.07",
+				"1",
+				"499.27",
+				"0.0",
+				"Test?",
+				"Flag",
+				"0756512e-985a-4730-84a7-4670dc9f2659",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"0.78",
+				"138.62",
+				"1",
+				"448743.99",
+				"1650.1",
+				"[INSERT PLANET] Test Debris",
+				"Debris",
+				"a3cfd37c-f389-4bbb-8aa6-0cba7addc8b1",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"0.17",
+				"167.63",
+				"1",
+				"206634.14",
+				"2017.3",
+				"Map Test Debris",
+				"Debris",
+				"3cdf3904-507a-4922-8d05-7192e641fa37",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"1.33",
+				"171.9",
+				"1",
+				"376619.11",
+				"1773.2",
+				"Map Test Debris",
+				"Debris",
+				"ed27fdb9-c9e4-48da-bc3e-cfb364e46133",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-0.18",
+				"22.74",
+				"1",
+				"155098.62",
+				"2301.5",
+				"Map Test Debris",
+				"Debris",
+				"70f7b497-0867-4e57-8933-9540040c9c07",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-0.27",
+				"-15.3",
+				"1",
+				"98544.98",
+				"2444.3",
+				"Map Test Debris",
+				"Debris",
+				"b54e84ef-2ccf-4a2b-80d2-6f246c33836e",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-10.16",
+				"-93.02",
+				"1",
+				"255482.34",
+				"2112.7",
+				"[INSERT PLANET] Test Debris",
+				"Debris",
+				"c140afec-d210-4cac-95c5-7470e9089d31",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-1.6",
+				"94.16",
+				"1",
+				"175725.18",
+				"2132.9",
+				"Map Test Debris",
+				"Debris",
+				"291035f3-1476-4601-9022-bd6ffa6cbb84",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"2.36",
+				"-123.5",
+				"1",
+				"181810.93",
+				"2200.3",
+				"Map Test Debris",
+				"Debris",
+				"dffdec76-1d68-41dc-9b7b-642e5bce4b56",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-10.53",
+				"-108.61",
+				"1",
+				"223083.37",
+				"2154.8",
+				"[INSERT PLANET] Test Debris",
+				"Debris",
+				"eb29bf91-75b9-4dde-9538-0ff88ae3292b",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"0",
+				"-98.45",
+				"1",
+				"85318.65",
+				"2265.8",
+				"Map Test Debris",
+				"Debris",
+				"a9bf8599-c4ca-4b2f-b9f5-27373a29cda4",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-0.01",
+				"1.79",
+				"1",
+				"120297.06",
+				"2635.5",
+				"Test????",
+				"Base",
+				"72ac58e7-7a4b-434f-bda3-fd79448d3acd",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-1.6",
+				"95.38",
+				"1",
+				"175810.25",
+				"2132.7",
+				"Map Test Debris",
+				"Debris",
+				"c5e192d7-7815-471f-909d-6bd8cee1fe97",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"1.17",
+				"-107.29",
+				"0",
+				"15108208123.05",
+				"8918.2",
+				"Ast. XUC-428",
+				"SpaceObject",
+				"bda1ef28-72c8-4b62-89a3-13651a83d479",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-0.13",
+				"24.8",
+				"1",
+				"127317.44",
+				"2247.6",
+				"Map Test Debris",
+				"Debris",
+				"c7c89b9b-1e18-4c33-8397-a5e382fd7f99",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-2.37",
+				"131.25",
+				"1",
+				"470262.99",
+				"1615.3",
+				"Test????",
+				"Relay",
+				"1e0bbcdb-d80c-42ad-8e5a-6afabb4a0299",
+				"PRIVATE",
+				"FrostBird347"
+			],
+			[
+				"-5.6",
+				"176.42",
+				"1",
+				"352390.4",
+				"1793.8",
+				"[INSERT PLANET] Test Debris",
+				"Debris",
+				"f1ecd366-b8e9-479d-bddc-e0d6c7b3c2b7",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"20.46",
+				"56.88",
+				"1",
+				"193689.75",
+				"2184.1",
+				"[INSERT PLANET] Test",
+				"Lander",
+				"59cea437-437b-4a80-bc0e-9b5f3c07a010",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"1.37",
+				"-109.96",
+				"1",
+				"191542.14",
+				"2097.0",
+				"Map Test",
+				"Ship",
+				"2cd1f92b-3c60-4774-8491-36d275a1ba99",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"0.19",
+				"-85.6",
+				"1",
+				"101551.92",
+				"2326.7",
+				"Map Test Debris",
+				"Debris",
+				"f5ebd777-8b62-42d3-ba5d-c2ff900ac571",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-12.52",
+				"-137.8",
+				"1",
+				"195636.44",
+				"2120.8",
+				"[INSERT PLANET] Test Debris",
+				"Debris",
+				"f6bc1e7d-bd92-4e0a-9996-aa5a9e9c9354",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-5.15",
+				"170.72",
+				"1",
+				"462711.4",
+				"1622.1",
+				"[INSERT PLANET] Test Debris",
+				"Debris",
+				"f99da69c-01c5-4b69-95ba-64b5b7901f76",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"6.71",
+				"-4.09",
+				"1",
+				"106819.61",
+				"2372.1",
+				"[INSERT PLANET] Test Debris",
+				"Debris",
+				"346b20a5-c7e0-4715-a9af-2e09e93b7a1d",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-2.67",
+				"-108.88",
+				"0",
+				"14225807158.26",
+				"9197.7",
+				"Valentina Kerman",
+				"EVA",
+				"121cc07a-49d1-49cc-a427-ac7665697566",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"8.48",
+				"74.6",
+				"1",
+				"371156.09",
+				"1931.6",
+				"[INSERT PLANET] Test Debris",
+				"Debris",
+				"480915eb-6176-4ac6-92ac-241c567bbc97",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-0.58",
+				"42.23",
+				"1",
+				"209249.72",
+				"2146.9",
+				"Map Test Debris",
+				"Debris",
+				"7394c771-9e7d-46a8-823d-044cd96bdcc6",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"-0.47",
+				"146.39",
+				"1",
+				"408842.02",
+				"1693.1",
+				"[INSERT PLANET] Test Debris",
+				"Debris",
+				"edea411a-0779-4355-8258-1c3cd7d39684",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"5.21",
+				"116.09",
+				"1",
+				"448480.15",
+				"1688.3",
+				"[INSERT PLANET] Test Debris",
+				"Debris",
+				"5b264400-41de-4916-9f5b-fefb688a46b3",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"0.05",
+				"-94.49",
+				"1",
+				"94900",
+				"2286.7",
+				"Map Test",
+				"Station",
+				"56ace509-8942-4815-abf6-4db0c9a959d6",
+				"PUBLIC",
+				"FrostBird347"
+			],
+			[
+				"0.35",
+				"-12.54",
+				"0",
+				"13462141362",
+				"9451.9",
+				"Ast. TFP-364",
+				"SpaceObject",
+				"747a8a9c-529e-45ff-8ae1-336a8fe48502",
+				"PUBLIC",
+				"FrostBird347"
+			]
+		],
+		"Server":[
+			"TEST",
+			"v0.3.4.0",
+			"53",
+			"0",
+			"",
+			"5",
+			"SCIENCE",
+			"SUBSPACE"
+		]
+	}
 }
