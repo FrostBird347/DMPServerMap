@@ -244,6 +244,10 @@
     margin-top: 12px
 }
 
+.leaflet-control-zoom {
+    top: 40px;
+}
+
 .leaflet-control-zoom a {
     width: 22px;
     height: 22px;

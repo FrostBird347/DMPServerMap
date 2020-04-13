@@ -2,6 +2,7 @@ async function MapFix() {
 	  while (true) {
         await AsyncAwaitThing(250)
         SetCredits()
+        StatusH()
         $(function() {
         $(".leaflet-map-pane").each(function() {
         $("img").each(function() {

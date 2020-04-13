@@ -1,0 +1,31 @@
+.mainstatus {
+    position: absolute;
+    z-index: 1;
+}
+
+.sidebarslide {
+	transition: 0.5s;
+	transform: matrix(1, 0, 0, 1, -150, 0);
+}
+
+.statusbar {
+	transition: 0.5s;
+	text-align: left;
+	width: 150px;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #eeeeee;
+	transition: 0.5s;
+	padding-top: 10px;
+}
+
+.statusbar * {
+	padding: 4px 4px 4px 5px;
+	text-decoration: none;
+	font-size: 15px;
+	color: #000;
+	display: block;
+	transition: 0.5s;
+}
