@@ -4,6 +4,9 @@
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		<title>Kerbal Maps</title>
 		<!-- TODO: Remove unused stuff -->
+		<script type='text/javascript' > 
+		var ServerStat = "<br><span style='color: #252525; text-align: center;'>Loading server data...</span>";
+		</script>
 		<link rel="stylesheet" type="text/css" href="css/leafletksp.css" />
 		<link rel="stylesheet" href="css/jKSPWAPICore.css" />
 		<link rel="stylesheet" href="css/statusbar.css" />
@@ -27,7 +30,7 @@
 		<script type="text/javascript" src="js/Status/StatusH.js"></script>
 		<script type="text/javascript" src="js/Status/UpdateStatusBarText.js"></script>
 		<script>
-    	var UpdateMarkerJSON = JSON.parse('{"Main":{"ID":[[10,10, 13, "1000/10", 3000, "NOT A REAL SHIP", "Debris", "0154348e-2ac9-4401-92b1-3df5a4e3f650"],[-10,-10, 13, "100/10", 3000, "NOT A REAL SHIP", "SpaceObject", "d708e8e6-9c67-4fcb-ab01-283e2e2ba858"]]}}')
+    	var UpdateMarkerJSON = JSON.parse('{"Main":{"ID":[["0","0","0","0","0","Loading JSON...","...","...","...","..."]],"Server":["Loading...","Loading...","Loading...","Loading...","Loading...","Loading...","Loading...","Loading..."]}}')
         var JSONURL = getJSONUrl();
         var MapMarkerArray = []
         var MapID = []
