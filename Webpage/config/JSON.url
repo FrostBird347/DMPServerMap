@@ -2,5 +2,5 @@
 	return "https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7"
 }
 function GetSavedJSONSpeed() {
-	return 3.5
+	return 4
 }
