@@ -7783,6 +7783,8 @@ function(t, i) {
             TYPE_SLOPE: 2,
             TYPE_SATELLITE2: 3,
             TYPE_SATELLITE3: 4,
+            TYPE_BIOME: 5,
+            TYPE_LBIOME: 6,
             DEFAULT_URL: "http://ksp.deringenieur.net/kmaps/tiles/{body}/{style}/{z}/{x}/{y}.png",
             ALT_URL: "http://d3kmnwgldcmvsd.cloudfront.net/tiles/{body}/{style}/{z}/{x}/{y}.png",
             ALT_URL2: "./img/AltTileLoad.png?{body}/{style}/{z}/{x}/{y}"
@@ -8256,6 +8258,24 @@ function(t, i) {
                 body: "moho",
                 style: "slope",
                 legend: L.KSP.Legend.SLOPE
+            }),
+            Biome: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_BIOME, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "moho",
+                style: "biome",
+                legend: {
+                    "North Pole": "#d6bda6",
+                    "Northern Sinkhole Ridge": "#a6805e",
+                    "Northern Sinkhole": "#766b62",
+                    "Midlands": "#b48f6d",
+                    "Western Lowlands": "#584b41",
+                    "Central Lowlands": "#584f48",
+                    "Highlands": "#c69f7c",
+                    "Minor Craters": "#4d443d",
+                    "South Western Lowlands": "#63584f",
+                    "South Eastern Lowlands": "#6b6056",
+                    "Canyon": "#4b3e34",
+                    "South Pole": "#d8b290"
+                }
             })
         },
         overlays: {
@@ -8313,6 +8333,27 @@ function(t, i) {
                 body: "eve",
                 style: "slope",
                 legend: L.KSP.Legend.SLOPE
+            }),
+            Biome: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_BIOME, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "eve",
+                style: "biome",
+                legend: {
+                    Poles: "#dcc1fe",
+                    "Midlands": "#732e86",
+                    "Explodium Sea": "#b15984",
+                    Lowlands: "#5c196f",
+                    Highlands: "#8a499c",
+                    "Peaks": "#a871ba",
+                    "Impact Ejecta": "#a765fa",
+                    "Crater Lake": "#8e2f5c",
+                    "Western Sea": "#d58eb0",
+                    "Olympus": "#ffffff",
+                    "Eastern Sea": "#6a123d",
+                    "Craters": "#a865fa",
+                    "Foothills": "#cfa6da",
+                    "Akatsuki Lake": "#ba91bd",
+                    "Shallows": "#8b668d"
+                }
             })
         },
         overlays: {
@@ -8365,6 +8406,15 @@ function(t, i) {
                 body: "gilly",
                 style: "slope",
                 legend: L.KSP.Legend.SLOPE
+            }),
+            Biome: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_BIOME, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "gilly",
+                style: "biome",
+                legend: {
+                    "Midlands": "#cba15d",
+                    Lowlands: "#a58147",
+                    Highlands: "#eaca96"
+                }
             })
         },
         overlays: {
@@ -8424,7 +8474,24 @@ function(t, i) {
                 style: "slope",
                 legend: L.KSP.Legend.SLOPE
             }),
-            Biome: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_BIOME, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+            Biome: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_BIOME, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "kerbin",
+                style: "biome",
+                legend: {
+                    Water: "#3762ab",
+                    Shores: "#faf2b7",
+                    Grasslands: "#83bc2e",
+                    Highlands: "#5e852a",
+                    Mountains: "#a7a7a7",
+                    Deserts: "#eabf6f",
+                    Badlands: "#974f23",
+                    Tundra: "#c78fdf",
+                    "Ice Caps": "#ffffff",
+                    "Northern Ice Shelf": "#e4fdff",
+                    "Southern Ice Shelf": "#d8d8d8"
+                }
+            }),
+            "Legacy Biome": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_LBIOME, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "kerbin",
                 style: "biome",
                 legend: {
@@ -8509,7 +8576,30 @@ function(t, i) {
                 style: "slope",
                 legend: L.KSP.Legend.SLOPE
             }),
-            Biome: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_BIOME, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
+            Biome: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_BIOME, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "mun",
+                style: "biome",
+                legend: {
+                    Midlands: "#5d7582",
+                    "Northern Basin": "#6c7593",
+                    "East Crater": "#94a0cb",
+                    "Northwest Crater": "#6879b1",
+                    "Southwest Crater": "#a8adbc",
+                    "Farside Crater": "#8fa5e6",
+                    Canyons: "#535e85",
+                    "Polar Crater": "#9aa5ab",
+                    Poles: "#eaeced",
+                    "Polar Lowlands": "#cfd3d6",
+                    Highlands: "#738995",
+                    "Highland Craters": "#b1bbde",
+                    "Midland Craters": "#2a3f4b",
+                    "East Farside Crater": "#9a9bea",
+                    "Twin Craters": "#adbef1",
+                    "Lowlands": "#415b6a",
+                    "Farside Basin": "#878ea3"
+                }
+            }),
+            "Legacy Biome": L.KSP.tileLayer(L.KSP.TileLayer.TYPE_LBIOME, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
                 body: "mun",
                 style: "biome",
                 legend: {
@@ -8596,6 +8686,21 @@ function(t, i) {
                 style: "slope",
                 body: "minmus",
                 legend: L.KSP.Legend.SLOPE
+            }),                 
+            Biome: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_BIOME, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "minmus",
+                style: "biome",
+                legend: {
+                    "Highlands": "#618382",
+                    "Midlands": "#87ab9d",
+                    "Lowlands": "#b0e1ce",
+                    "Flats": "#c0ffe7",
+                    "Great Flats": "#69c2bc",
+                    "Greater Flats": "#a5d7d9",
+                    "Lesser Flats": "#8bd4cf",
+                    "Poles": "#ffffff",
+                    "Slopes": "#99ccbb"
+                }
             })
         },
         overlays: {
@@ -8649,6 +8754,26 @@ function(t, i) {
                 style: "slope",
                 body: "duna",
                 legend: L.KSP.Legend.SLOPE
+            }),
+            Biome: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_BIOME, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "duna",
+                style: "biome",
+                legend: {
+                    Poles: "#ffffff",
+                    Midlands: "#fc8d59",
+                    Lowlands: "#e96a31",
+                    Craters: "#b76501",
+                    Highlands: "#ffaa83",
+                    "Midland Sea": "#ff9102",
+                    "Northern Basin": "#b52922",
+                    "Southern Basin": "#d24a43",
+                    "Northern Shelf": "#94120b",
+                    "Midland Canyon": "#bb5809",
+                    "Eastern Canyon": "#994400",
+                    "Western Canyon": "#6f3000",
+                    "Polar Highlands": "#e6e6e6",
+                    "Polar Craters": "#bebebe",
+                }
             })
         },
         overlays: {
@@ -8709,6 +8834,20 @@ function(t, i) {
                 style: "slope",
                 body: "ike",
                 legend: L.KSP.Legend.SLOPE
+            }),      
+            Biome: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_BIOME, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "ike",
+                style: "biome",
+                legend: {
+                    "Polar Lowlands": "#797776",
+                    "Midlands": "#939393",
+                    "Eastern Mountain Ridge": "#ffffff",
+                    "Western Mountain Ridge": "#ececec",
+                    Lowlands: "#686868",
+                    "South Eastern Mountain Range": "#dadada",
+                    "South Pole": "#848484",
+                    "Central Mountain Range": "#cccccc"
+                }
             })
         },
         overlays: {
@@ -8762,6 +8901,20 @@ function(t, i) {
                 body: "dres",
                 style: "slope",
                 legend: L.KSP.Legend.SLOPE
+            }),
+            Biome: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_BIOME, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "dres",
+                style: "biome",
+                legend: {
+                    Poles: "#f8eddc",
+                    Midlands: "#868178",
+                    Lowlands: "#75716b",
+                    Ridges: "#b1a797",
+                    Highlands: "#d1c2ab",
+                    "Impact Craters": "#615d59",
+                    "Impact Ejecta": "#9c9488",
+                    Canyons: "#55524e"
+                }
             })
         },
         overlays: {
@@ -8824,6 +8977,22 @@ function(t, i) {
                 body: "laythe",
                 style: "slope",
                 legend: L.KSP.Legend.SLOPE
+            }),
+            Biome: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_BIOME, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "laythe",
+                style: "biome",
+                legend: {
+                    "Poles": "#b9d5e3",
+                    "Shores": "#ffeca5",
+                    "Dunes": "#d6bf62",
+                    "Crescent Bay": "#5e70cc",
+                    "The Sagen Sea": "#2661af",
+                    "Crater Island": "#ad9432",
+                    "Shallows": "#719ed7",
+                    "Crater Bay": "#487dc2",
+                    "DeGrasse Sea": "#0c448c",
+                    "Peaks": "#fff6d5"
+                }
             })
         },
         overlays: {
@@ -8878,6 +9047,21 @@ function(t, i) {
                 body: "vall",
                 style: "slope",
                 legend: L.KSP.Legend.SLOPE
+            }),
+            Biome: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_BIOME, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "vall",
+                style: "biome",
+                legend: {
+                    "Poles": "#bef7fc",
+                    "Midlands": "#6bc6ce",
+                    "Highlands": "#45b2bc",
+                    "Lowlands": "#ffffff",
+                    "Northeast Basin": "#b2b2b2",
+                    "Northwest Basin": "#969696",
+                    "Southern Basin": "#dddddd",
+                    "Southern Valleys": "#c7c7c7",
+                    "Mountains": "#9cd8de"
+                }
             })
         },
         overlays: {
@@ -8936,6 +9120,21 @@ function(t, i) {
                 body: "tylo",
                 style: "slope",
                 legend: L.KSP.Legend.SLOPE
+            }),
+            Biome: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_BIOME, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "tylo",
+                style: "biome",
+                legend: {          
+                    Midlands: "#b3a39a",
+                    Highlands: "#cabbb3",
+                    Lowlands: "#9e8e84",
+                    Mara: "#89796f",
+                    "Minor Craters": "#72635a",
+                    "Tycho Crater": "#d3a388",
+                    "Galileio Crater": "#bd8a6c",
+                    "Grissom Crater": "#aa7556",
+                    "Gagarin Crater": "#956346"
+                }
             })
         },
         overlays: {
@@ -8986,6 +9185,17 @@ function(t, i) {
                     "12000 m": "#413732",
                     "6000 m": "#2d2823",
                     "2000 m": "#1e1914"
+                }
+            }),
+            Biome: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_BIOME, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "bop",
+                style: "biome",
+                legend: {
+                    Peaks: "#ddcca7",
+                    Ridges: "#c4b28b",
+                    Poles: "#f5e2b9",
+                    Slopes: "#ae9d78",
+                    Valley: "#978c73"
                 }
             }),
             Slope: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SLOPE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
@@ -9048,6 +9258,16 @@ function(t, i) {
                 body: "pol",
                 style: "slope",
                 legend: L.KSP.Legend.SLOPE
+            }),
+            Biome: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_BIOME, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "pol",
+                style: "biome",
+                legend: {
+                    Poles: "#fff3c5",
+                    Lowlands: "#b6a568",
+                    Highlands: "#f5e5a3",
+                    Midlands: "#d4c17a"
+                }
             })
         },
         overlays: {
@@ -9102,6 +9322,23 @@ function(t, i) {
                 body: "eeloo",
                 style: "slope",
                 legend: L.KSP.Legend.SLOPE
+            }),
+            Biome: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_BIOME, L.KSP.TileLayer.ALT_URL, L.KSP.CRS.EPSG4326, {
+                body: "eeloo",
+                style: "biome",
+                legend: {
+                    Poles: "#ffffff",
+                    "Northern Glaciers": "#cacaca",
+                    Lowlands: "#7ba3e7",
+                    Highlands: "#d5dae1",
+                    "Ice Canyons": "#ffb663",
+                    "Craters": "#e08822",
+                    "Midlands": "#becee8",
+                    "Fragipan": "#ffcd94",
+                    "Babbage Patch": "#97b3e4",
+                    "Southern Glaciers": "#e0e0e0",
+                    "Mu Glacier": "#7c7c7c"
+                }
             })
         },
         overlays: {
