@@ -7,13 +7,13 @@
 		<script type='text/javascript' > 
 		var ServerStat = "<br><span style='color: #252525; text-align: center;'>Loading server data...</span>";
 		</script>
+		<script type="text/javascript" src="./config/config.cfg"></script>
 		<link rel="stylesheet" type="text/css" href="css/leafletksp.css" />
 		<link rel="stylesheet" href="css/jKSPWAPICore.css" />
 		<link rel="stylesheet" href="css/statusbar.css" />
 		<script type="text/javascript" src="js/leafletksp.js"></script>
 		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="js/jKSPWAPICore.js"></script>
-		<script type="text/javascript" src="./config/JSON.url"></script>
 		<script type="text/javascript" src="js/Markers/AddMarker.js"></script>
 		<script type="text/javascript" src="js/Markers/UpdateMarker.js"></script>
 		<script type="text/javascript" src="js/Markers/RemoveOldMarker.js"></script>
@@ -30,14 +30,14 @@
 		<script type="text/javascript" src="js/Status/StatusH.js"></script>
 		<script type="text/javascript" src="js/Status/UpdateStatusBarText.js"></script>
 		<script>
-    	var UpdateMarkerJSON = JSON.parse('{"Main":{"ID":[["0","0","0","0","0","Loading JSON...","...","...","...","..."]],"Server":["Loading...","Loading...","Loading...","Loading...","Loading...","Loading...","Loading...","Loading..."]}}')
-        var JSONURL = getJSONUrl();
-        var MapMarkerArray = []
-        var MapID = []
-        var MapIDUpdate = []
-        var MapIDPlanet = []
-        var GetJSONSpeed = GetSavedJSONSpeed() * 1000
-        </script>
+			var UpdateMarkerJSON = JSON.parse('{"Main":{"ID":[["0","0","0","0","0","Loading JSON...","...","...","...","..."]],"Server":["Loading...","Loading...","Loading...","Loading...","Loading...","Loading...","Loading...","Loading..."]}}')
+			var JSONURL = getJSONUrl();
+			var MapMarkerArray = []
+			var MapID = []
+			var MapIDUpdate = []
+			var MapIDPlanet = []
+			var GetJSONSpeed = GetSavedJSONSpeed() * 1000
+		</script>
 	</head>
 	<body onload="startMap(); MapFix();" style="padding: 0; margin: 0;">
 		<div id="sidebarslider" class="mainstatus sidebarslide">
