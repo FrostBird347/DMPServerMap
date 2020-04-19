@@ -38,7 +38,9 @@ namespace MapUpdater
         public static bool SendJSONSetting = false;
         public static bool HidePrivateVessels = false;
         public static String FinalSentVesselsList;
-        
+        public static string JSONPath;
+        public static bool LocalPath;
+
         public override void OnServerStart()
         {
             DarkLog.Normal("[MapUpdater] Starting!");
@@ -77,7 +79,14 @@ namespace MapUpdater
                     if (SaveJSONSetting)
                     {
                         byte[] FinalSentVesselsDataList = Encoding.Default.GetBytes(FinalSentVesselsList);
-                        File.WriteAllBytes(MapPluginFolder + "/SavedJSON.json", FinalSentVesselsDataList);
+                        if (LocalPath)
+                        {
+                            File.WriteAllBytes(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, JSONPath), FinalSentVesselsDataList);
+                        }
+                        else
+                        {
+                            File.WriteAllBytes(JSONPath, FinalSentVesselsDataList);
+                        }
                     }
                     if (SendJSONSetting)
                     {

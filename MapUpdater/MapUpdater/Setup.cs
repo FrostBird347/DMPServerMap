@@ -40,12 +40,14 @@ namespace MapUpdater
                 File.WriteAllBytes(MapConfigFolder + "/MapUpdater.txt", NewConfigData);
             }
             Main.UploadFrequency = SetupConfigVarDouble(MapConfigFolder, "Upload_Frequency", 3);
-            Main.PostURL = SetupConfigVarString(MapConfigFolder, "PostURL", "https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7");
             Main.SOIAdd = SetupConfigVarDouble(MapConfigFolder, "SOI_Fix", 100);
-            Main.SendTimeout = SetupConfigVarDouble(MapConfigFolder, "SendJSONTimeout", 10);
-            Main.SendJSONSetting = SetupConfigVarBool(MapConfigFolder, "SendJSON", false);
-            Main.SaveJSONSetting = SetupConfigVarBool(MapConfigFolder, "SaveJSON", true);
             Main.HidePrivateVessels = SetupConfigVarBool(MapConfigFolder, "HidePrivateVessels", false);
+            Main.SendJSONSetting = SetupConfigVarBool(MapConfigFolder, "SendJSON", false);
+            Main.PostURL = SetupConfigVarString(MapConfigFolder, "PostURL", "https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7");
+            Main.SendTimeout = SetupConfigVarDouble(MapConfigFolder, "SendJSONTimeout", 10);
+            Main.SaveJSONSetting = SetupConfigVarBool(MapConfigFolder, "SaveJSON", false);
+            Main.JSONPath = SetupConfigVarString(MapConfigFolder, "SaveJSONPath", "PluginData/DMPServerMap-FrostBird347/SavedJSON.json");
+            Main.LocalPath = SetupConfigVarBool(MapConfigFolder, "LocalPath", true);
             Main.SetupFinished = true;
         }
 
