@@ -45,12 +45,19 @@ namespace MapUpdater
 
         public static string GetPermissionValue(string VesselFile, int linevalue)
         {
-            int newlinevalue = linevalue - 1;
-            if (File.Exists(VesselFile))
+            try
             {
-                return File.ReadLines(VesselFile).Skip(newlinevalue).Take(1).First();
+                int newlinevalue = linevalue - 1;
+                if (File.Exists(VesselFile))
+                {
+                    return File.ReadLines(VesselFile).Skip(newlinevalue).Take(1).First();
+                }
+                return "";
             }
-            return "File_Missing";
+            catch
+            {
+                return "";
+            }
         }
 
     }

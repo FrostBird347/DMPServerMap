@@ -59,8 +59,8 @@ async function startMapUpdate() {
                         velocity = velocity / 100
                         velocitystatus = " km/s"
                     }
-                    if (element[8] == "File_Missing") {
-                    	element[8] = "PUBLIC"
+                    if (element[8] == "") {
+                    	element[8] = "<span style='color:red'>UNCLAIMED</span>"
                     	element[9] = "<span style='color:red'>None</span>"
                     }
                     MarkerMode = "V"

@@ -69,8 +69,8 @@ namespace MapUpdater
             }
             catch
             {
-                VesselPermission = "Error";
-                VesselOwner = "Error";
+                VesselPermission = "";
+                VesselOwner = "";
             }
             try
             {
