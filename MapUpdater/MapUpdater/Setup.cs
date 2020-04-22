@@ -40,7 +40,7 @@ namespace MapUpdater
 				File.WriteAllBytes(MapConfigFolder + "/MapUpdater.txt", NewConfigData);
 			}
 			Main.UploadFrequency = SetupConfigVarDouble(MapConfigFolder, "Upload_Frequency", 3);
-			Main.SOIAdd = SetupConfigVarDouble(MapConfigFolder, "SOI_Fix", 100);
+			Main.SOIAdd = SetupConfigVarDouble(MapConfigFolder, "SOI_Fix", 5);
 			Main.HidePrivateVessels = SetupConfigVarBool(MapConfigFolder, "HidePrivateVessels", false);
 			Main.SendJSONSetting = SetupConfigVarBool(MapConfigFolder, "SendJSON", false);
 			Main.PostURL = SetupConfigVarString(MapConfigFolder, "PostURL", "https://httpbin.org/anything");
