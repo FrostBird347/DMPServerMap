@@ -1,5 +1,4 @@
 # Config
-An implementation of the telemachus vessel map as a DMP server plugin, allowing users to view vessels on an interactive map.
 
 ## Plugin
 
