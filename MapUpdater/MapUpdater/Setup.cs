@@ -43,7 +43,7 @@ namespace MapUpdater
 			Main.SOIAdd = SetupConfigVarDouble(MapConfigFolder, "SOI_Fix", 100);
 			Main.HidePrivateVessels = SetupConfigVarBool(MapConfigFolder, "HidePrivateVessels", false);
 			Main.SendJSONSetting = SetupConfigVarBool(MapConfigFolder, "SendJSON", false);
-			Main.PostURL = SetupConfigVarString(MapConfigFolder, "PostURL", "https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7");
+			Main.PostURL = SetupConfigVarString(MapConfigFolder, "PostURL", "https://httpbin.org/anything");
 			Main.SendTimeout = SetupConfigVarDouble(MapConfigFolder, "SendJSONTimeout", 10);
 			Main.SaveJSONSetting = SetupConfigVarBool(MapConfigFolder, "SaveJSON", false);
 			Main.JSONPath = SetupConfigVarString(MapConfigFolder, "SaveJSONPath", "PluginData/DMPServerMap-FrostBird347/SavedJSON.json");

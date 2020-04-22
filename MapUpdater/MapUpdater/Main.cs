@@ -92,9 +92,9 @@ namespace MapUpdater
 					{
 						SendJSON.SendJSONData(FinalSentVesselsList, PostURL);
 						//Default URL warning
-						if (PostURL == "https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7")
+						if (PostURL == "https://httpbin.org/anything")
 						{
-							DarkLog.Error("\n---\nJSON posted to https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7\nThe 'PostURL' value in the config should be changed ASAP. \nYou will need to run the command '/reloadmap' to reload the config.\n---");
+							DarkLog.Error("\n---\nJSON posted to https://httpbin.org/anything\nThe 'PostURL' value in the config should be changed ASAP. \nYou will need to run the command '/reloadmap' to reload the config.\n---");
 						}
 					}
 				}
