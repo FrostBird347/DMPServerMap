@@ -1,16 +1,21 @@
 ﻿# Credits
 
-## VesselPositions
+## Plugin
+
+### VesselPositions
 [VesselPositions](https://github.com/godarklight/VesselPositions), which allowed me to obtain the position and velocity of every vessel in realtime.
 
+## Webpage
 
-# Map credits
+### Telemachus Reborn
+The webpage is based on [Telemachus Reborn](https://forum.kerbalspaceprogram.com/index.php?/topic/179887-telemachus-reborn-ksp-v15x-17x/)'s map.
 
-## Telemachus Reborn
-Without [Telemachus Reborn](https://forum.kerbalspaceprogram.com/index.php?/topic/179887-telemachus-reborn-ksp-v15x-17x/)'s map, I would have never made this plugin.
+### Temporary Kerbal Maps
+Both Telemachus and the webpage uses [Temporary Kerbal Maps](https://ksp.deringenieur.net/).
 
-## Kerbal Maps
-[Kerbal Maps](https://forum.kerbalspaceprogram.com/index.php?/topic/23154-022-kerbal-maps-web-maps-of-all-bodies-biomes-and-text-info-v011-oct-8/) for the map, which both Telemachus and this plugin uses.
+### Kerbal Maps
+[Temporary Kerbal Maps](https://ksp.deringenieur.net/) is a backup of [Kerbal Maps](https://forum.kerbalspaceprogram.com/index.php?/topic/23154-022-kerbal-maps-web-maps-of-all-bodies-biomes-and-text-info-v011-oct-8/).
 
-## Temporary Kerbal Maps
-[Temporary Kerbal Maps](https://ksp.deringenieur.net/). Without this backup, the Telemachus map would not have worked and would likely have been removed, resulting in this plugin never being made.
+### Kerbal Maps
+The webpage also uses some of [Temporary Kerbal Maps](https://forum.kerbalspaceprogram.com/index.php?/topic/181688-kerbal-maps-is-back-sort-of/)'s tiles.
+
