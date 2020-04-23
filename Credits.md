@@ -17,5 +17,5 @@ Both Telemachus and the webpage uses [Temporary Kerbal Maps](https://ksp.deringe
 [Temporary Kerbal Maps](https://ksp.deringenieur.net/) is a backup of [Kerbal Maps](https://forum.kerbalspaceprogram.com/index.php?/topic/23154-022-kerbal-maps-web-maps-of-all-bodies-biomes-and-text-info-v011-oct-8/).
 
 ### Kerbal Maps
-The webpage also uses some of [Temporary Kerbal Maps](https://forum.kerbalspaceprogram.com/index.php?/topic/181688-kerbal-maps-is-back-sort-of/)'s tiles.
+The webpage also uses some of [kerbal-maps.finitemonkeys.org](https://forum.kerbalspaceprogram.com/index.php?/topic/181688-kerbal-maps-is-back-sort-of/)'s tiles.
 
