@@ -1,4 +1,4 @@
 function SetCredits() {
 	document.getElementsByClassName("leaflet-control-attribution")[0].style.textAlign = "right"
-	document.getElementsByClassName("leaflet-control-attribution")[0].innerHTML = "<a target='_blank' href='https://github.com/FrostBird347/DMPServerMap/wiki/Credits#Map'>Map credits</a> - <a target='_blank' href='https://github.com/FrostBird347/DMPServerMap/wiki/Credits'>Full list of credits</a><br><a target='_blank' href='https://github.com/FrostBird347/DMPServerMap/wiki/Map-Layers'>Map layer credits</a><br>" + "Powered by <a href='http://leafletjs.com'>Leaflet</a> — Kerbal Maps data © Joel Pedraza"
+	document.getElementsByClassName("leaflet-control-attribution")[0].innerHTML = "<a target='_blank' href='https://github.com/FrostBird347/DMPServerMap/wiki/Credits'>Full list of credits</a> - <a target='_blank' href='https://github.com/FrostBird347/DMPServerMap/wiki/Credits#Map'>Map credits</a> - <a target='_blank' href='https://github.com/FrostBird347/DMPServerMap/wiki/Map-Layers'>Map layer credits</a><br>" + "Powered by <a href='http://leafletjs.com'>Leaflet</a> — Kerbal Maps data © Joel Pedraza"
 }
