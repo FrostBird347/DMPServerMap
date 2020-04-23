@@ -22,6 +22,7 @@ namespace MapUpdater
 
 	public class Main : DMPPlugin
 	{
+		public static string CurrentPluginVersion = PluginVersion.GetVersion();
 		private int updateCallCount = 0;
 		public static double UploadFrequency = 300000;
 		public static double SOIAdd;
@@ -51,7 +52,8 @@ namespace MapUpdater
 			Setup.SetUpFolders(SharedPluginDirectory, MapPluginFolder, VesselPosFolder, MapConfigFolder, EscapeVesselHash);
 			Setup.SetUpConfig(MapConfigFolder);
 			CommandHandler.RegisterCommand("reloadmap", ReloadConfig, "Reload the MapUpdater plugin's config.");
-			DarkLog.Normal("[MapUpdater] Started!");
+			CommandHandler.RegisterCommand("mapv", DisplayVersion, "Display the map plugin's version.");
+			DarkLog.Normal("[MapUpdater] Started! - Version " + CurrentPluginVersion + ".");
 		}
 
 		public override void OnServerStop()
@@ -66,6 +68,11 @@ namespace MapUpdater
 			Setup.SetUpFolders(SharedPluginDirectory, MapPluginFolder, VesselPosFolder, MapConfigFolder, EscapeVesselHash);
 			Setup.SetUpConfig(MapConfigFolder);
 			DarkLog.Normal("[MapUpdater] Finished.");
+		}
+
+		public void DisplayVersion(string input)
+		{
+			DarkLog.Normal("[MapUpdater] Version " + CurrentPluginVersion + ".");
 		}
 
 		public override void OnUpdate()
