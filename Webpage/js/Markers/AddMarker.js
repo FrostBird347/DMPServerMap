@@ -19,7 +19,7 @@ function AddMarker(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate, IsNewM
 		} else if (Planet == 7) {
 			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.IKE.overlays.Vessels)
 		} else if (Planet == 8) {
-			//There is no map for jool.
+			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.JOOL.overlays.Vessels)
 		} else if (Planet == 9) {
 			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.LAYTHE.overlays.Vessels)
 		} else if (Planet == 10) {
@@ -58,7 +58,7 @@ function AddMarker(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate, IsNewM
 		} else if (Planet == 7) {
 			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.IKE.overlays.SpaceObjects)
 		} else if (Planet == 8) {
-			//There is no map for jool.
+			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.JOOL.overlays.SpaceObjects)
 		} else if (Planet == 9) {
 			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.LAYTHE.overlays.SpaceObjects)
 		} else if (Planet == 10) {
@@ -97,7 +97,7 @@ function AddMarker(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate, IsNewM
 		} else if (Planet == 7) {
 			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.IKE.overlays.Kerbals)
 		} else if (Planet == 8) {
-			//There is no map for jool.
+			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.JOOL.overlays.Kerbals)
 		} else if (Planet == 9) {
 			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.LAYTHE.overlays.Kerbals)
 		} else if (Planet == 10) {
@@ -136,7 +136,7 @@ function AddMarker(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate, IsNewM
 		} else if (Planet == 7) {
 			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.IKE.overlays.Flags)
 		} else if (Planet == 8) {
-			//There is no map for jool.
+			//You can't place a flag on Jool.
 		} else if (Planet == 9) {
 			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.LAYTHE.overlays.Flags)
 		} else if (Planet == 10) {
@@ -175,7 +175,7 @@ function AddMarker(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate, IsNewM
 		} else if (Planet == 7) {
 			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.IKE.overlays.Debris)
 		} else if (Planet == 8) {
-			//There is no map for jool.
+			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.JOOL.overlays.Debris)
 		} else if (Planet == 9) {
 			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.LAYTHE.overlays.Debris)
 		} else if (Planet == 10) {

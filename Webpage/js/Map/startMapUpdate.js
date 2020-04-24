@@ -159,7 +159,7 @@ async function startMapUpdate() {
 					}
 					var MarkerIDIndex = "None"
 					var IsNewMarker = "N"
-					if (element[2] != 0 && element[2] != 8) {
+					if (element[2] != 0) {
 						MapID.forEach(function(part, index, FullArray) {
 							if (part == element[7]) {
 								MarkerIDIndex = index

@@ -116,7 +116,18 @@ function RemoveOldMarker(MapMarkerArray, MarkerIDIndex) {
 			L.KSP.CelestialBody.IKE.overlays.Debris.removeLayer(MapMarkerArray[MarkerIDIndex])
 		} catch {}
 	} else if (Planet == 8) {
-		//There is no map for jool.
+		try {
+			L.KSP.CelestialBody.JOOL.overlays.Vessels.removeLayer(MapMarkerArray[MarkerIDIndex])
+		} catch {}
+		try {
+			L.KSP.CelestialBody.JOOL.overlays.SpaceObjects.removeLayer(MapMarkerArray[MarkerIDIndex])
+		} catch {}
+		try {
+			L.KSP.CelestialBody.JOOL.overlays.Kerbals.removeLayer(MapMarkerArray[MarkerIDIndex])
+		} catch {}
+		try {
+			L.KSP.CelestialBody.JOOL.overlays.Debris.removeLayer(MapMarkerArray[MarkerIDIndex])
+		} catch {}
 	} else if (Planet == 9) {
 		try {
 			L.KSP.CelestialBody.LAYTHE.overlays.Vessels.removeLayer(MapMarkerArray[MarkerIDIndex])

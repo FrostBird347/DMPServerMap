@@ -6,8 +6,8 @@ async function MapFix() {
 		$(function() {
 			$(".leaflet-map-pane").each(function() {
 				$("img").each(function() {
-					if (this.src.startsWith(new URL("./img/AltTileLoad.png?", document.baseURI).href)) {
-						var NewSrc = this.src.replace(new URL("./img/AltTileLoad.png?", window.location.href).href, "http://d3kmnwgldcmvsd.cloudfront.net/tiles/");
+					if (this.src.startsWith(new URL("./img/tiles/AltTileLoad.png?", document.baseURI).href)) {
+						var NewSrc = this.src.replace(new URL("./img/tiles/AltTileLoad.png?", window.location.href).href, "http://d3kmnwgldcmvsd.cloudfront.net/tiles/");
 						this.src = NewSrc + ".png";
 						let clone = this.cloneNode(true);
 						let clone2 = this.cloneNode(true);
@@ -16,7 +16,7 @@ async function MapFix() {
 						clone.src = this.src.replace("http://d3kmnwgldcmvsd.cloudfront.net/tiles/", "https://ksp.deringenieur.net/kmaps/tiles/");
 						clone2.style.opacity = 0.25
 						clone2.style.zIndex = 1
-						this.src = "./img/AltTileLoad2.png"
+						this.src = "./img/tiles/AltTileLoad2.png"
 						this.remove()
 						clone.alt = ""
 						clone2.alt = ""

@@ -4519,7 +4519,7 @@ Proj4js.Proj = Proj4js.Class({
 					var s = e.Icon.Default.imagePath;
 					if (!s)
 						throw Error("Couldn't autodetect L.Icon.Default.imagePath, set it manually.");
-					return "img/marker-" + t + ".png"
+					return "img/markers/marker-" + t + ".png"
 				}
 			}),
 			e.Icon.Default.imagePath = function() {
@@ -7715,7 +7715,7 @@ Proj4js.Proj = Proj4js.Class({
 					} else
 						this.crs = L.KSP.CRS.EPSG4326;
 					t.hasOwnProperty("radius") || (this.radius = 1),
-						t.hasOwnProperty("thumbnail") || (this.thumbnail = "img/body-unknown.png"),
+						t.hasOwnProperty("thumbnail") || (this.thumbnail = "img/planets/body-unknown.png"),
 						t.hasOwnProperty("baseLayers") || (this.baseLayers = {}),
 						L.Util.extend(this, t)
 				},
@@ -7831,7 +7831,8 @@ Proj4js.Proj = Proj4js.Class({
 					TYPE_LBIOME: 6,
 					DEFAULT_URL: "http://ksp.deringenieur.net/kmaps/tiles/{body}/{style}/{z}/{x}/{y}.png",
 					ALT_URL: "http://d3kmnwgldcmvsd.cloudfront.net/tiles/{body}/{style}/{z}/{x}/{y}.png",
-					ALT_URL2: "./img/AltTileLoad.png?{body}/{style}/{z}/{x}/{y}"
+					ALT_URL2: "./img/tiles/AltTileLoad.png?{body}/{style}/{z}/{x}/{y}",
+					NODATA_URL: "./img/tiles/nodata_{body}.png?{style}/{z}/{x}/{y}"
 				},
 				options: {
 					continuousWorld: !1,
@@ -7870,8 +7871,8 @@ Proj4js.Proj = Proj4js.Class({
 			},
 			L.KSP.Icon = {},
 			L.KSP.Icon.SPACECENTER = new L.Icon({
-				iconUrl: "img/markers-spacecenter.png",
-				shadowUrl: "img/markers-shadow.png",
+				iconUrl: "img/markers/markers-spacecenter.png",
+				shadowUrl: "img/markers/markers-shadow.png",
 				iconSize: [30, 40],
 				shadowSize: [35, 16],
 				iconAnchor: [15, 40],
@@ -7879,8 +7880,8 @@ Proj4js.Proj = Proj4js.Class({
 				popupAnchor: [0, -35]
 			}),
 			L.KSP.Icon.DEBRIS = new L.Icon({
-				iconUrl: "img/markers-vessel-debris.png",
-				shadowUrl: "img/markers-shadow.png",
+				iconUrl: "img/markers/markers-vessel-debris.png",
+				shadowUrl: "img/markers/markers-shadow.png",
 				iconSize: [30, 40],
 				shadowSize: [35, 16],
 				iconAnchor: [15, 40],
@@ -7888,8 +7889,8 @@ Proj4js.Proj = Proj4js.Class({
 				popupAnchor: [0, -35]
 			}),
 			L.KSP.Icon.VESSEL = new L.Icon({
-				iconUrl: "img/markers-vessel.png",
-				shadowUrl: "img/markers-shadow.png",
+				iconUrl: "img/markers/markers-vessel.png",
+				shadowUrl: "img/markers/markers-shadow.png",
 				iconSize: [30, 40],
 				shadowSize: [35, 16],
 				iconAnchor: [15, 40],
@@ -7897,8 +7898,8 @@ Proj4js.Proj = Proj4js.Class({
 				popupAnchor: [0, -35]
 			}),
 			L.KSP.Icon.VESSELSpaceObject = new L.Icon({
-				iconUrl: "img/markers-vessel-spaceobject.png",
-				shadowUrl: "img/markers-shadow.png",
+				iconUrl: "img/markers/markers-vessel-spaceobject.png",
+				shadowUrl: "img/markers/markers-shadow.png",
 				iconSize: [30, 40],
 				shadowSize: [35, 16],
 				iconAnchor: [15, 40],
@@ -7906,8 +7907,8 @@ Proj4js.Proj = Proj4js.Class({
 				popupAnchor: [0, -35]
 			}),
 			L.KSP.Icon.VESSELUnknown = new L.Icon({
-				iconUrl: "img/markers-vessel-unknown.png",
-				shadowUrl: "img/markers-shadow.png",
+				iconUrl: "img/markers/markers-vessel-unknown.png",
+				shadowUrl: "img/markers/markers-shadow.png",
 				iconSize: [30, 40],
 				shadowSize: [35, 16],
 				iconAnchor: [15, 40],
@@ -7915,8 +7916,8 @@ Proj4js.Proj = Proj4js.Class({
 				popupAnchor: [0, -35]
 			}),
 			L.KSP.Icon.VESSELProbe = new L.Icon({
-				iconUrl: "img/markers-vessel-probe.png",
-				shadowUrl: "img/markers-shadow.png",
+				iconUrl: "img/markers/markers-vessel-probe.png",
+				shadowUrl: "img/markers/markers-shadow.png",
 				iconSize: [30, 40],
 				shadowSize: [35, 16],
 				iconAnchor: [15, 40],
@@ -7924,8 +7925,8 @@ Proj4js.Proj = Proj4js.Class({
 				popupAnchor: [0, -35]
 			}),
 			L.KSP.Icon.VESSELRelay = new L.Icon({
-				iconUrl: "img/markers-vessel-relay.png",
-				shadowUrl: "img/markers-shadow.png",
+				iconUrl: "img/markers/markers-vessel-relay.png",
+				shadowUrl: "img/markers/markers-shadow.png",
 				iconSize: [30, 40],
 				shadowSize: [35, 16],
 				iconAnchor: [15, 40],
@@ -7933,8 +7934,8 @@ Proj4js.Proj = Proj4js.Class({
 				popupAnchor: [0, -35]
 			}),
 			L.KSP.Icon.VESSELRover = new L.Icon({
-				iconUrl: "img/markers-vessel-rover.png",
-				shadowUrl: "img/markers-shadow.png",
+				iconUrl: "img/markers/markers-vessel-rover.png",
+				shadowUrl: "img/markers/markers-shadow.png",
 				iconSize: [30, 40],
 				shadowSize: [35, 16],
 				iconAnchor: [15, 40],
@@ -7942,8 +7943,8 @@ Proj4js.Proj = Proj4js.Class({
 				popupAnchor: [0, -35]
 			}),
 			L.KSP.Icon.VESSELLander = new L.Icon({
-				iconUrl: "img/markers-vessel-lander.png",
-				shadowUrl: "img/markers-shadow.png",
+				iconUrl: "img/markers/markers-vessel-lander.png",
+				shadowUrl: "img/markers/markers-shadow.png",
 				iconSize: [30, 40],
 				shadowSize: [35, 16],
 				iconAnchor: [15, 40],
@@ -7951,8 +7952,8 @@ Proj4js.Proj = Proj4js.Class({
 				popupAnchor: [0, -35]
 			}),
 			L.KSP.Icon.VESSELShip = new L.Icon({
-				iconUrl: "img/markers-vessel-ship.png",
-				shadowUrl: "img/markers-shadow.png",
+				iconUrl: "img/markers/markers-vessel-ship.png",
+				shadowUrl: "img/markers/markers-shadow.png",
 				iconSize: [30, 40],
 				shadowSize: [35, 16],
 				iconAnchor: [15, 40],
@@ -7960,8 +7961,8 @@ Proj4js.Proj = Proj4js.Class({
 				popupAnchor: [0, -35]
 			}),
 			L.KSP.Icon.VESSELPlane = new L.Icon({
-				iconUrl: "img/markers-vessel-plane.png",
-				shadowUrl: "img/markers-shadow.png",
+				iconUrl: "img/markers/markers-vessel-plane.png",
+				shadowUrl: "img/markers/markers-shadow.png",
 				iconSize: [30, 40],
 				shadowSize: [35, 16],
 				iconAnchor: [15, 40],
@@ -7969,8 +7970,8 @@ Proj4js.Proj = Proj4js.Class({
 				popupAnchor: [0, -35]
 			}),
 			L.KSP.Icon.VESSELStation = new L.Icon({
-				iconUrl: "img/markers-vessel-station.png",
-				shadowUrl: "img/markers-shadow.png",
+				iconUrl: "img/markers/markers-vessel-station.png",
+				shadowUrl: "img/markers/markers-shadow.png",
 				iconSize: [30, 40],
 				shadowSize: [35, 16],
 				iconAnchor: [15, 40],
@@ -7978,8 +7979,8 @@ Proj4js.Proj = Proj4js.Class({
 				popupAnchor: [0, -35]
 			}),
 			L.KSP.Icon.VESSELBase = new L.Icon({
-				iconUrl: "img/markers-vessel-base.png",
-				shadowUrl: "img/markers-shadow.png",
+				iconUrl: "img/markers/markers-vessel-base.png",
+				shadowUrl: "img/markers/markers-shadow.png",
 				iconSize: [30, 40],
 				shadowSize: [35, 16],
 				iconAnchor: [15, 40],
@@ -7987,8 +7988,8 @@ Proj4js.Proj = Proj4js.Class({
 				popupAnchor: [0, -35]
 			}),
 			L.KSP.Icon.VESSELEVA = new L.Icon({
-				iconUrl: "img/markers-vessel-eva.png",
-				shadowUrl: "img/markers-shadow.png",
+				iconUrl: "img/markers/markers-vessel-eva.png",
+				shadowUrl: "img/markers/markers-shadow.png",
 				iconSize: [30, 40],
 				shadowSize: [35, 16],
 				iconAnchor: [15, 40],
@@ -7996,8 +7997,8 @@ Proj4js.Proj = Proj4js.Class({
 				popupAnchor: [0, -35]
 			}),
 			L.KSP.Icon.VESSELFlag = new L.Icon({
-				iconUrl: "img/markers-vessel-flag.png",
-				shadowUrl: "img/markers-shadow.png",
+				iconUrl: "img/markers/markers-vessel-flag.png",
+				shadowUrl: "img/markers/markers-shadow.png",
 				iconSize: [30, 40],
 				shadowSize: [35, 16],
 				iconAnchor: [15, 40],
@@ -8005,8 +8006,8 @@ Proj4js.Proj = Proj4js.Class({
 				popupAnchor: [0, -35]
 			}),
 			L.KSP.Icon.VESSELDeployedScienceController = new L.Icon({
-				iconUrl: "img/markers-vessel-deployedsciencecontroller.png",
-				shadowUrl: "img/markers-shadow.png",
+				iconUrl: "img/markers/markers-vessel-deployedsciencecontroller.png",
+				shadowUrl: "img/markers/markers-shadow.png",
 				iconSize: [30, 40],
 				shadowSize: [35, 16],
 				iconAnchor: [15, 40],
@@ -8014,8 +8015,8 @@ Proj4js.Proj = Proj4js.Class({
 				popupAnchor: [0, -35]
 			}),
 			L.KSP.Icon.VESSELDeployedSciencePart = new L.Icon({
-				iconUrl: "img/markers-vessel-deployedsciencepart.png",
-				shadowUrl: "img/markers-shadow.png",
+				iconUrl: "img/markers/markers-vessel-deployedsciencepart.png",
+				shadowUrl: "img/markers/markers-shadow.png",
 				iconSize: [30, 40],
 				shadowSize: [35, 16],
 				iconAnchor: [15, 40],
@@ -8023,8 +8024,8 @@ Proj4js.Proj = Proj4js.Class({
 				popupAnchor: [0, -35]
 			}),
 			L.KSP.Icon.ANOMALY = new L.Icon({
-				iconUrl: "img/markers-anomaly.png",
-				shadowUrl: "img/markers-shadow.png",
+				iconUrl: "img/markers/markers-anomaly.png",
+				shadowUrl: "img/markers/markers-shadow.png",
 				iconSize: [30, 40],
 				shadowSize: [35, 16],
 				iconAnchor: [15, 40],
@@ -8032,8 +8033,8 @@ Proj4js.Proj = Proj4js.Class({
 				popupAnchor: [0, -35]
 			}),
 			L.KSP.Icon.LOWPOS = new L.Icon({
-				iconUrl: "img/markers-lowpos.png",
-				shadowUrl: "img/markers-shadow.png",
+				iconUrl: "img/markers/markers-lowpos.png",
+				shadowUrl: "img/markers/markers-shadow.png",
 				iconSize: [30, 40],
 				shadowSize: [35, 16],
 				iconAnchor: [15, 40],
@@ -8041,8 +8042,8 @@ Proj4js.Proj = Proj4js.Class({
 				popupAnchor: [0, -35]
 			}),
 			L.KSP.Icon.HIGHPOS = new L.Icon({
-				iconUrl: "img/markers-highpos.png",
-				shadowUrl: "img/markers-shadow.png",
+				iconUrl: "img/markers/markers-highpos.png",
+				shadowUrl: "img/markers/markers-shadow.png",
 				iconSize: [30, 40],
 				shadowSize: [35, 16],
 				iconAnchor: [15, 40],
@@ -8262,7 +8263,7 @@ Proj4js.Proj = Proj4js.Class({
 				id: "moho",
 				name: "Moho",
 				crs: L.KSP.CRS.EPSG4326,
-				thumbnail: "img/body-moho.png",
+				thumbnail: "img/planets/body-moho.png",
 				radius: 25e4,
 				addedOn: 13691808e5,
 				lastUpdated: 13757472e5,
@@ -8334,7 +8335,7 @@ Proj4js.Proj = Proj4js.Class({
 				id: "eve",
 				name: "Eve",
 				crs: L.KSP.CRS.EPSG4326,
-				thumbnail: "img/body-eve.png",
+				thumbnail: "img/planets/body-eve.png",
 				radius: 7e5,
 				addedOn: 13691808e5,
 				lastUpdated: 13757472e5,
@@ -8412,7 +8413,7 @@ Proj4js.Proj = Proj4js.Class({
 				id: "gilly",
 				name: "Gilly",
 				crs: L.KSP.CRS.EPSG4326,
-				thumbnail: "img/body-gilly.png",
+				thumbnail: "img/planets/body-gilly.png",
 				radius: 13e3,
 				addedOn: 13691808e5,
 				lastUpdated: 13691808e5,
@@ -8476,7 +8477,7 @@ Proj4js.Proj = Proj4js.Class({
 				radius: 6e5,
 				addedOn: 1366416e6,
 				lastUpdated: 1366416e6,
-				thumbnail: "img/body-kerbin.png",
+				thumbnail: "img/planets/body-kerbin.png",
 				baseLayers: {
 					Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
 						body: "kerbin",
@@ -8588,7 +8589,7 @@ Proj4js.Proj = Proj4js.Class({
 				radius: 2e5,
 				addedOn: 13682304e5,
 				lastUpdated: 1368144e6,
-				thumbnail: "img/body-mun.png",
+				thumbnail: "img/planets/body-mun.png",
 				baseLayers: {
 					Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
 						body: "mun",
@@ -8697,7 +8698,7 @@ Proj4js.Proj = Proj4js.Class({
 				radius: 6e4,
 				addedOn: 13682304e5,
 				lastUpdated: 13682304e5,
-				thumbnail: "img/body-minmus.png",
+				thumbnail: "img/planets/body-minmus.png",
 				baseLayers: {
 					Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
 						style: "sat",
@@ -8763,7 +8764,7 @@ Proj4js.Proj = Proj4js.Class({
 				radius: 32e4,
 				addedOn: 13688352e5,
 				lastUpdated: 13688352e5,
-				thumbnail: "img/body-duna.png",
+				thumbnail: "img/planets/body-duna.png",
 				baseLayers: {
 					Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
 						style: "sat",
@@ -8842,7 +8843,7 @@ Proj4js.Proj = Proj4js.Class({
 				radius: 13e4,
 				addedOn: 13688352e5,
 				lastUpdated: 13688352e5,
-				thumbnail: "img/body-ike.png",
+				thumbnail: "img/planets/body-ike.png",
 				baseLayers: {
 					Satellite: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_SATELLITE, L.KSP.TileLayer.DEFAULT_URL, L.KSP.CRS.EPSG4326, {
 						style: "sat",
@@ -8906,7 +8907,7 @@ Proj4js.Proj = Proj4js.Class({
 				id: "dres",
 				name: "Dres",
 				crs: L.KSP.CRS.EPSG4326,
-				thumbnail: "img/body-dres.png",
+				thumbnail: "img/planets/body-dres.png",
 				radius: 138e3,
 				addedOn: 13691808e5,
 				lastUpdated: 13757472e5,
@@ -8973,13 +8974,33 @@ Proj4js.Proj = Proj4js.Class({
 				id: "jool",
 				name: "Jool",
 				crs: L.KSP.CRS.EPSG4326,
-				thumbnail: "img/body-jool.png"
+				thumbnail: "img/planets/body-jool.png",
+				radius: 6e6,
+				addedOn: 13691808e5,
+				lastUpdated: 13757472e5,
+				lastUpdatedVer: 38,
+				lastModifiedVer: 38,
+				baseLayers: {
+					Depth: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.NODATA_URL, L.KSP.CRS.EPSG4326, {
+						body: "jool",
+						style: "color",
+						legend: {
+							"-250 m": "#004400"
+						}
+					})
+				},
+				overlays: {
+					"Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL),
+					"Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
+					"Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
+					"SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT)
+				}
 			}),
 			L.KSP.CelestialBody.LAYTHE = L.KSP.celestialBody({
 				id: "laythe",
 				name: "Laythe",
 				crs: L.KSP.CRS.EPSG4326,
-				thumbnail: "img/body-laythe.png",
+				thumbnail: "img/planets/body-laythe.png",
 				radius: 5e5,
 				addedOn: 13691808e5,
 				lastUpdated: 13757472e5,
@@ -9051,7 +9072,7 @@ Proj4js.Proj = Proj4js.Class({
 				id: "vall",
 				name: "Vall",
 				crs: L.KSP.CRS.EPSG4326,
-				thumbnail: "img/body-vall.png",
+				thumbnail: "img/planets/body-vall.png",
 				radius: 3e5,
 				addedOn: 13691808e5,
 				lastUpdated: 13757472e5,
@@ -9123,7 +9144,7 @@ Proj4js.Proj = Proj4js.Class({
 				id: "tylo",
 				name: "Tylo",
 				crs: L.KSP.CRS.EPSG4326,
-				thumbnail: "img/body-tylo.png",
+				thumbnail: "img/planets/body-tylo.png",
 				radius: 6e5,
 				addedOn: 13691808e5,
 				lastUpdated: 13757472e5,
@@ -9196,7 +9217,7 @@ Proj4js.Proj = Proj4js.Class({
 				id: "bop",
 				name: "Bop",
 				crs: L.KSP.CRS.EPSG4326,
-				thumbnail: "img/body-bop.png",
+				thumbnail: "img/planets/body-bop.png",
 				radius: 65e3,
 				addedOn: 13691808e5,
 				lastUpdated: 13757472e5,
@@ -9263,7 +9284,7 @@ Proj4js.Proj = Proj4js.Class({
 				id: "pol",
 				name: "Pol",
 				crs: L.KSP.CRS.EPSG4326,
-				thumbnail: "img/body-pol.png",
+				thumbnail: "img/planets/body-pol.png",
 				radius: 44e3,
 				addedOn: 13691808e5,
 				lastUpdated: 13757472e5,
@@ -9326,7 +9347,7 @@ Proj4js.Proj = Proj4js.Class({
 				id: "eeloo",
 				name: "Eeloo",
 				crs: L.KSP.CRS.EPSG4326,
-				thumbnail: "img/body-eeloo.png",
+				thumbnail: "img/planets/body-eeloo.png",
 				radius: 21e4,
 				addedOn: 13691808e5,
 				lastUpdated: 13757472e5,
@@ -9396,6 +9417,7 @@ Proj4js.Proj = Proj4js.Class({
 			L.KSP.CelestialBody.KERBIN.defaultLayer = L.KSP.CelestialBody.KERBIN.baseLayers.Satellite,
 			L.KSP.CelestialBody.MUN.defaultLayer = L.KSP.CelestialBody.MUN.baseLayers.Satellite,
 			L.KSP.CelestialBody.MINMUS.defaultLayer = L.KSP.CelestialBody.MINMUS.baseLayers.Satellite,
+			L.KSP.CelestialBody.JOOL.defaultLayer = L.KSP.CelestialBody.JOOL.baseLayers.Depth,
 			L.KSP.CelestialBody.EVE.children = [L.KSP.CelestialBody.GILLY],
 			L.KSP.CelestialBody.KERBIN.children = [L.KSP.CelestialBody.MUN, L.KSP.CelestialBody.MINMUS],
 			L.KSP.CelestialBody.DUNA.children = [L.KSP.CelestialBody.IKE],
