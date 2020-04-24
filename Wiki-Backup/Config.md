@@ -63,3 +63,6 @@ function VAR() {
 	- Default value is `4` seconds.
 	- Controls how often the map will attempt to update the markers.
 	- Setting a lower value on the webpage, without touching the server's `Upload_Frequency` value increases the chance of the webpage receiving the same data again.
+- `HideDeepVessels`
+	- Default value is `true`.
+	- Hide vessels under -250m if `true`.

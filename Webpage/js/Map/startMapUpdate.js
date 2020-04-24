@@ -219,26 +219,30 @@ async function startMapUpdate() {
 					}
 					var MarkerIDIndex = "None"
 					var IsNewMarker = "N"
-					MapID.forEach(function(part, index, FullArray) {
-						if (part == element[7]) {
-							MarkerIDIndex = index
-						}
-					});
-					if (MarkerIDIndex == "None") {
-						MarkerIDIndex = MapID.push(element[7]) - 1
-						MapIDUpdate.push("Y")
-						IsNewMarker = "Y"
-						MapIDPlanet.push(element[2])
-					}
-					var bindthing = "<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8]
-					if (IsNewMarker != "Y") {
-						UpdateMarker(newmarker, MarkerMode, element[2], MarkerIDIndex, MapID, MapIDUpdate[MarkerIDIndex], IsNewMarker, element, icon, bindthing)
-					} else {
-						AddMarker(newmarker, MarkerMode, element[2], MarkerIDIndex, MapID, MapIDUpdate[MarkerIDIndex], IsNewMarker, element, icon, bindthing)
-					}
-					MapIDUpdate[MarkerIDIndex] = "Y"
-					if (MapIDPlanet[MarkerIDIndex] != element[2]) {
+					if  ((Math.round(element[3]) < -250) && DeepVesselsHidden) {
 						MapIDUpdate[MarkerIDIndex] = "N"
+					} else {
+						MapID.forEach(function(part, index, FullArray) {
+							if (part == element[7]) {
+								MarkerIDIndex = index
+							}
+						});
+						if (MarkerIDIndex == "None") {
+							MarkerIDIndex = MapID.push(element[7]) - 1
+							MapIDUpdate.push("Y")
+							IsNewMarker = "Y"
+							MapIDPlanet.push(element[2])
+						}
+						var bindthing = "<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8]
+						if (IsNewMarker != "Y") {
+							UpdateMarker(newmarker, MarkerMode, element[2], MarkerIDIndex, MapID, MapIDUpdate[MarkerIDIndex], IsNewMarker, element, icon, bindthing)
+						} else {
+							AddMarker(newmarker, MarkerMode, element[2], MarkerIDIndex, MapID, MapIDUpdate[MarkerIDIndex], IsNewMarker, element, icon, bindthing)
+						}
+						MapIDUpdate[MarkerIDIndex] = "Y"
+						if (MapIDPlanet[MarkerIDIndex] != element[2]) {
+							MapIDUpdate[MarkerIDIndex] = "N"
+						}
 					}
 				} else {
 					console.warn("nil or NaN coordinate found, skipping marker!")
