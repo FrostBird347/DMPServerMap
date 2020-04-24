@@ -23,6 +23,7 @@ async function startMapUpdate() {
 					})
 					//Height stuff
 					var height = Math.round(element[3])
+					//Lazy negative value fix part 1
 					var NHeight = false;
 					if (height < 0) {
 					NHeight = true;
@@ -70,6 +71,7 @@ async function startMapUpdate() {
 						height = height / 100
 						heightstatus = " km"
 					}
+					//Lazy negative value fix part 2
 					if (NHeight) {
 					height *= -1
 					}
