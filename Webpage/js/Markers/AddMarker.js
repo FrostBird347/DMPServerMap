@@ -3,7 +3,7 @@ function AddMarker(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate, IsNewM
 	console.debug("Added: " + MapID[MarkerIDIndex])
 	if (Type == "V") {
 		if (Planet == 0) {
-			//There is no map for the sun.
+			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.KERBOL.overlays.Vessels)
 		} else if (Planet == 1) {
 			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.KERBIN.overlays.Vessels)
 		} else if (Planet == 2) {
@@ -42,7 +42,7 @@ function AddMarker(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate, IsNewM
 		}
 	} else if (Type == "O") {
 		if (Planet == 0) {
-			//There is no map for the sun.
+			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.KERBOL.overlays.SpaceObjects)
 		} else if (Planet == 1) {
 			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.KERBIN.overlays.SpaceObjects)
 		} else if (Planet == 2) {
@@ -81,7 +81,7 @@ function AddMarker(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate, IsNewM
 		}
 	} else if (Type == "K") {
 		if (Planet == 0) {
-			//There is no map for the sun.
+			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.KERBOL.overlays.Kerbals)
 		} else if (Planet == 1) {
 			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.KERBIN.overlays.Kerbals)
 		} else if (Planet == 2) {
@@ -120,7 +120,7 @@ function AddMarker(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate, IsNewM
 		}
 	} else if (Type == "F") {
 		if (Planet == 0) {
-			//There is no map for the sun.
+			//You can't place a flag on the Sun.
 		} else if (Planet == 1) {
 			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.KERBIN.overlays.Flags)
 		} else if (Planet == 2) {
@@ -159,7 +159,7 @@ function AddMarker(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate, IsNewM
 		}
 	} else if (Type == "D") {
 		if (Planet == 0) {
-			//There is no map for the sun.
+			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.KERBOL.overlays.Debris)
 		} else if (Planet == 1) {
 			MapMarkerArray[MarkerIDIndex] = Marker[0].addTo(L.KSP.CelestialBody.KERBIN.overlays.Debris)
 		} else if (Planet == 2) {

@@ -2,7 +2,18 @@ function RemoveOldMarker(MapMarkerArray, MarkerIDIndex) {
 	var Planet = MapIDPlanet[MarkerIDIndex]
 	console.debug("Removed: " + MapID[MarkerIDIndex])
 	if (Planet == 0) {
-		//There is no map for the sun.
+		try {
+			L.KSP.CelestialBody.KERBOL.overlays.Vessels.removeLayer(MapMarkerArray[MarkerIDIndex])
+		} catch {}
+		try {
+			L.KSP.CelestialBody.KERBOL.overlays.SpaceObjects.removeLayer(MapMarkerArray[MarkerIDIndex])
+		} catch {}
+		try {
+			L.KSP.CelestialBody.KERBOL.overlays.Kerbals.removeLayer(MapMarkerArray[MarkerIDIndex])
+		} catch {}
+		try {
+			L.KSP.CelestialBody.KERBOL.overlays.Debris.removeLayer(MapMarkerArray[MarkerIDIndex])
+		} catch {}
 	} else if (Planet == 1) {
 		try {
 			L.KSP.CelestialBody.KERBIN.overlays.Vessels.removeLayer(MapMarkerArray[MarkerIDIndex])

@@ -23,8 +23,38 @@ async function startMapUpdate() {
 					})
 					//Height stuff
 					var height = Math.round(element[3])
+					var NHeight = false;
+					if (height < 0) {
+					NHeight = true;
+					height *= -1
+					}
 					var heightstatus = " m"
-					if (height > 1000000000) {
+					if (height > 1000000000000000000000000) {
+						height = height / 10000000000000000000000
+						height = Math.round(height)
+						height = height / 100
+						heightstatus = " Ym"
+					} else if (height > 1000000000000000000000) {
+						height = height / 10000000000000000000
+						height = Math.round(height)
+						height = height / 100
+						heightstatus = " Zm"
+					} else if (height > 1000000000000000000) {
+						height = height / 10000000000000000
+						height = Math.round(height)
+						height = height / 100
+						heightstatus = " Em"
+					} else if (height > 1000000000000000) {
+						height = height / 10000000000000
+						height = Math.round(height)
+						height = height / 100
+						heightstatus = " Pm"
+					} else if (height > 1000000000000) {
+						height = height / 10000000000
+						height = Math.round(height)
+						height = height / 100
+						heightstatus = " Tm"
+					} else if (height > 1000000000) {
 						height = height / 10000000
 						height = Math.round(height)
 						height = height / 100
@@ -40,10 +70,38 @@ async function startMapUpdate() {
 						height = height / 100
 						heightstatus = " km"
 					}
+					if (NHeight) {
+					height *= -1
+					}
 					//Velocity stuff
 					var velocity = Math.round(element[4])
 					var velocitystatus = " m/s"
-					if (velocity > 1000000000) {
+					if (velocity > 1000000000000000000000000) {
+						velocity = velocity / 10000000000000000000000
+						velocity = Math.round(velocity)
+						velocity = velocity / 100
+						velocitystatus = " Ym/s"
+					} else if (velocity > 1000000000000000000000) {
+						velocity = velocity / 10000000000000000000
+						velocity = Math.round(velocity)
+						velocity = velocity / 100
+						velocitystatus = " Zm/s"
+					} else if (velocity > 1000000000000000000) {
+						velocity = velocity / 10000000000000000
+						velocity = Math.round(velocity)
+						velocity = velocity / 100
+						velocitystatus = " Em/s"
+					} else if (velocity > 1000000000000000) {
+						velocity = velocity / 10000000000000
+						velocity = Math.round(velocity)
+						velocity = velocity / 100
+						velocitystatus = " Pm/s"
+					} else if (velocity > 1000000000000) {
+						velocity = velocity / 10000000000
+						velocity = Math.round(velocity)
+						velocity = velocity / 100
+						velocitystatus = " Tm/s"
+					} else if (velocity > 1000000000) {
 						velocity = velocity / 10000000
 						velocity = Math.round(velocity)
 						velocity = velocity / 100
@@ -159,28 +217,26 @@ async function startMapUpdate() {
 					}
 					var MarkerIDIndex = "None"
 					var IsNewMarker = "N"
-					if (element[2] != 0) {
-						MapID.forEach(function(part, index, FullArray) {
-							if (part == element[7]) {
-								MarkerIDIndex = index
-							}
-						});
-						if (MarkerIDIndex == "None") {
-							MarkerIDIndex = MapID.push(element[7]) - 1
-							MapIDUpdate.push("Y")
-							IsNewMarker = "Y"
-							MapIDPlanet.push(element[2])
+					MapID.forEach(function(part, index, FullArray) {
+						if (part == element[7]) {
+							MarkerIDIndex = index
 						}
-						var bindthing = "<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8]
-						if (IsNewMarker != "Y") {
-							UpdateMarker(newmarker, MarkerMode, element[2], MarkerIDIndex, MapID, MapIDUpdate[MarkerIDIndex], IsNewMarker, element, icon, bindthing)
-						} else {
-							AddMarker(newmarker, MarkerMode, element[2], MarkerIDIndex, MapID, MapIDUpdate[MarkerIDIndex], IsNewMarker, element, icon, bindthing)
-						}
-						MapIDUpdate[MarkerIDIndex] = "Y"
-						if (MapIDPlanet[MarkerIDIndex] != element[2]) {
-							MapIDUpdate[MarkerIDIndex] = "N"
-						}
+					});
+					if (MarkerIDIndex == "None") {
+						MarkerIDIndex = MapID.push(element[7]) - 1
+						MapIDUpdate.push("Y")
+						IsNewMarker = "Y"
+						MapIDPlanet.push(element[2])
+					}
+					var bindthing = "<strong>" + element[5] + "</strong><br>" + Math.round(element[0]) + " : " + Math.round(element[1]) + "<br>Altitude: " + height + heightstatus + "<br>Velocity: " + velocity + velocitystatus + "<br>Type: " + element[6] + "<br>Owner: " + element[9] + "<br>Protection: " + element[8]
+					if (IsNewMarker != "Y") {
+						UpdateMarker(newmarker, MarkerMode, element[2], MarkerIDIndex, MapID, MapIDUpdate[MarkerIDIndex], IsNewMarker, element, icon, bindthing)
+					} else {
+						AddMarker(newmarker, MarkerMode, element[2], MarkerIDIndex, MapID, MapIDUpdate[MarkerIDIndex], IsNewMarker, element, icon, bindthing)
+					}
+					MapIDUpdate[MarkerIDIndex] = "Y"
+					if (MapIDPlanet[MarkerIDIndex] != element[2]) {
+						MapIDUpdate[MarkerIDIndex] = "N"
 					}
 				} else {
 					console.warn("nil or NaN coordinate found, skipping marker!")

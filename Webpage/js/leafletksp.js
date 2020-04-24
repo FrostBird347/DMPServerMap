@@ -8258,7 +8258,32 @@ Proj4js.Proj = Proj4js.Class({
 			L.KSP.control.layers = function(t, i, s) {
 				return new L.KSP.Control.Layers(t, i, s)
 			},
-			//TODO: Finish adding all layers
+			L.KSP.CelestialBody.KERBOL = L.KSP.celestialBody({
+				id: "kerbol",
+				name: "Kerbol",
+				crs: L.KSP.CRS.EPSG4326,
+				thumbnail: "img/planets/body-kerbol.png",
+				radius: 2616e5,
+				addedOn: 13691808e5,
+				lastUpdated: 13757472e5,
+				lastUpdatedVer: 38,
+				lastModifiedVer: 38,
+				baseLayers: {
+					None: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.NODATA_URL, L.KSP.CRS.EPSG4326, {
+						body: "kerbol",
+						style: "color",
+						legend: {
+							" ": "#fefcac"
+						}
+					})
+				},
+				overlays: {
+					"Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL),
+					"Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
+					"Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
+					"SpaceObjects": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACEOBJECT)
+				}
+			}),
 			L.KSP.CelestialBody.MOHO = L.KSP.celestialBody({
 				id: "moho",
 				name: "Moho",
@@ -8981,11 +9006,11 @@ Proj4js.Proj = Proj4js.Class({
 				lastUpdatedVer: 38,
 				lastModifiedVer: 38,
 				baseLayers: {
-					Depth: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.NODATA_URL, L.KSP.CRS.EPSG4326, {
+					None: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.NODATA_URL, L.KSP.CRS.EPSG4326, {
 						body: "jool",
 						style: "color",
 						legend: {
-							"-250 m": "#004400"
+							" ": "#004400"
 						}
 					})
 				},
@@ -9417,7 +9442,8 @@ Proj4js.Proj = Proj4js.Class({
 			L.KSP.CelestialBody.KERBIN.defaultLayer = L.KSP.CelestialBody.KERBIN.baseLayers.Satellite,
 			L.KSP.CelestialBody.MUN.defaultLayer = L.KSP.CelestialBody.MUN.baseLayers.Satellite,
 			L.KSP.CelestialBody.MINMUS.defaultLayer = L.KSP.CelestialBody.MINMUS.baseLayers.Satellite,
-			L.KSP.CelestialBody.JOOL.defaultLayer = L.KSP.CelestialBody.JOOL.baseLayers.Depth,
+			L.KSP.CelestialBody.JOOL.defaultLayer = L.KSP.CelestialBody.JOOL.baseLayers.None,
+			L.KSP.CelestialBody.KERBOL.defaultLayer = L.KSP.CelestialBody.KERBOL.baseLayers.None,
 			L.KSP.CelestialBody.EVE.children = [L.KSP.CelestialBody.GILLY],
 			L.KSP.CelestialBody.KERBIN.children = [L.KSP.CelestialBody.MUN, L.KSP.CelestialBody.MINMUS],
 			L.KSP.CelestialBody.DUNA.children = [L.KSP.CelestialBody.IKE],
@@ -9426,7 +9452,7 @@ Proj4js.Proj = Proj4js.Class({
 			L.KSP.CelestialBody.MUN.parent = L.KSP.CelestialBody.MINMUS.parent = L.KSP.CelestialBody.KERBIN,
 			L.KSP.CelestialBody.IKE.parent = L.KSP.CelestialBody.DUNA,
 			L.KSP.CelestialBody.LAYTHE.parent = L.KSP.CelestialBody.VALL.parent = L.KSP.CelestialBody.TYLO.parent = L.KSP.CelestialBody.BOP.parent = L.KSP.CelestialBody.POL.parent = L.KSP.CelestialBody.JOOL,
-			L.KSP.CelestialBody.ALL_PLANETARY = [L.KSP.CelestialBody.MOHO, L.KSP.CelestialBody.EVE, L.KSP.CelestialBody.KERBIN, L.KSP.CelestialBody.DUNA, L.KSP.CelestialBody.DRES, L.KSP.CelestialBody.JOOL, L.KSP.CelestialBody.EELOO],
+			L.KSP.CelestialBody.ALL_PLANETARY = [L.KSP.CelestialBody.KERBOL, L.KSP.CelestialBody.MOHO, L.KSP.CelestialBody.EVE, L.KSP.CelestialBody.KERBIN, L.KSP.CelestialBody.DUNA, L.KSP.CelestialBody.DRES, L.KSP.CelestialBody.JOOL, L.KSP.CelestialBody.EELOO],
 			L.KSP.Map.addInitHook(function() {
 				this.options.layers = [L.KSP.CelestialBody.KERBIN]
 			})
