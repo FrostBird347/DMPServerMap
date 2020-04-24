@@ -107,8 +107,7 @@ namespace MapUpdater
 			//Jool
 			else if (PlanetID == 8)
 			{
-				//There are no maps for Jool
-				return false;
+				return (Height > (2449985200 + Main.SOIAdd));
 			}
 			//Laythe
 			else if (PlanetID == 9)
