@@ -12,6 +12,7 @@ function startMap() {
 			scaleControl: true
 		});
 		map.fitWorld();
+		map.setMaxBounds(new L.LatLngBounds([-90 * 2, -180 * 2], [90 * 2, 180 * 2]));
 		rawData = [
 			[0]
 		];

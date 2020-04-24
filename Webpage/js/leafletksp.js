@@ -7837,6 +7837,7 @@ Proj4js.Proj = Proj4js.Class({
 				options: {
 					continuousWorld: !1,
 					noWrap: !1,
+					bounds: new L.LatLngBounds([-1800, -90], [1800, 90]),
 					minZoom: 0,
 					maxZoom: 5,
 					attribution: "Map data &copy; Joel Pedraza"
@@ -8271,10 +8272,7 @@ Proj4js.Proj = Proj4js.Class({
 				baseLayers: {
 					None: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.NODATA_URL, L.KSP.CRS.EPSG4326, {
 						body: "kerbol",
-						style: "color",
-						legend: {
-							" ": "#fefcac"
-						}
+						style: "color"
 					})
 				},
 				overlays: {
@@ -9008,10 +9006,7 @@ Proj4js.Proj = Proj4js.Class({
 				baseLayers: {
 					None: L.KSP.tileLayer(L.KSP.TileLayer.TYPE_COLORRELIEF, L.KSP.TileLayer.NODATA_URL, L.KSP.CRS.EPSG4326, {
 						body: "jool",
-						style: "color",
-						legend: {
-							" ": "#004400"
-						}
+						style: "color"
 					})
 				},
 				overlays: {
