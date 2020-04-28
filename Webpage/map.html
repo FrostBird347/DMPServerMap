@@ -11,6 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="css/leafletksp.css" />
 		<link rel="stylesheet" href="css/jKSPWAPICore.css" />
 		<link rel="stylesheet" href="css/statusbar.css" />
+		<link rel="stylesheet" href="css/playerinfo.css" />
 		<script type="text/javascript" src="js/leafletksp.js"></script>
 		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="js/jKSPWAPICore.js"></script>
@@ -30,9 +31,13 @@
 		<script type="text/javascript" src="js/Status/ToggleStatus.js"></script>
 		<script type="text/javascript" src="js/Status/StatusH.js"></script>
 		<script type="text/javascript" src="js/Status/UpdateStatusBarText.js"></script>
+		<script type="text/javascript" src="js/PlayerInfo/SetPlayerInfo.js"></script>
+		<script type="text/javascript" src="js/PlayerInfo/SetupPlayerInfo.js"></script>
 		<script>
 			var LoadingJSON = '{"Main":{"ID":[["0","0","0","0","0","Loading...","...","...","...","..."]],"Server":["Loading...","Loading...","Loading...","0",[["Loading...","Loading..."],["Loading...", "Loading..."],["Loading...", "Loading..."]],"0","Loading...","Loading..."]}}'
+			var PlayerInfoSetupComplete = false;
 			var UpdateMarkerJSON = JSON.parse(LoadingJSON)
+			var LastUpdateMarkerJSON = JSON.parse(LoadingJSON)
 			var JSONURL = getJSONUrl();
 			var MapMarkerArray = []
 			var MapID = []
@@ -43,16 +48,24 @@
 			var DeepVesselsHidden = HideDeepVessels()
 		</script>
 	</head>
-	<body onload="startMap(); MapFix();" style="padding: 0; margin: 0;">
+	<body onload="startMap(); MapFix(); " style="padding: 0; margin: 0;">
+			<div id="PlayerInfo" style="visibility: hidden;" class="PlayerInfo PlayerInfoPos PlayerInfoOverFlow">
+				<div class="PlayerInfo-content PlayerInfoOverFlow">
+					<span class="PlayerInfoClose">&times;</span>
+					<span id="playerinfotext"></span>
+				</div>
+			</div>
 		<div id="sidebarslider" class="mainstatus sidebarslide">
 			<div id="statusbar" class="mainstatus statusbar">
 				<span style='font-size: 15px;'>Server Info: </span>
 				<span>Loading...</span>
 			</div>
-			<div onclick="ToggleStatus()" class="mainstatus" style="left: 150px; cursor: pointer; width: 36px; height: 36px; margin-left: 8px; margin-top: 10px; float: left; box-shadow: 0 1px 7px rgba(0,0,0,0.4); background: #f8f8f9; -webkit-border-radius: 8px; border-radius: 8px;">
+			</div>
+			<div onclick="ToggleStatus()" class="mainstatus leaflet-left" style="left: 0px; cursor: pointer; width: 36px; height: 36px; margin-left: 8px; margin-top: 10px; float: left; box-shadow: 0 1px 7px rgba(0,0,0,0.4); background: #f8f8f9; -webkit-border-radius: 8px; border-radius: 8px;">
 				<a class="mainstatus" title="Server Status" style="color: black; width: 36px; height: 36px; text-align: center; font-size: 25px; background-repeat: no-repeat;">☰</a>
 			</div>
 		</div>
-		<div id="map" class="map" style="padding: 0; margin: 0; height: 100%;"></div>
+		<div id="map" class="map" style="padding: 0; margin: 0; height: 100%;">
+				</div>
 	</body>
 </html>

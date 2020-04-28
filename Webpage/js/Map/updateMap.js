@@ -1,5 +1,8 @@
 //Obtain JSON
 function updateMap() {
+	if (JSONURL == "http://httpbin.org/status/501") {
+		console.error("\n---\nGetRemoteJSONUrl not set!\n---")
+	}
 	return new Promise(resolve => {
 		setTimeout(() => {
 			var txtFile = new XMLHttpRequest();
@@ -7,15 +10,13 @@ function updateMap() {
 				var allText = "";
 				if (txtFile.readyState === XMLHttpRequest.DONE && txtFile.status == 200) {
 					allText = txtFile.responseText;
-					if (JSON.stringify(JSON.parse(allText)) == JSON.stringify(UpdateMarkerJSON)) {
+					if (JSON.stringify(JSON.parse(allText)) == LastUpdateMarkerJSON) {
 						ServerStat = "<br><span style='color: #ff6a00; text-align: center;'>Server sent the same data!</span>"
 					} else {
 						ServerStat = "<br><span style='color: green; text-align: center;'>Server is online</span>"
 					}
 					UpdateMarkerJSON = JSON.parse(allText);
-					if (JSONURL == "https://jsonblob.com/api/jsonBlob/e7be982b-7620-11ea-84c8-85d74a3e24e7") {
-						console.error("\n---\nJSON obtained from https://jsonblob.com/e7be982b-7620-11ea-84c8-85d74a3e24e7\nThe url saved in the './JSON.url' file should be changed ASAP.\n---")
-					}
+					LastUpdateMarkerJSON = JSON.stringify(JSON.parse(allText));
 				} else if (txtFile.readyState === XMLHttpRequest.DONE) {
 					ServerStat = "<br><span style='color: red; text-align: center;'>Failed to obtain server data.<br>Error code: " + txtFile.status; + "</span>"
 				}
