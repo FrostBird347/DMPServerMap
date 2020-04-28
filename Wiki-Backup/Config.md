@@ -19,7 +19,7 @@ Values are stored as: `VAR = VALUE`.
 	- Default value is `False`.
 	- Ignore private vessels if set to `True`.
 - `PlayerPrivacy`
-	- Default value is `0`.
+	- Default value is `1`.
 	- Will send player info, depending on the value.
 		- `0` - player count, player list and what each player is doing is sent.
 		- `1` - player count and player list is sent.
