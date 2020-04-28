@@ -1,6 +1,6 @@
 .mainstatus {
-    position: absolute;
-    z-index: 1;
+	position: absolute;
+	z-index: 1;
 }
 
 .sidebarslide {
@@ -30,45 +30,4 @@
 	color: #000;
 	display: block;
 	transition: 0.5s;
-}
-
-.statustooltip {
-  position: relative;
-  display: inline-block;
-  /* border-bottom: 1px dotted black; */
-}
-
-.statustooltip .statustooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  top: -5px;
-  left: 110%;
-  opacity: 0;
-  transition: opacity 0.25s;
-  overflow: visible !important;
-}
-
-.statustooltip .statustooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 100%;
-  margin-top: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent black transparent transparent;
-  transition: opacity 0.25s;
-}
-
-.statustooltip:hover .statustooltiptext {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 0.25s;
 }
