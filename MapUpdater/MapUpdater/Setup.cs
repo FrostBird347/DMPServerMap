@@ -42,6 +42,7 @@ namespace MapUpdater
 			Main.UploadFrequency = SetupConfigVarDouble(MapConfigFolder, "Upload_Frequency", 3);
 			Main.SOIAdd = SetupConfigVarDouble(MapConfigFolder, "SOI_Fix", 5);
 			Main.HidePrivateVessels = SetupConfigVarBool(MapConfigFolder, "HidePrivateVessels", false);
+			Main.PlayerPrivacy = SetupConfigVarDouble(MapConfigFolder, "PlayerPrivacy", 0);
 			Main.SendJSONSetting = SetupConfigVarBool(MapConfigFolder, "SendJSON", false);
 			Main.PostURL = SetupConfigVarString(MapConfigFolder, "PostURL", "https://httpbin.org/anything");
 			Main.SendTimeout = SetupConfigVarDouble(MapConfigFolder, "SendJSONTimeout", 10);

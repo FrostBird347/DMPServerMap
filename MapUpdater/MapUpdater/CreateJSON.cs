@@ -46,22 +46,45 @@ namespace MapUpdater
 			string version = DarkMultiPlayerCommon.Common.PROGRAM_VERSION.ToString();
 			string protocol_version = DarkMultiPlayerCommon.Common.PROTOCOL_VERSION.ToString();
 			string player_count = Server.playerCount.ToString();
+			string max_players = Settings.settingsStore.maxPlayers.ToString();
 			ClientObject[] FullClientList = ClientHandler.GetClients();
 			JArray players = new JArray();
 			 foreach (ClientObject CurrentClient in FullClientList)
 			{
 				try
 				{
-					players.Add(new JArray(new JValue(CurrentClient.playerName), new JValue(CurrentClient.playerStatus.statusText)));
+					//Send player names and status text
+					if (Int32.Parse(Main.PlayerPrivacy.ToString()) == 0)
+					{
+						players.Add(new JArray(new JValue(CurrentClient.playerName), new JValue(CurrentClient.playerStatus.statusText)));
+
+					}
+					//Send player names and hide status text
+					else if (Int32.Parse(Main.PlayerPrivacy.ToString()) == 1)
+					{
+						players.Add(new JArray(new JValue(CurrentClient.playerName), new JValue("---")));
+					}
+					//Send player count only
+					else if (Int32.Parse(Main.PlayerPrivacy.ToString()) == 2)
+					{
+						players.Add(new JArray(new JValue("---"), new JValue("---")));
+					}
 				}
 				catch { }
 			}
 
-			string max_players = Settings.settingsStore.maxPlayers.ToString();
+			//Send no player info
+			if (Int32.Parse(Main.PlayerPrivacy.ToString()) == 3)
+			{
+				players = new JArray(new JValue("---"), new JValue("---"));
+				player_count = "---";
+				max_players = "---";
+			}
+
 			string game_mode = Settings.settingsStore.gameMode.ToString();
 			string warp_mode = Settings.settingsStore.warpMode.ToString();
 
-			return new JArray(new JValue(server_name), new JValue(version), new JValue(protocol_version), new JValue(player_count), players, new JValue(max_players), new JValue(game_mode), new JValue(warp_mode));
+			return new JArray(new JValue(server_name), new JValue(version), new JValue(protocol_version), new JValue(player_count), players, new JValue(max_players), new JValue(game_mode), new JValue(warp_mode), new JValue(Main.PlayerPrivacy.ToString()));
 		}
 
 		public static JArray GetJSONValues(string vesselFile)

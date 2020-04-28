@@ -27,6 +27,7 @@ namespace MapUpdater
 		public static double UploadFrequency = 300000;
 		public static double SOIAdd;
 		public static double SendTimeout;
+		public static double PlayerPrivacy;
 		public static string PostURL;
 		public static string SharedPluginDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PluginData");
 		public static string VesselPermissionFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Universe", "Permissions", "Vessels");
