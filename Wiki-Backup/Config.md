@@ -18,6 +18,13 @@ Values are stored as: `VAR = VALUE`.
 - `HidePrivateVessels`
 	- Default value is `False`.
 	- Ignore private vessels if set to `True`.
+- `PlayerPrivacy`
+	- Default value is `0`.
+	- Will send player info, depending on the value.
+		- `0` - player count, player list and what each player is doing is sent.
+		- `1` - player count and player list is sent.
+		- `2` - player count is sent.
+		- `3` - no player data is sent.
 - `SendJSON`
 	- Default value is `False`.
 	- Send marker data via a HTTP PUT request if set to `True`.
