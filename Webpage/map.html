@@ -31,7 +31,8 @@
 		<script type="text/javascript" src="js/Status/StatusH.js"></script>
 		<script type="text/javascript" src="js/Status/UpdateStatusBarText.js"></script>
 		<script>
-			var UpdateMarkerJSON = JSON.parse('{"Main":{"ID":[["0","0","0","0","0","Loading...","...","...","...","..."]],"Server":["Loading...","Loading...","Loading...","Loading...","Loading...","Loading...","Loading...","Loading..."]}}')
+			var LoadingJSON = '{"Main":{"ID":[["0","0","0","0","0","Loading...","...","...","...","..."]],"Server":["Loading...","Loading...","Loading...","0",[["Loading...","Loading..."],["Loading...", "Loading..."],["Loading...", "Loading..."]],"0","Loading...","Loading..."]}}'
+			var UpdateMarkerJSON = JSON.parse(LoadingJSON)
 			var JSONURL = getJSONUrl();
 			var MapMarkerArray = []
 			var MapID = []

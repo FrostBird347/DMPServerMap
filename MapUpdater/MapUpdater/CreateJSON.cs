@@ -40,18 +40,28 @@ namespace MapUpdater
 			Main.FinalSentVesselsList = SentJSON.ToString();
 		}
 
-		public static JArray GetJSONServerValues()
+		public static JArray GetJSONServerValues() 
 		{
 			string server_name = Settings.settingsStore.serverName.ToString();
 			string version = DarkMultiPlayerCommon.Common.PROGRAM_VERSION.ToString();
 			string protocol_version = DarkMultiPlayerCommon.Common.PROTOCOL_VERSION.ToString();
 			string player_count = Server.playerCount.ToString();
-			string players = Server.players.ToString();
+			ClientObject[] FullClientList = ClientHandler.GetClients();
+			JArray players = new JArray();
+			 foreach (ClientObject CurrentClient in FullClientList)
+			{
+				try
+				{
+					players.Add(new JArray(new JValue(CurrentClient.playerName), new JValue(CurrentClient.playerStatus.statusText)));
+				}
+				catch { }
+			}
+
 			string max_players = Settings.settingsStore.maxPlayers.ToString();
 			string game_mode = Settings.settingsStore.gameMode.ToString();
 			string warp_mode = Settings.settingsStore.warpMode.ToString();
 
-			return new JArray(new JValue(server_name), new JValue(version), new JValue(protocol_version), new JValue(player_count), new JValue(players), new JValue(max_players), new JValue(game_mode), new JValue(warp_mode));
+			return new JArray(new JValue(server_name), new JValue(version), new JValue(protocol_version), new JValue(player_count), players, new JValue(max_players), new JValue(game_mode), new JValue(warp_mode));
 		}
 
 		public static JArray GetJSONValues(string vesselFile)
