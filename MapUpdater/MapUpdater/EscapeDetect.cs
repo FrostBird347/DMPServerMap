@@ -11,54 +11,62 @@ namespace MapUpdater
 	{
 		public static bool HasEscaped(string vesselFile)
 		{
-			string vesselID = Path.GetFileNameWithoutExtension(vesselFile);
-			string VesselPosFile = Main.VesselPosFolder + "/" + vesselID + ".txt";
-			string VesselPosString = FileReader.GetSavedValue(VesselPosFile, "pos");
-			string[] VesselPosArray = VesselPosString.Trim('"', '[', ']', '"').Split(',');
-			string PlanetRef = FileReader.GetSavedValue(vesselFile, "REF").Trim('"');
-			string VesselHeight = VesselPosArray[2].ToString().Trim(' ');
-			if (OutsideSOI(Convert.ToInt32(PlanetRef), Convert.ToDouble(VesselHeight)))
+			try
 			{
-				string VesselHashFile = Main.EscapeVesselHash + "/" + vesselID + ".txt";
-				string NewVesselHash = CalculateMD5(vesselFile);
-				if (File.Exists(VesselHashFile))
+				string vesselID = Path.GetFileNameWithoutExtension(vesselFile);
+				string VesselPosFile = Main.VesselPosFolder + "/" + vesselID + ".txt";
+				string VesselPosString = FileReader.GetSavedValue(VesselPosFile, "pos");
+				string[] VesselPosArray = VesselPosString.Trim('"', '[', ']', '"').Split(',');
+				string PlanetRef = FileReader.GetSavedValue(vesselFile, "REF").Trim('"');
+				string VesselHeight = VesselPosArray[2].ToString().Trim(' ');
+				if (OutsideSOI(Convert.ToInt32(PlanetRef), Convert.ToDouble(VesselHeight)))
 				{
-					if (NewVesselHash != File.ReadAllText(VesselHashFile))
-					{
-						byte[] NewVesselHashByte = Encoding.Default.GetBytes(NewVesselHash);
-						File.WriteAllBytes(VesselHashFile, NewVesselHashByte);
-						DarkLog.Error("[MapUpdater] " + vesselID + " was updated, but it is outside of the planet's SOI.");
-					}
-				}
-				else
-				{
-					DarkLog.Debug("[MapUpdater] " + vesselID + "'s marker has been removed.");
-					byte[] NewVesselHashByte = Encoding.Default.GetBytes(NewVesselHash);
-					File.WriteAllBytes(VesselHashFile, NewVesselHashByte);
-				}
-				return true;
-			}
-			else
-			{
-				string VesselHashFile = Main.EscapeVesselHash + "/" + vesselID + ".txt";
-				if (File.Exists(VesselHashFile))
-				{
+					string VesselHashFile = Main.EscapeVesselHash + "/" + vesselID + ".txt";
 					string NewVesselHash = CalculateMD5(vesselFile);
-					if (NewVesselHash != File.ReadAllText(VesselHashFile))
+					if (File.Exists(VesselHashFile))
 					{
-						File.Delete(VesselHashFile);
-						DarkLog.Debug("[MapUpdater] " + vesselID + "'s marker has been transferred to another planet.");
-						return false;
+						if (NewVesselHash != File.ReadAllText(VesselHashFile))
+						{
+							byte[] NewVesselHashByte = Encoding.Default.GetBytes(NewVesselHash);
+							File.WriteAllBytes(VesselHashFile, NewVesselHashByte);
+							DarkLog.Error("[MapUpdater] " + vesselID + " was updated, but it is outside of the planet's SOI.");
+						}
 					}
 					else
 					{
-						return true;
+						DarkLog.Debug("[MapUpdater] " + vesselID + "'s marker has been removed.");
+						byte[] NewVesselHashByte = Encoding.Default.GetBytes(NewVesselHash);
+						File.WriteAllBytes(VesselHashFile, NewVesselHashByte);
 					}
+					return true;
 				}
 				else
 				{
-					return false;
+					string VesselHashFile = Main.EscapeVesselHash + "/" + vesselID + ".txt";
+					if (File.Exists(VesselHashFile))
+					{
+						string NewVesselHash = CalculateMD5(vesselFile);
+						if (NewVesselHash != File.ReadAllText(VesselHashFile))
+						{
+							File.Delete(VesselHashFile);
+							DarkLog.Debug("[MapUpdater] " + vesselID + "'s marker has been transferred to another planet.");
+							return false;
+						}
+						else
+						{
+							return true;
+						}
+					}
+					else
+					{
+						return false;
+					}
 				}
+			}
+			catch(Exception e)
+			{
+				DarkLog.Debug("[MapUpdater] Error occured while running EscapeDetect: " + e + "\n[MapUpdater] Vessel is marked as hidden. \n[MapUpdater] Please contact me about this error.");
+				return true;
 			}
 		}
 
