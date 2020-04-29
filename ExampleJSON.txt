@@ -20,11 +20,17 @@ JSON Structure:
 			Server Name,
 			Server version,
 			Protocol version,
-			Online players,
-			Online player names,
+			Online player number,
+			[
+				[
+					Player Name, 
+					Player Status
+				]
+			],
 			Max players,
 			Game mode,
-			Warp mode
+			Warp mode,
+			PlayerPrivacy Value
 	 ]
 	}
 }
@@ -75,11 +81,21 @@ Example 1:
 			"TEST",
 			"v0.3.4.0",
 			"53",
-			"0",
-			"",
-			"5",
+			"2",
+			[
+				[
+					"Player1", 
+					"Flying above Kerbin"
+				],
+				[
+					"Player2", 
+					"Launching from safety bubble"
+				]
+			],
+			"15",
 			"SCIENCE",
-			"SUBSPACE"
+			"SUBSPACE",
+			"0"
 		]
 	}
 }
@@ -671,10 +687,11 @@ Example 2:
 			"v0.3.4.0",
 			"53",
 			"0",
-			"",
+			[],
 			"5",
 			"SCIENCE",
-			"SUBSPACE"
+			"SUBSPACE",
+			"1"
 		]
 	}
 }
