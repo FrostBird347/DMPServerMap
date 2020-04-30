@@ -73,3 +73,6 @@ function VAR() {
 - `HideDeepVessels`
 	- Default value is `true`.
 	- Hide vessels under -250m if `true`.
+- `CheckInvalidJSON`
+	- Default value is `true`.
+	- Ignore the JSON version if `false`.

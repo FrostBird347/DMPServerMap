@@ -4,9 +4,31 @@ async function startMapUpdate() {
 		try {
 			if (UpdateMarkerJSON.Main.V[0] != GetJSONVersion()) {
 				console.warn("WARNING: \nJSON version is " + UpdateMarkerJSON.Main.V[0] + ".\nThis map only supports version " + GetJSONVersion() + "!")
+					if (!InvalidJSONVersion) {
+						if (CheckInvalidJSON()) {
+							if (!confirm("Invalid JSON version.\nThe webpage needs to be updated!\nDo you want to attempt to load the invalid JSON anyway?\nWarning: Accepting will likely break the webpage!")) {
+								alert("This page will no longer update.")
+								InvalidJSONVersion = true
+								return
+							} else {
+							InvalidJSONVersion = true
+							}
+						}
+					}
 			}
 		} catch {
 			console.warn("WARNING: \nJSON version is 0.\nThis map only supports version " + GetJSONVersion() + "!")
+			if (!InvalidJSONVersion) {
+				if (CheckInvalidJSON()) {
+					if (!confirm("Invalid JSON version.\nThe webpage needs to be updated!\nDo you want to attempt to load the invalid JSON anyway?\nWarning: Accepting will likely break the webpage!")) {
+						alert("This page will no longer update.")
+						InvalidJSONVersion = true
+						return
+					} else {
+						InvalidJSONVersion = true
+					}
+				}
+			}
 		}
 		MapIDUpdate.forEach(function(part, index, FullArray) {
 			try {
