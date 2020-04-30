@@ -28,14 +28,16 @@
 		<script type="text/javascript" src="js/Other/getJSONUrl.js"></script>
 		<script type="text/javascript" src="js/Other/basicxss.js"></script>
 		<script type="text/javascript" src="js/Other/GetVersion.js"></script>
+		<script type="text/javascript" src="js/Other/GetJSONVersion.js"></script>
 		<script type="text/javascript" src="js/Status/ToggleStatus.js"></script>
 		<script type="text/javascript" src="js/Status/StatusH.js"></script>
 		<script type="text/javascript" src="js/Status/UpdateStatusBarText.js"></script>
 		<script type="text/javascript" src="js/PlayerInfo/SetPlayerInfo.js"></script>
 		<script type="text/javascript" src="js/PlayerInfo/SetupPlayerInfo.js"></script>
 		<script>
-			var LoadingJSON = '{"Main":{"ID":[["0","0","0","0","0","Loading...","...","...","...","..."]],"Server":["Loading...","Loading...","Loading...","0",[["Loading...","Loading..."],["Loading...", "Loading..."],["Loading...", "Loading..."]],"0","Loading...","Loading...", "3"]}}'
+			var LoadingJSON = '{"Main":{"V":["' + GetJSONVersion() +'"],"ID":[["0","0","0","0","0","Loading...","...","...","...","..."]],"Server":["Loading...","Loading...","Loading...","0",[["Loading...","Loading..."],["Loading...", "Loading..."],["Loading...", "Loading..."]],"0","Loading...","Loading...", "3"]}}'
 			var PlayerInfoSetupComplete = false;
+			var InvalidJSONVersion = false;
 			var UpdateMarkerJSON = JSON.parse(LoadingJSON)
 			var LastUpdateMarkerJSON = JSON.parse(LoadingJSON)
 			var JSONURL = getJSONUrl();

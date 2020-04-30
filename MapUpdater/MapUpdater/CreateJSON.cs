@@ -31,12 +31,14 @@ namespace MapUpdater
 			JObject SentJSON = new JObject(
 			new JProperty("Main",
 				new JObject(
+					new JProperty("V",
+						new JArray(new JValue(PluginVersion.GetJSONVersion()))),
 					new JProperty("ID",
 						new JArray(
 							from vesselFile in ShortvesselList
-							select new JArray(GetJSONValues(vesselFile)))),
-								new JProperty("Server",
-									new JArray(GetJSONServerValues())))));
+								select new JArray(GetJSONValues(vesselFile)))),
+					new JProperty("Server",
+						new JArray(GetJSONServerValues())))));
 			Main.FinalSentVesselsList = SentJSON.ToString();
 		}
 

@@ -7,5 +7,10 @@ namespace MapUpdater
 		{
 			return "1.2.0";
 		}
+
+		public static string GetJSONVersion()
+		{
+			return "1";
+		}
 	}
 }

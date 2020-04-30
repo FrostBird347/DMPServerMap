@@ -1,6 +1,13 @@
 async function startMapUpdate() {
 	while (true) {
 		const result = await updateMap();
+		try {
+			if (UpdateMarkerJSON.Main.V[0] != GetJSONVersion()) {
+				console.warn("WARNING: \nJSON version is " + UpdateMarkerJSON.Main.V[0] + ".\nThis map only supports version " + GetJSONVersion() + "!")
+			}
+		} catch {
+			console.warn("WARNING: \nJSON version is 0.\nThis map only supports version " + GetJSONVersion() + "!")
+		}
 		MapIDUpdate.forEach(function(part, index, FullArray) {
 			try {
 				if (part == "N") {
