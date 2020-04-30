@@ -75,4 +75,4 @@ function VAR() {
 	- Hide vessels under -250m if `true`.
 - `CheckInvalidJSON`
 	- Default value is `true`.
-	- Ignore the JSON version if `false`.
+	- Hide the invalid JSON version alert `false`.
