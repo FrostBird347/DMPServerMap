@@ -19,6 +19,7 @@ function updateMap() {
 					LastUpdateMarkerJSON = JSON.stringify(JSON.parse(allText));
 				} else if (txtFile.readyState === XMLHttpRequest.DONE) {
 					ServerStat = "<br><span style='color: red; text-align: center;'>Failed to obtain server data.<br>Error code: " + txtFile.status; + "</span>"
+					UpdateMarkerJSON = JSON.parse(LastUpdateMarkerJSON);
 				}
 			}
 			var seconds = new Date().getTime() / 1000;
