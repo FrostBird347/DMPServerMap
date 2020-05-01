@@ -5,8 +5,13 @@ async function startMapUpdate() {
 			if (UpdateMarkerJSON.Main.V[0] != GetJSONVersion()) {
 				console.warn("WARNING: \nJSON version is " + UpdateMarkerJSON.Main.V[0] + ".\nThis map only supports version " + GetJSONVersion() + "!")
 					if (!InvalidJSONVersion) {
+						if (UpdateMarkerJSON.Main.V[0] > GetJSONVersion()) {
+							var webstatusMSG = "webpage"
+						} else {
+							var webstatusMSG = "server"
+						}
 						if (CheckInvalidJSON()) {
-							if (!confirm("Invalid JSON version.\nThe webpage needs to be updated!\nDo you want to attempt to load the invalid JSON anyway?\nWarning: Accepting will likely break the webpage!")) {
+							if (!confirm("Invalid JSON version.\nThe " + webstatusMSG + " needs to be updated!\nDo you want to attempt to load the invalid JSON anyway?\nWarning: Accepting will likely break the webpage!")) {
 								alert("This page will no longer update.")
 								InvalidJSONVersion = true
 								return
@@ -20,7 +25,7 @@ async function startMapUpdate() {
 			console.warn("WARNING: \nJSON version is 0.\nThis map only supports version " + GetJSONVersion() + "!")
 			if (!InvalidJSONVersion) {
 				if (CheckInvalidJSON()) {
-					if (!confirm("Invalid JSON version.\nThe webpage needs to be updated!\nDo you want to attempt to load the invalid JSON anyway?\nWarning: Accepting will likely break the webpage!")) {
+					if (!confirm("Invalid JSON version.\nThe server needs to be updated!\nDo you want to attempt to load the invalid JSON anyway?\nWarning: Accepting will likely break the webpage!")) {
 						alert("This page will no longer update.")
 						InvalidJSONVersion = true
 						return
