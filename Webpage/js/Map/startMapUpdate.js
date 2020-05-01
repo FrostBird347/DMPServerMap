@@ -44,11 +44,14 @@ async function startMapUpdate() {
 				}
 			})
 			UpdateStatusBarText(UpdateMarkerJSON.Main.Server)
+			ResetMarkerPath()
 			UpdateMarkerJSON.Main.ID.forEach((element) => {
 				if (element[0] != "nil" && element[0] != "NaN") {
 					//xss fix
 					element.forEach(function(part, index, FullArray) {
-						FullArray[index] = basicxss(part)
+						if (index != 10) {
+							FullArray[index] = basicxss(part)
+						}
 					})
 					//Height stuff
 					var height = Math.round(element[3])

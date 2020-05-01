@@ -1,3 +1,3 @@
 function GetJSONVersion() {
-	return "1"
+	return "2"
 }

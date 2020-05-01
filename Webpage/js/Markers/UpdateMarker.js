@@ -18,5 +18,6 @@ function UpdateMarker(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate, IsN
 	if (WasOpen) {
 		MapMarkerArray[MarkerIDIndex].openPopup()
 		Oldpopuptext = MapMarkerArray[MarkerIDIndex]._popup._content
+		UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate, IsNewMarker, element, icon, bindthing, 'orange')
 	}
 }

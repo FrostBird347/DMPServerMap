@@ -7860,7 +7860,8 @@ Proj4js.Proj = Proj4js.Class({
 					TYPE_DEBRIS: 4,
 					TYPE_VESSEL: 5,
 					TYPE_FLAG: 6,
-					TYPE_KERBAL: 7
+					TYPE_KERBAL: 7,
+					TYPE_PATH: 8
 				},
 				initialize: function(t, i) {
 					this._type = t,
@@ -8276,6 +8277,7 @@ Proj4js.Proj = Proj4js.Class({
 					})
 				},
 				overlays: {
+					"Orbit": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PREDICT),
 					"Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL),
 					"Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
 					"Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
@@ -8342,6 +8344,7 @@ Proj4js.Proj = Proj4js.Class({
 					})
 				},
 				overlays: {
+					"Orbit": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PREDICT),
 					"Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL),
 					"Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
 					"Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
@@ -8420,6 +8423,7 @@ Proj4js.Proj = Proj4js.Class({
 					})
 				},
 				overlays: {
+					"Orbit": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PREDICT),
 					"Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL),
 					"Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
 					"Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
@@ -8481,6 +8485,7 @@ Proj4js.Proj = Proj4js.Class({
 					})
 				},
 				overlays: {
+					"Orbit": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PREDICT),
 					"Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL),
 					"Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
 					"Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
@@ -8571,6 +8576,7 @@ Proj4js.Proj = Proj4js.Class({
 					})
 				},
 				overlays: {
+					"Orbit": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PREDICT),
 					"Space Centers": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_SPACECENTER, [L.marker([-.0969, -74.6004], {
 						icon: L.KSP.Icon.SPACECENTER
 					}).bindPopup("<strong>Kerbal Space Center</strong><br>-0.0969 : -74.6004"), L.marker([20.5829, -146.5116], {
@@ -8685,6 +8691,7 @@ Proj4js.Proj = Proj4js.Class({
 					})
 				},
 				overlays: {
+					"Orbit": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PREDICT),
 					"Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL),
 					"Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
 					"Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
@@ -8767,6 +8774,7 @@ Proj4js.Proj = Proj4js.Class({
 					})
 				},
 				overlays: {
+					"Orbit": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PREDICT),
 					"Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL),
 					"Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
 					"Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
@@ -8840,6 +8848,7 @@ Proj4js.Proj = Proj4js.Class({
 					})
 				},
 				overlays: {
+					"Orbit": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PREDICT),
 					"Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL),
 					"Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
 					"Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
@@ -8914,6 +8923,7 @@ Proj4js.Proj = Proj4js.Class({
 					})
 				},
 				overlays: {
+					"Orbit": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PREDICT),
 					"Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL),
 					"Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
 					"Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
@@ -8981,6 +8991,7 @@ Proj4js.Proj = Proj4js.Class({
 					})
 				},
 				overlays: {
+					"Orbit": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PREDICT),
 					"Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL),
 					"Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
 					"Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
@@ -9010,6 +9021,7 @@ Proj4js.Proj = Proj4js.Class({
 					})
 				},
 				overlays: {
+					"Orbit": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PREDICT),
 					"Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL),
 					"Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
 					"Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
@@ -9076,6 +9088,7 @@ Proj4js.Proj = Proj4js.Class({
 					})
 				},
 				overlays: {
+					"Orbit": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PREDICT),
 					"Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL),
 					"Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
 					"Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
@@ -9145,6 +9158,7 @@ Proj4js.Proj = Proj4js.Class({
 					})
 				},
 				overlays: {
+					"Orbit": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PREDICT),
 					"Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL),
 					"Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
 					"Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
@@ -9218,6 +9232,7 @@ Proj4js.Proj = Proj4js.Class({
 					})
 				},
 				overlays: {
+					"Orbit": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PREDICT),
 					"Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL),
 					"Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
 					"Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
@@ -9285,6 +9300,7 @@ Proj4js.Proj = Proj4js.Class({
 					})
 				},
 				overlays: {
+					"Orbit": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PREDICT),
 					"Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL),
 					"Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
 					"Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
@@ -9351,6 +9367,7 @@ Proj4js.Proj = Proj4js.Class({
 					})
 				},
 				overlays: {
+					"Orbit": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PREDICT),
 					"Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL),
 					"Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
 					"Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
@@ -9422,6 +9439,7 @@ Proj4js.Proj = Proj4js.Class({
 					})
 				},
 				overlays: {
+					"Orbit": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_PREDICT),
 					"Vessels": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_VESSEL),
 					"Debris": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_DEBRIS),
 					"Kerbals": L.KSP.layerGroup(L.KSP.LayerGroup.TYPE_KERBAL),
