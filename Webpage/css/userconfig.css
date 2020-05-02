@@ -1,0 +1,39 @@
+.UserConfig {
+	position: absolute;
+	z-index: 100;
+	overflow: scroll;
+}
+
+.UserConfig::-webkit-scrollbar {
+	display: none;
+}
+
+.UserConfig-content {
+	background-color: #fefefe;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+}
+
+.UserConfigClose {
+	color: #aaaaaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.UserConfigClose:hover,
+.UserConfigClose:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.UserConfigPos {
+	width: 90%;
+	height: 90%;
+	top: 5%;
+	left: 5%;
+	bottom: 10%;
+}

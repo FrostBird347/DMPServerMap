@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="css/jKSPWAPICore.css" />
 		<link rel="stylesheet" href="css/statusbar.css" />
 		<link rel="stylesheet" href="css/playerinfo.css" />
+		<link rel="stylesheet" href="css/userconfig.css" />
 		<script type="text/javascript" src="js/leafletksp.js"></script>
 		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="js/jKSPWAPICore.js"></script>
@@ -38,9 +39,12 @@
 		<script type="text/javascript" src="js/Status/UpdateStatusBarText.js"></script>
 		<script type="text/javascript" src="js/PlayerInfo/SetPlayerInfo.js"></script>
 		<script type="text/javascript" src="js/PlayerInfo/SetupPlayerInfo.js"></script>
+		<script type="text/javascript" src="js/UserConfig/SetUserConfig.js"></script>
+		<script type="text/javascript" src="js/UserConfig/SetupUserConfig.js"></script>
 		<script>
 			var LoadingJSON = '{"Main":{"V":["' + GetJSONVersion() +'"],"ID":[["0","0","0","0","0","Loading...","...","...","...","..."]],"Server":["Loading...","Loading...","Loading...","0",[["Loading...","Loading..."],["Loading...", "Loading..."],["Loading...", "Loading..."]],"0","Loading...","Loading...", "3"]}}'
 			var PlayerInfoSetupComplete = false;
+			var UserConfigSetupComplete = false;
 			var InvalidJSONVersion = false;
 			var UpdateMarkerJSON = JSON.parse(LoadingJSON)
 			var LastUpdateMarkerJSON = JSON.parse(LoadingJSON)
@@ -59,6 +63,12 @@
 				<div class="PlayerInfo-content PlayerInfoOverFlow">
 					<span class="PlayerInfoClose">&times;</span>
 					<span id="playerinfotext"></span>
+				</div>
+			</div>
+			<div id="UserConfig" style="visibility: hidden;" class="UserConfig UserConfigPos UserConfigOverFlow">
+				<div class="UserConfig-content UserConfigOverFlow">
+					<span class="UserConfigClose">&times;</span>
+					<span id="UserConfigtext"></span>
 				</div>
 			</div>
 		<div id="sidebarslider" class="mainstatus sidebarslide">
