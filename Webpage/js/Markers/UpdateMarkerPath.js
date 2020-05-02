@@ -10,41 +10,47 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 		color: CircleC,
 		fillColor: CircleC,
 		fillOpacity: 1,
+		stroke: false,
 		radius: 5,
 		interactive: false
 	})
 	var Circle1 = new L.CircleMarker(Point1, {
 		color: CircleC,
 		fillColor: CircleC,
-		fillOpacity: 1,
+		fillOpacity: 0.85,
+		stroke: false,
 		radius: 5,
 		interactive: false
 	})
 	var Circle2 = new L.CircleMarker(Point2, {
 		color: CircleC,
 		fillColor: CircleC,
-		fillOpacity: 1,
+		fillOpacity: 0.70,
+		stroke: false,
 		radius: 5,
 		interactive: false
 	})
 	var Circle3 = new L.CircleMarker(Point3, {
 		color: CircleC,
 		fillColor: CircleC,
-		fillOpacity: 1,
+		fillOpacity: 0.55,
+		stroke: false,
 		radius: 5,
 		interactive: false
 	})
 	var Circle4 = new L.CircleMarker(Point4, {
 		color: CircleC,
 		fillColor: CircleC,
-		fillOpacity: 1,
+		fillOpacity: 0.40,
+		stroke: false,
 		radius: 5,
 		interactive: false
 	})
 	var Circle5 = new L.CircleMarker(Point5, {
 		color: CircleC,
 		fillColor: CircleC,
-		fillOpacity: 1,
+		fillOpacity: 0.25,
+		stroke: false,
 		radius: 5,
 		interactive: false
 	})
