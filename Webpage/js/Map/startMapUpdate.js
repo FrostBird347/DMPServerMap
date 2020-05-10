@@ -4,22 +4,22 @@ async function startMapUpdate() {
 		try {
 			if (UpdateMarkerJSON.Main.V[0] != GetJSONVersion()) {
 				console.warn("WARNING: \nJSON version is " + UpdateMarkerJSON.Main.V[0] + ".\nThis map only supports version " + GetJSONVersion() + "!")
-					if (!InvalidJSONVersion) {
-						if (UpdateMarkerJSON.Main.V[0] > GetJSONVersion()) {
-							var webstatusMSG = "webpage"
-						} else {
-							var webstatusMSG = "server"
-						}
-						if (CheckInvalidJSON()) {
-							if (!confirm("Invalid JSON version.\nThe " + webstatusMSG + " needs to be updated!\nDo you want to attempt to load the invalid JSON anyway?\nWarning: Accepting will likely break the webpage!")) {
-								alert("This page will no longer update.")
-								InvalidJSONVersion = true
-								return
-							} else {
+				if (!InvalidJSONVersion) {
+					if (UpdateMarkerJSON.Main.V[0] > GetJSONVersion()) {
+						var webstatusMSG = "webpage"
+					} else {
+						var webstatusMSG = "server"
+					}
+					if (CheckInvalidJSON()) {
+						if (!confirm("Invalid JSON version.\nThe " + webstatusMSG + " needs to be updated!\nDo you want to attempt to load the invalid JSON anyway?\nWarning: Accepting will likely break the webpage!")) {
+							alert("This page will no longer update.")
 							InvalidJSONVersion = true
-							}
+							return
+						} else {
+							InvalidJSONVersion = true
 						}
 					}
+				}
 			}
 		} catch {
 			console.warn("WARNING: \nJSON version is 0.\nThis map only supports version " + GetJSONVersion() + "!")
@@ -63,8 +63,8 @@ async function startMapUpdate() {
 					//Lazy negative value fix part 1
 					var NHeight = false;
 					if (height < 0) {
-					NHeight = true;
-					height *= -1
+						NHeight = true;
+						height *= -1
 					}
 					var heightstatus = " m"
 					if (height > 1000000000000000000000000) {
@@ -110,7 +110,7 @@ async function startMapUpdate() {
 					}
 					//Lazy negative value fix part 2
 					if (NHeight) {
-					height *= -1
+						height *= -1
 					}
 					//Velocity stuff
 					var velocity = Math.round(element[4])
@@ -256,7 +256,7 @@ async function startMapUpdate() {
 					}
 					var MarkerIDIndex = "None"
 					var IsNewMarker = "N"
-					if  ((Math.round(element[3]) < -250) && DeepVesselsHidden) {
+					if ((Math.round(element[3]) < -250) && DeepVesselsHidden) {
 						MapIDUpdate[MarkerIDIndex] = "N"
 					} else {
 						MapID.forEach(function(part, index, FullArray) {

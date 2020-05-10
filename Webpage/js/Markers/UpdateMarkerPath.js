@@ -329,6 +329,6 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 				PointLine45.addTo(L.KSP.CelestialBody.EELOO.overlays.Orbit)
 			}
 		}
-		
+
 	}
 }
