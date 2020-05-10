@@ -5,7 +5,7 @@
 		<title>Kerbal Maps</title>
 		<!-- TODO: Remove unused stuff -->
 		<script type='text/javascript' > 
-		var ServerStat = "<br><span style='color: #252525; text-align: center;'>Loading server data...</span>";
+			var ServerStat = "<br><span style='color: #252525; text-align: center;'>Loading server data...</span>";
 		</script>
 		<script type="text/javascript" src="./config/config.cfg"></script>
 		<link rel="stylesheet" type="text/css" href="css/leafletksp.css" />
@@ -59,29 +59,28 @@
 		</script>
 	</head>
 	<body onload="startMap(); MapFix(); " style="padding: 0; margin: 0;">
-			<div id="PlayerInfo" style="visibility: hidden;" class="PlayerInfo PlayerInfoPos PlayerInfoOverFlow">
-				<div class="PlayerInfo-content PlayerInfoOverFlow">
-					<span class="PlayerInfoClose">&times;</span>
-					<span id="playerinfotext"></span>
-				</div>
+		<div id="PlayerInfo" style="visibility: hidden;" class="PlayerInfo PlayerInfoPos PlayerInfoOverFlow">
+			<div class="PlayerInfo-content PlayerInfoOverFlow">
+				<span class="PlayerInfoClose">&times;</span>
+				<span id="playerinfotext"></span>
 			</div>
-			<div id="UserConfig" style="visibility: hidden;" class="UserConfig UserConfigPos UserConfigOverFlow">
-				<div class="UserConfig-content UserConfigOverFlow">
-					<span class="UserConfigClose">&times;</span>
-					<span id="UserConfigtext"></span>
-				</div>
+		</div>
+		<div id="UserConfig" style="visibility: hidden;" class="UserConfig UserConfigPos UserConfigOverFlow">
+			<div class="UserConfig-content UserConfigOverFlow">
+				<span class="UserConfigClose">&times;</span>
+				<span id="UserConfigtext"></span>
 			</div>
+		</div>
 		<div id="sidebarslider" class="mainstatus sidebarslide">
 			<div id="statusbar" class="mainstatus statusbar">
 				<span style='font-size: 15px;'>Server Info: </span>
 				<span>Loading...</span>
 			</div>
-			</div>
-			<div onclick="ToggleStatus()" class="mainstatus leaflet-left" style="left: 0px; cursor: pointer; width: 36px; height: 36px; margin-left: 8px; margin-top: 10px; float: left; box-shadow: 0 1px 7px rgba(0,0,0,0.4); background: #f8f8f9; -webkit-border-radius: 8px; border-radius: 8px;">
-				<a class="mainstatus" title="Server Status" style="color: black; width: 36px; height: 36px; text-align: center; font-size: 25px; background-repeat: no-repeat;">☰</a>
-			</div>
+		</div>
+		<div onclick="ToggleStatus()" class="mainstatus leaflet-left" style="left: 0px; cursor: pointer; width: 36px; height: 36px; margin-left: 8px; margin-top: 10px; float: left; box-shadow: 0 1px 7px rgba(0,0,0,0.4); background: #f8f8f9; -webkit-border-radius: 8px; border-radius: 8px;">
+			<a class="mainstatus" title="Server Status" style="color: black; width: 36px; height: 36px; text-align: center; font-size: 25px; background-repeat: no-repeat;">☰</a>
 		</div>
 		<div id="map" class="map" style="padding: 0; margin: 0; height: 100%;">
-				</div>
+		</div>
 	</body>
 </html>
