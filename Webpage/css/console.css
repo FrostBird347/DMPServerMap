@@ -1,404 +1,341 @@
 body {
-  font-family: Helvetica, Arial, sans-serif;
-  margin: 10px 20px;
-  width: auto;
-  height: auto;
-  background-color: rgb(240, 240, 240);
-  background-image: radial-gradient(rgba(0,0,0,0),rgba(0,0,0,0) 67%,rgba(0,0,0,0.1));
+	background-color: rgb(240, 240, 240);
+	background-image: radial-gradient(rgba(0,0,0,0),rgba(0,0,0,0) 67%,rgba(0,0,0,0.1));
+	font-family: Helvetica, Arial, sans-serif;
+	height: auto;
+	margin: 10px 20px;
+	width: auto;
 }
-
 body > header {
-  position: relative;
-  text-align: center;
-  margin: 1.33em 0;
+	margin: 1.33em 0;
+	position: relative;
+	text-align: center;
 }
-
 body > footer {
-  clear: both;
-  margin: 20px 0;
-  text-align: center;
+	clear: both;
+	margin: 20px 0;
+	text-align: center;
 }
-
 body > footer button {
-  font-size: 1em;
+	font-size: 1em;
 }
-
 h1 {
-  display: inline;
-  font-size: 2em;
+	display: inline;
+	font-size: 2em;
 }
-
 body > header nav {
-  display: inline;
+	display: inline;
 }
-
 body > header .dropdown button {
-  font-size: 2em;
+	font-size: 2em;
 }
-
 .dropdown button {
-  font-size: 1em;
-  background: transparent;
-  border: none;
-  margin: 5px 0 5px 0.5ex;
-  padding: 0;
-  cursor: pointer;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	font-size: 1em;
+	margin: 5px 0 5px 0.5ex;
+	padding: 0;
 }
-
 .dropdown button:focus {
-  outline: none;
-  border: none;
+	border: none;
+	outline: none;
 }
-
 .dropdown button svg {
-  font-size: 1em;
-  width: 0.9em;
-  height: 0.75em;
+	font-size: 1em;
+	height: 0.75em;
+	width: 0.9em;
 }
-
 .dropdown button path {
-  stroke: black;
-  stroke-width: 30px;
+	stroke: black;
+	stroke-width: 30px;
 }
-
 .dropdown button:hover path {
-  stroke: rgb(0,128,192)
+	stroke: rgb(0,128,192);
 }
-
 .dropdown > ul {
-  display: none;
-  position: absolute;
-  background-color: white;
-  border: thin solid rgb(192, 192, 192);
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  min-width: 150px;
-  border-radius: 5px;
-  box-shadow: 0px 1px 3px 0.5px rgba(0, 0, 0, 0.25);
-  z-index: 2001;
+	background-color: white;
+	border: thin solid rgb(192, 192, 192);
+	border-radius: 5px;
+	box-shadow: 0px 1px 3px 0.5px rgba(0, 0, 0, 0.25);
+	display: none;
+	list-style-type: none;
+	margin: 0;
+	min-width: 150px;
+	padding: 0;
+	position: absolute;
+	text-align: center;
+	z-index: 2001;
 }
-
 .dropdown li:hover {
-  background-color: rgb(0,128,192);
-  color: white;
+	background-color: rgb(0,128,192);
+	color: white;
 }
-
 .dropdown li a {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  padding: 0.5ex 1em;
+	color: inherit;
+	display: block;
+	padding: 0.5ex 1em;
+	text-decoration: none;
 }
-
 #met {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0;
-  padding: 10px;
-  background-color: black;
-  border-radius: 4px;
-  border: thin solid white;
-  color: rgb(192,128,0);
-  font-family: "Lucida Console", Monaco, monospace;
-  background: black linear-gradient(to bottom, rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.2) 50%,rgba(255,255,255,0.1) 51%,rgba(255,255,255,0.0) 100%);
-  box-shadow: 0px 1px 3px 0.5px rgba(0,0,0,1) inset;	
+	background: black linear-gradient(to bottom, rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.2) 50%,rgba(255,255,255,0.1) 51%,rgba(255,255,255,0.0) 100%);
+	background-color: black;
+	border: thin solid white;
+	border-radius: 4px;
+	box-shadow: 0px 1px 3px 0.5px rgba(0,0,0,1) inset;
+	color: rgb(192,128,0);
+	font-family: "Lucida Console", Monaco, monospace;
+	left: 0;
+	margin: 0;
+	padding: 10px;
+	position: absolute;
+	top: 0;
 }
-
 #ut {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0;
-  padding: 10px;
-  background-color: black;
-  border-radius: 4px;
-  border: thin solid white;
-  color: rgb(192,128,0);
-  font-family: "Lucida Console", Monaco, monospace;
-  background: black linear-gradient(to bottom, rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.2) 50%,rgba(255,255,255,0.1) 51%,rgba(255,255,255,0.0) 100%);
-  box-shadow: 0px 1px 3px 0.5px rgba(0,0,0,1) inset;	
+	background: black linear-gradient(to bottom, rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.2) 50%,rgba(255,255,255,0.1) 51%,rgba(255,255,255,0.0) 100%);
+	background-color: black;
+	border: thin solid white;
+	border-radius: 4px;
+	box-shadow: 0px 1px 3px 0.5px rgba(0,0,0,1) inset;
+	color: rgb(192,128,0);
+	font-family: "Lucida Console", Monaco, monospace;
+	margin: 0;
+	padding: 10px;
+	position: absolute;
+	right: 0;
+	top: 0;
 }
-
 #telemetry {
-  position: relative;
-  float: right;
-  width: 25%;
-  height: 100%;
-  background-color: white;
-  border-radius: 5px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 10px;
-  box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.5) inset;	
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.5) inset;
+	box-sizing: border-box;
+	float: right;
+	height: 100%;
+	moz-box-sizing: border-box;
+	padding: 10px;
+	position: relative;
+	webkit-box-sizing: border-box;
+	width: 25%;
 }
-
 #telemetry h2 {
-  text-align: center;
-  margin-top: 0;
+	margin-top: 0;
+	text-align: center;
 }
-
 #telemetry ul {
-  overflow: auto;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+	list-style-type: none;
+	margin: 0;
+	overflow: auto;
+	padding: 0;
 }
-
 #telemetry li {
-  display: block;
-  border-top: thin solid rgb(192,192,192);
-  border-bottom: thin solid rgb(192,192,192);
-  margin-bottom: -1px;
-  padding: 1ex 0;
-  position: relative;
+	border-bottom: thin solid rgb(192,192,192);
+	border-top: thin solid rgb(192,192,192);
+	display: block;
+	margin-bottom: -1px;
+	padding: 1ex 0;
+	position: relative;
 }
-
 #telemetry li:last-child {
-  border-bottom: thin solid rgb(192,192,192);
+	border-bottom: thin solid rgb(192,192,192);
 }
-
 #telemetry h3 {
-  margin: 0;
-  font-weight: bold;
-  font-size: 1em;
-  margin-bottom: 0.5ex;
-  margin-right: 1em;
+	font-size: 1em;
+	font-weight: bold;
+	margin: 0;
+	margin-bottom: 0.5ex;
+	margin-right: 1em;
 }
-
 #telemetry button.remove {
-  border: none;
-  margin: 0;
-  padding: 0;
-  background: transparent;
-  position: absolute;
-  right: 0;
-  top: 0.5ex;
-  font-family: inherit;
-  font-size: 1em;
-  font-weight: bold;
-  cursor: pointer;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	font-family: inherit;
+	font-size: 1em;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	right: 0;
+	top: 0.5ex;
 }
-
 #telemetry button.remove:hover {
-  color: #c00000;
+	color: #c00000;
 }
-
 #telemetry button.remove:after {
-  font-weight: bold;
-  content: '\00d7';
+	content: '\00d7';
+	font-weight: bold;
 }
-
 #telemetry .handle {
-  position: absolute;
-  right: 0;
-  bottom: 1ex;
-  cursor: -moz-grab;
-  cursor: -webkit-grab;
+	bottom: 1ex;
+	cursor: -moz-grab;
+	cursor: -webkit-grab;
+	position: absolute;
+	right: 0;
 }
-
 #telemetry .telemetry-data {
-  color: rgb(0, 128, 0);
-  font-family: "Lucida Console", Monaco, monospace;
-  margin-right: 1em;
+	color: rgb(0, 128, 0);
+	font-family: "Lucida Console", Monaco, monospace;
+	margin-right: 1em;
 }
-
 #telemetry .ui-sortable-helper {
-  background: white;
-  cursor: -moz-grabbing;
-  cursor: -webkit-grabbing;
+	background: white;
+	cursor: -moz-grabbing;
+	cursor: -webkit-grabbing;
 }
-
 #telemetry .ui-sortable-helper .handle {
-  cursor: -moz-grabbing;
-  cursor: -webkit-grabbing;
+	cursor: -moz-grabbing;
+	cursor: -webkit-grabbing;
 }
-
 #telemetry form {
-  position: absolute;
-  bottom: 0;
+	bottom: 0;
+	position: absolute;
 }
-
 #apiCategory {
-  width: 100%;
+	width: 100%;
 }
-
 #charts {
-  width: 75%;
+	width: 75%;
 }
-
 .chart {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding-right: 30px;
-  position: relative;
+	box-sizing: border-box;
+	moz-box-sizing: border-box;
+	padding-right: 30px;
+	position: relative;
+	webkit-box-sizing: border-box;
 }
-
 .chart header {
-  margin: 0 0 0.5ex 0;
-  text-align: center;
-  white-space: nowrap;
+	margin: 0 0 0.5ex 0;
+	text-align: center;
+	white-space: nowrap;
 }
-
 .chart header h2 {
-  display: inline;
+	display: inline;
 }
-
 .chart header nav {
-  display: inline;
+	display: inline;
 }
-
 .chart header .dropdown button {
-  font-size: 1.5em;
+	font-size: 1.5em;
 }
-
 .chart.large {
-  height: 65%;
-  padding-bottom: 30px;
+	height: 65%;
+	padding-bottom: 30px;
 }
-
 .chart.small {
-  float: left;
-  height: 35%;
-  width: 50%;
+	float: left;
+	height: 35%;
+	width: 50%;
 }
-
 .chart .display {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%;
-  height: 80%;
-  background-color: rgb(196,202,196);
-  background-image: linear-gradient(to bottom,rgb(188,196,188),rgb(200,208,200),rgb(188,196,188));
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0px 1px 2px 0.5px rgba(0, 0, 0, 0.5);
+	background-color: rgb(196,202,196);
+	background-image: linear-gradient(to bottom,rgb(188,196,188),rgb(200,208,200),rgb(188,196,188));
+	border-radius: 20px;
+	box-shadow: 0px 1px 2px 0.5px rgba(0, 0, 0, 0.5);
+	box-sizing: border-box;
+	height: 80%;
+	moz-box-sizing: border-box;
+	padding: 20px;
+	webkit-box-sizing: border-box;
+	width: 100%;
 }
-
 .chart .display svg {
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  border-radius: 20px;
-  background-image: radial-gradient(100% 75% at 50% -30%, rgba(255,255,255,0.25),rgba(255,255,255,0.1) 99.9%, rgba(0,0,0,0));
-  box-shadow: 0px 5px 80px 0px rgba(0, 0, 0, 0.75) inset;
+	background-color: black;
+	background-image: radial-gradient(100% 75% at 50% -30%, rgba(255,255,255,0.25),rgba(255,255,255,0.1) 99.9%, rgba(0,0,0,0));
+	border-radius: 20px;
+	box-shadow: 0px 5px 80px 0px rgba(0, 0, 0, 0.75) inset;
+	height: 100%;
+	width: 100%;
 }
-
 .chart .display .leaflet-container {
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  background-image: radial-gradient(100% 75% at 50% -30%, rgba(255,255,255,0.5),rgba(255,255,255,0.2) 99.9%, rgba(0,0,0,0));
-  box-shadow: 0px 5px 80px 0px rgba(0, 0, 0, 0.5) inset;
-  
-  /* Fix rounded corner bug per http://stackoverflow.com/q/5736503 */
-  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+	background-image: radial-gradient(100% 75% at 50% -30%, rgba(255,255,255,0.5),rgba(255,255,255,0.2) 99.9%, rgba(0,0,0,0));
+	border-radius: 20px;
+	box-shadow: 0px 5px 80px 0px rgba(0, 0, 0, 0.5) inset;
+	height: 100%;
+	webkit-mask-image: url(data:image/png;
+	width: 100%;
 }
-
 .chart .alert {
-  position: relative;
-  margin: 0 20px;
-  text-align: center;
-  color: rgb(192,0,0);
-  font-family: "Lucida Console", Monaco, monospace;
-  z-index: 2000;
-  text-shadow: 0 0 2px black;
-  -webkit-user-select: none; /* Chrome/Safari */        
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+ */
-  user-select: none;
+	color: rgb(192,0,0);
+	font-family: "Lucida Console", Monaco, monospace;
+	margin: 0 20px;
+	moz-user-select: none;
+	ms-user-select: none;
+	position: relative;
+	text-align: center;
+	text-shadow: 0 0 2px black;
+	user-select: none;
+	webkit-user-select: none;
+	z-index: 2000;
 }
-
 .chart svg {
-  font-size: 10pt;
-  width: 100%;
-  height: 100%;
+	font-size: 10pt;
+	height: 100%;
+	width: 100%;
 }
-
 .chart .axis path,
 .chart .axis line,
 .chart .grid line {
-  fill: none;
-  stroke: rgb(192,192,192);
-  shape-rendering: crispEdges;
-  stroke-width: 1px;
+	fill: none;
+	shape-rendering: crispEdges;
+	stroke: rgb(192,192,192);
+	stroke-width: 1px;
 }
-
 .chart .axis text,
 .chart text.legend {
-  fill: rgb(192,192,192);
-  text-rendering: optimizeLegibility;
+	fill: rgb(192,192,192);
+	text-rendering: optimizeLegibility;
 }
-
 .chart .x.axis .tick line,
 .chart .y.grid line {
-  stroke: rgb(96,96,96);
+	stroke: rgb(96,96,96);
 }
-
 .chart .x.axis .tick line {
-  shape-rendering: auto;
-  stroke-width: 1.5px;
+	shape-rendering: auto;
+	stroke-width: 1.5px;
 }
-
 .chart .x.axis .tick text {
-  fill: rgb(96,96,96);
+	fill: rgb(96,96,96);
 }
-
 .chart .y.grid line.zero {
-  stroke: rgb(192,192,192);
+	stroke: rgb(192,192,192);
 }
-
 .chart .data path {
-  fill: none;
-  stroke-width: 3px;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  transition: opacity 0.5s;
+	fill: none;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 3px;
+	transition: opacity 0.5s;
 }
-
 .chart .legend tspan {
-  transition: opacity 0.5s;
-  cursor: pointer;
+	cursor: pointer;
+	transition: opacity 0.5s;
 }
-
 .chart .data path.inactive,
 .chart .legend tspan.inactive {
-  opacity: 0.33
+	opacity: 0.33;
 }
-
 .chart .data path:nth-child(1) {
-  stroke: rgb(192,128,0);
+	stroke: rgb(192,128,0);
 }
-
 .chart .legend tspan:nth-child(1) tspan.bullet {
-  fill: rgb(192,128,0);
+	fill: rgb(192,128,0);
 }
-  
 .chart .data path:nth-child(2) {
-  stroke: rgb(0,128,0);
+	stroke: rgb(0,128,0);
 }
-
 .chart .legend tspan:nth-child(2) tspan.bullet {
-  fill: rgb(0,128,0);
+	fill: rgb(0,128,0);
 }
-
 .chart .data path:nth-child(3) {
-  stroke: rgb(0,128,192);
+	stroke: rgb(0,128,192);
 }
-
 .chart .legend tspan:nth-child(3) tspan.bullet {
-  fill: rgb(0,128,192);
+	fill: rgb(0,128,192);
 }
-
 .chart .data path:nth-child(3) {
-  stroke: rgb(192,192,192);
+	stroke: rgb(192,192,192);
 }
-
 .chart .legend tspan:nth-child(4) tspan.bullet {
-  fill: rgb(192,192,192);
+	fill: rgb(192,192,192);
 }

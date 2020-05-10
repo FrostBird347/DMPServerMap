@@ -1,35 +1,33 @@
 ﻿.sNotify_message {
-    width: 250px;
-    padding: 20px;
-    background-color: white;
-    position: absolute;
-    display: none;
-    right: 0px;
-    top: 20px;
-    margin-bottom: 20px;
-    text-align: justify;
-    border: 1px solid #808080;
-    z-index: 100;
+	background-color: white;
+	border: 1px solid #808080;
+	display: none;
+	margin-bottom: 20px;
+	padding: 20px;
+	position: absolute;
+	right: 0px;
+	text-align: justify;
+	top: 20px;
+	width: 250px;
+	z-index: 100;
 }
-
 .sNotify_close {
-    display: block;
-    background-color: black;
-    padding: 3px;
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    color: white;
-    font-weight: bold;
-    width: 10px;
-    height: 10px;
-    cursor: pointer;
-    text-align: center;
-    line-height: 10px;
+	background-color: black;
+	color: white;
+	cursor: pointer;
+	display: block;
+	font-weight: bold;
+	height: 10px;
+	line-height: 10px;
+	padding: 3px;
+	position: absolute;
+	right: -5px;
+	text-align: center;
+	top: -5px;
+	width: 10px;
 }
-
 span.sup {
-    font-size: 80%;
-    position: relative;
-    bottom: 1ex;
+	bottom: 1ex;
+	font-size: 80%;
+	position: relative;
 }
