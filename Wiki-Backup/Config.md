@@ -76,3 +76,12 @@ function VAR() {
 - `CheckInvalidJSON`
 	- Default value is `true`.
 	- Hide the invalid JSON version alert `false`.
+- `GetPageTitle`
+	- Default value is `{PNum}/{PMax} Players | {N}`.
+	- `{N}` = Server Name
+	- `{V}` = Server Version
+	- `{PV}` = Server Protocol Version
+	- `{PNum}` = Player Count
+	- `{PMax}` = Max Players
+	- `{GM}` = Game Mode
+	- `{WM}` = Warp Mode
