@@ -5,7 +5,7 @@ namespace MapUpdater
 	{
 		public static string GetVersion()
 		{
-			return "1.3.0";
+			return "1.3.1";
 		}
 
 		public static string GetJSONVersion()
