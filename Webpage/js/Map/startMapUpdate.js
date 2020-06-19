@@ -48,6 +48,7 @@ async function startMapUpdate() {
 					FullArray[index] = "N"
 				}
 			})
+			UpdatePageTitle(UpdateMarkerJSON.Main.Server)
 			UpdateStatusBarText(UpdateMarkerJSON.Main.Server)
 			ResetMarkerPath()
 			UpdateMarkerJSON.Main.ID.forEach((element) => {
