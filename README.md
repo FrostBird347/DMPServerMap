@@ -5,7 +5,7 @@
 An implementation of Telemachus Reborn's vessel map as a DMP server plugin, allowing users to view vessels on an interactive map.
 
 - [Download](https://github.com/FrostBird347/DMPServerMap/releases/latest/)
-- [Static Demo](https://demo-dmp-server-map.herokuapp.com/)
+- [Demo](https://demo-dmp-server-map.herokuapp.com/)
 - [Credits](https://github.com/FrostBird347/DMPServerMap/wiki/Credits)
 - [License (MIT)](https://github.com/FrostBird347/DMPServerMap/blob/master/LICENSE)
 
