@@ -48,6 +48,7 @@ async function startMapUpdate() {
 					FullArray[index] = "N"
 				}
 			})
+			SaveLayers()
 			UpdatePageTitle(UpdateMarkerJSON.Main.Server)
 			UpdateStatusBarText(UpdateMarkerJSON.Main.Server)
 			ResetMarkerPath()

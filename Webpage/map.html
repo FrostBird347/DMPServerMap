@@ -27,6 +27,8 @@
 		<script type="text/javascript" src="js/Map/startMap.js"></script>
 		<script type="text/javascript" src="js/Map/resetMap.js"></script>
 		<script type="text/javascript" src="js/Map/MapFix.js"></script>
+		<script type="text/javascript" src="js/Map/SetupLayers.js"></script>
+		<script type="text/javascript" src="js/Map/SaveLayers.js"></script>
 		<script type="text/javascript" src="js/Other/SetCredits.js"></script>
 		<script type="text/javascript" src="js/Other/sleep.js"></script>
 		<script type="text/javascript" src="js/Other/getJSONUrl.js"></script>
@@ -34,6 +36,7 @@
 		<script type="text/javascript" src="js/Other/Math.js"></script>
 		<script type="text/javascript" src="js/Other/StringC.js"></script>
 		<script type="text/javascript" src="js/Other/SimpleReplace.js"></script>
+		<script type="text/javascript" src="js/Other/SetCheck.js"></script>
 		<script type="text/javascript" src="js/Status/ToggleStatus.js"></script>
 		<script type="text/javascript" src="js/Status/StatusH.js"></script>
 		<script type="text/javascript" src="js/Status/UpdateStatusBarText.js"></script>
@@ -57,9 +60,11 @@
 			var GetJSONSpeed = GetSavedJSONSpeed() * 1000
 			var CurrentVersion = GetVersion()
 			var DeepVesselsHidden = HideDeepVessels()
+			var SavedLayersVar
+			var LayersReady = false
 		</script>
 	</head>
-	<body onload="startMap(); MapFix(); " style="padding: 0; margin: 0;">
+	<body onload="startMap(); MapFix();" style="padding: 0; margin: 0;">
 		<div id="PlayerInfo" style="visibility: hidden;" class="PlayerInfo PlayerInfoPos PlayerInfoOverFlow">
 			<div class="PlayerInfo-content PlayerInfoOverFlow">
 				<span class="PlayerInfoClose">&times;</span>

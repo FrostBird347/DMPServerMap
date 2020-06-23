@@ -44,6 +44,9 @@ async function MapFix() {
 				});
 			});
 		})
+		if (!LayersReady) {
+			SetupLayers()
+		}
 	}
 }
 
