@@ -85,3 +85,11 @@ function VAR() {
 	- `{PMax}` = Max Players
 	- `{GM}` = Game Mode
 	- `{WM}` = Warp Mode
+- `GetDefaultLayers`
+	- Default value is `[true, true, true, false, true, true, false, false, false, 0]`.
+	- Changes the default layer and overlay settings.
+	- <img src="https://i.imgur.com/9cZ1yOD.png" height="400">
+
+		- `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`
+	- For example `[false, false, true, false, false, true, true, false, false, 3]` is:
+		- <img src="https://i.imgur.com/X2m2spM.png" height="400">
