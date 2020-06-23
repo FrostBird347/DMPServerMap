@@ -104,6 +104,7 @@ namespace MapUpdater
 			string NextVesselPosString3 = FileReader.GetSavedValue(VesselPosFile, "nextloc3");
 			string NextVesselPosString4 = FileReader.GetSavedValue(VesselPosFile, "nextloc4");
 			string NextVesselPosString5 = FileReader.GetSavedValue(VesselPosFile, "nextloc5");
+			string VesselPosTimePercent = FileReader.GetSavedValue(VesselPosFile, "timep"); 
 			string VesselPermissionsFile = Main.VesselPermissionFolder + "/" + vesselID + ".txt";
 			string VesselPermission;
 			string VesselOwner;
@@ -136,7 +137,7 @@ namespace MapUpdater
 				NextVesselPosJArray5 = new JArray(new JValue("NaN"), new JValue("NaN"), new JValue("NaN"));
 			}
 			string[] VesselPosArray = VesselPosJArray.ToObject<string[]>();
-			JArray VesselsJSON = new JArray(new JValue(VesselPosArray[0].ToString()), new JValue(VesselPosArray[1].ToString()), new JValue(FileReader.GetSavedValue(vesselFile, "REF")), new JValue(VesselPosArray[2].ToString()), new JValue(FileReader.GetSavedValue(VesselPosFile, "vel")), new JValue(FileReader.GetSavedValue(vesselFile, "name")), new JValue(FileReader.GetSavedValue(vesselFile, "type")), new JValue(vesselID), new JValue(VesselPermission), new JValue(VesselOwner), new JArray(new JValue(NextVesselPosJArray[0].ToString()), new JValue(NextVesselPosJArray[1].ToString()), new JValue(NextVesselPosJArray2[0].ToString()), new JValue(NextVesselPosJArray2[1].ToString()), new JValue(NextVesselPosJArray3[0].ToString()), new JValue(NextVesselPosJArray3[1].ToString()), new JValue(NextVesselPosJArray4[0].ToString()), new JValue(NextVesselPosJArray4[1].ToString()), new JValue(NextVesselPosJArray5[0].ToString()), new JValue(NextVesselPosJArray5[1].ToString())));
+			JArray VesselsJSON = new JArray(new JValue(VesselPosArray[0].ToString()), new JValue(VesselPosArray[1].ToString()), new JValue(FileReader.GetSavedValue(vesselFile, "REF")), new JValue(VesselPosArray[2].ToString()), new JValue(FileReader.GetSavedValue(VesselPosFile, "vel")), new JValue(FileReader.GetSavedValue(vesselFile, "name")), new JValue(FileReader.GetSavedValue(vesselFile, "type")), new JValue(vesselID), new JValue(VesselPermission), new JValue(VesselOwner), new JArray(new JValue(NextVesselPosJArray[0].ToString()), new JValue(NextVesselPosJArray[1].ToString()), new JValue(NextVesselPosJArray2[0].ToString()), new JValue(NextVesselPosJArray2[1].ToString()), new JValue(NextVesselPosJArray3[0].ToString()), new JValue(NextVesselPosJArray3[1].ToString()), new JValue(NextVesselPosJArray4[0].ToString()), new JValue(NextVesselPosJArray4[1].ToString()), new JValue(NextVesselPosJArray5[0].ToString()), new JValue(NextVesselPosJArray5[1].ToString())), new JValue(VesselPosTimePercent));
 			return VesselsJSON;
 		}
 

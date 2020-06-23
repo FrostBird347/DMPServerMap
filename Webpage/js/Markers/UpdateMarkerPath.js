@@ -41,26 +41,60 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 		opacity: 0.25,
 		smoothFactor: 1
 	})
+	var CircleZC = '#ff1b1b';
+	switch (Type) {
+		case 'F':
+			CircleZC = '#6ae252';
+			break;
+		case 'V':
+			CircleZC = '#53a0ff';
+			break;
+		case 'O':
+			CircleZC = '#5f66ca';
+			break;
+		case 'K':
+			CircleZC = '#5f89ca';
+			break;
+		case 'D':
+			CircleZC = '#959595';
+			break;
+	}
+	if (Type == "V" && icon.options.iconUrl.endsWith("markers-vessel-unknown.png")) {
+		CircleZC = '#ff1b1b';
+	}
 	var Circle0 = new L.CircleMarker(Point0, {
-		color: CircleC,
-		fillColor: CircleC,
+		color: CircleZC,
+		fillColor: CircleZC,
 		fillOpacity: 1,
-		stroke: false,
-		radius: 5,
+		stroke: true,
+		opacity: 0.75,
+		weight: 3,
+		radius: 2,
 		interactive: false
 	})
-	var Circle1 = new L.CircleMarker(Point1, {
-		color: CircleC,
-		fillColor: CircleC,
-		fillOpacity: 0.85,
-		stroke: false,
-		radius: 5,
-		interactive: false
-	})
+	if (element[11] > 90) {
+		var Circle1 = new L.CircleMarker(Point1, {
+			color: CircleC,
+			fillColor: CircleC,
+			fillOpacity: ( (element[11] / 100) * ( 0.85 - 0.70 ) ) + 0.70,
+			stroke: false,
+			radius: 2 + ( 3 * ( 1 - (( element[11] - 90 ) / 10 ))),
+			interactive: false
+		})
+	} else {
+		var Circle1 = new L.CircleMarker(Point1, {
+			color: CircleC,
+			fillColor: CircleC,
+			fillOpacity: ( (element[11] / 100) * ( 0.85 - 0.70 ) ) + 0.70,
+			stroke: false,
+			radius: 5,
+			interactive: false
+		})
+	}
 	var Circle2 = new L.CircleMarker(Point2, {
 		color: CircleC,
 		fillColor: CircleC,
-		fillOpacity: 0.70,
+		fillOpacity: ( (element[11] / 100) * ( 0.70 - 0.55 ) ) + 0.55,
 		stroke: false,
 		radius: 5,
 		interactive: false
@@ -68,7 +102,7 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 	var Circle3 = new L.CircleMarker(Point3, {
 		color: CircleC,
 		fillColor: CircleC,
-		fillOpacity: 0.55,
+		fillOpacity: ( (element[11] / 100) * ( 0.55 - 0.40 ) ) + 0.40,
 		stroke: false,
 		radius: 5,
 		interactive: false
@@ -76,7 +110,7 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 	var Circle4 = new L.CircleMarker(Point4, {
 		color: CircleC,
 		fillColor: CircleC,
-		fillOpacity: 0.40,
+		opacity: ( (element[11] / 100) * ( 0.40 - 0.25 ) ) + 0.25,
 		stroke: false,
 		radius: 5,
 		interactive: false
@@ -84,19 +118,21 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 	var Circle5 = new L.CircleMarker(Point5, {
 		color: CircleC,
 		fillColor: CircleC,
-		fillOpacity: 0.25,
+		fillOpacity: (element[11] / 100) * 0.25,
 		stroke: false,
+		//strokeOpacity: (element[11] / 100) * 0.125,
+		//weight: ( 30 * ( 1 - (element[11] / 100))),
 		radius: 5,
 		interactive: false
 	})
 	if (Type != "F" && element[4] != "0") {
 		if (Planet == 0) {
-			Circle0.addTo(L.KSP.CelestialBody.KERBOL.overlays.Orbit)
 			Circle1.addTo(L.KSP.CelestialBody.KERBOL.overlays.Orbit)
 			Circle2.addTo(L.KSP.CelestialBody.KERBOL.overlays.Orbit)
 			Circle3.addTo(L.KSP.CelestialBody.KERBOL.overlays.Orbit)
 			Circle4.addTo(L.KSP.CelestialBody.KERBOL.overlays.Orbit)
 			Circle5.addTo(L.KSP.CelestialBody.KERBOL.overlays.Orbit)
+			Circle0.addTo(L.KSP.CelestialBody.KERBOL.overlays.Orbit)
 			if (localStorage.getItem("DisplayOrbitPath") == "true") {
 				PointLine01.addTo(L.KSP.CelestialBody.KERBOL.overlays.Orbit)
 				PointLine12.addTo(L.KSP.CelestialBody.KERBOL.overlays.Orbit)
@@ -105,12 +141,12 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 				PointLine45.addTo(L.KSP.CelestialBody.KERBOL.overlays.Orbit)
 			}
 		} else if (Planet == 1) {
-			Circle0.addTo(L.KSP.CelestialBody.KERBIN.overlays.Orbit)
 			Circle1.addTo(L.KSP.CelestialBody.KERBIN.overlays.Orbit)
 			Circle2.addTo(L.KSP.CelestialBody.KERBIN.overlays.Orbit)
 			Circle3.addTo(L.KSP.CelestialBody.KERBIN.overlays.Orbit)
 			Circle4.addTo(L.KSP.CelestialBody.KERBIN.overlays.Orbit)
 			Circle5.addTo(L.KSP.CelestialBody.KERBIN.overlays.Orbit)
+			Circle0.addTo(L.KSP.CelestialBody.KERBIN.overlays.Orbit)
 			if (localStorage.getItem("DisplayOrbitPath") == "true") {
 				PointLine01.addTo(L.KSP.CelestialBody.KERBIN.overlays.Orbit)
 				PointLine12.addTo(L.KSP.CelestialBody.KERBIN.overlays.Orbit)
@@ -119,12 +155,12 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 				PointLine45.addTo(L.KSP.CelestialBody.KERBIN.overlays.Orbit)
 			}
 		} else if (Planet == 2) {
-			Circle0.addTo(L.KSP.CelestialBody.MUN.overlays.Orbit)
 			Circle1.addTo(L.KSP.CelestialBody.MUN.overlays.Orbit)
 			Circle2.addTo(L.KSP.CelestialBody.MUN.overlays.Orbit)
 			Circle3.addTo(L.KSP.CelestialBody.MUN.overlays.Orbit)
 			Circle4.addTo(L.KSP.CelestialBody.MUN.overlays.Orbit)
 			Circle5.addTo(L.KSP.CelestialBody.MUN.overlays.Orbit)
+			Circle0.addTo(L.KSP.CelestialBody.MUN.overlays.Orbit)
 			if (localStorage.getItem("DisplayOrbitPath") == "true") {
 				PointLine01.addTo(L.KSP.CelestialBody.MUN.overlays.Orbit)
 				PointLine12.addTo(L.KSP.CelestialBody.MUN.overlays.Orbit)
@@ -133,12 +169,12 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 				PointLine45.addTo(L.KSP.CelestialBody.MUN.overlays.Orbit)
 			}
 		} else if (Planet == 3) {
-			Circle0.addTo(L.KSP.CelestialBody.MINMUS.overlays.Orbit)
 			Circle1.addTo(L.KSP.CelestialBody.MINMUS.overlays.Orbit)
 			Circle2.addTo(L.KSP.CelestialBody.MINMUS.overlays.Orbit)
 			Circle3.addTo(L.KSP.CelestialBody.MINMUS.overlays.Orbit)
 			Circle4.addTo(L.KSP.CelestialBody.MINMUS.overlays.Orbit)
 			Circle5.addTo(L.KSP.CelestialBody.MINMUS.overlays.Orbit)
+			Circle0.addTo(L.KSP.CelestialBody.MINMUS.overlays.Orbit)
 			if (localStorage.getItem("DisplayOrbitPath") == "true") {
 				PointLine01.addTo(L.KSP.CelestialBody.MINMUS.overlays.Orbit)
 				PointLine12.addTo(L.KSP.CelestialBody.MINMUS.overlays.Orbit)
@@ -147,12 +183,12 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 				PointLine45.addTo(L.KSP.CelestialBody.MINMUS.overlays.Orbit)
 			}
 		} else if (Planet == 4) {
-			Circle0.addTo(L.KSP.CelestialBody.MOHO.overlays.Orbit)
 			Circle1.addTo(L.KSP.CelestialBody.MOHO.overlays.Orbit)
 			Circle2.addTo(L.KSP.CelestialBody.MOHO.overlays.Orbit)
 			Circle3.addTo(L.KSP.CelestialBody.MOHO.overlays.Orbit)
 			Circle4.addTo(L.KSP.CelestialBody.MOHO.overlays.Orbit)
 			Circle5.addTo(L.KSP.CelestialBody.MOHO.overlays.Orbit)
+			Circle0.addTo(L.KSP.CelestialBody.MOHO.overlays.Orbit)
 			if (localStorage.getItem("DisplayOrbitPath") == "true") {
 				PointLine01.addTo(L.KSP.CelestialBody.MOHO.overlays.Orbit)
 				PointLine12.addTo(L.KSP.CelestialBody.MOHO.overlays.Orbit)
@@ -161,12 +197,12 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 				PointLine45.addTo(L.KSP.CelestialBody.MOHO.overlays.Orbit)
 			}
 		} else if (Planet == 5) {
-			Circle0.addTo(L.KSP.CelestialBody.EVE.overlays.Orbit)
 			Circle1.addTo(L.KSP.CelestialBody.EVE.overlays.Orbit)
 			Circle2.addTo(L.KSP.CelestialBody.EVE.overlays.Orbit)
 			Circle3.addTo(L.KSP.CelestialBody.EVE.overlays.Orbit)
 			Circle4.addTo(L.KSP.CelestialBody.EVE.overlays.Orbit)
 			Circle5.addTo(L.KSP.CelestialBody.EVE.overlays.Orbit)
+			Circle0.addTo(L.KSP.CelestialBody.EVE.overlays.Orbit)
 			if (localStorage.getItem("DisplayOrbitPath") == "true") {
 				PointLine01.addTo(L.KSP.CelestialBody.EVE.overlays.Orbit)
 				PointLine12.addTo(L.KSP.CelestialBody.EVE.overlays.Orbit)
@@ -175,12 +211,12 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 				PointLine45.addTo(L.KSP.CelestialBody.EVE.overlays.Orbit)
 			}
 		} else if (Planet == 6) {
-			Circle0.addTo(L.KSP.CelestialBody.DUNA.overlays.Orbit)
 			Circle1.addTo(L.KSP.CelestialBody.DUNA.overlays.Orbit)
 			Circle2.addTo(L.KSP.CelestialBody.DUNA.overlays.Orbit)
 			Circle3.addTo(L.KSP.CelestialBody.DUNA.overlays.Orbit)
 			Circle4.addTo(L.KSP.CelestialBody.DUNA.overlays.Orbit)
 			Circle5.addTo(L.KSP.CelestialBody.DUNA.overlays.Orbit)
+			Circle0.addTo(L.KSP.CelestialBody.DUNA.overlays.Orbit)
 			if (localStorage.getItem("DisplayOrbitPath") == "true") {
 				PointLine01.addTo(L.KSP.CelestialBody.DUNA.overlays.Orbit)
 				PointLine12.addTo(L.KSP.CelestialBody.DUNA.overlays.Orbit)
@@ -189,12 +225,12 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 				PointLine45.addTo(L.KSP.CelestialBody.DUNA.overlays.Orbit)
 			}
 		} else if (Planet == 7) {
-			Circle0.addTo(L.KSP.CelestialBody.IKE.overlays.Orbit)
 			Circle1.addTo(L.KSP.CelestialBody.IKE.overlays.Orbit)
 			Circle2.addTo(L.KSP.CelestialBody.IKE.overlays.Orbit)
 			Circle3.addTo(L.KSP.CelestialBody.IKE.overlays.Orbit)
 			Circle4.addTo(L.KSP.CelestialBody.IKE.overlays.Orbit)
 			Circle5.addTo(L.KSP.CelestialBody.IKE.overlays.Orbit)
+			Circle0.addTo(L.KSP.CelestialBody.IKE.overlays.Orbit)
 			if (localStorage.getItem("DisplayOrbitPath") == "true") {
 				PointLine01.addTo(L.KSP.CelestialBody.IKE.overlays.Orbit)
 				PointLine12.addTo(L.KSP.CelestialBody.IKE.overlays.Orbit)
@@ -203,12 +239,12 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 				PointLine45.addTo(L.KSP.CelestialBody.IKE.overlays.Orbit)
 			}
 		} else if (Planet == 8) {
-			Circle0.addTo(L.KSP.CelestialBody.JOOL.overlays.Orbit)
 			Circle1.addTo(L.KSP.CelestialBody.JOOL.overlays.Orbit)
 			Circle2.addTo(L.KSP.CelestialBody.JOOL.overlays.Orbit)
 			Circle3.addTo(L.KSP.CelestialBody.JOOL.overlays.Orbit)
 			Circle4.addTo(L.KSP.CelestialBody.JOOL.overlays.Orbit)
 			Circle5.addTo(L.KSP.CelestialBody.JOOL.overlays.Orbit)
+			Circle0.addTo(L.KSP.CelestialBody.JOOL.overlays.Orbit)
 			if (localStorage.getItem("DisplayOrbitPath") == "true") {
 				PointLine01.addTo(L.KSP.CelestialBody.JOOL.overlays.Orbit)
 				PointLine12.addTo(L.KSP.CelestialBody.JOOL.overlays.Orbit)
@@ -217,12 +253,12 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 				PointLine45.addTo(L.KSP.CelestialBody.JOOL.overlays.Orbit)
 			}
 		} else if (Planet == 9) {
-			Circle0.addTo(L.KSP.CelestialBody.LAYTHE.overlays.Orbit)
 			Circle1.addTo(L.KSP.CelestialBody.LAYTHE.overlays.Orbit)
 			Circle2.addTo(L.KSP.CelestialBody.LAYTHE.overlays.Orbit)
 			Circle3.addTo(L.KSP.CelestialBody.LAYTHE.overlays.Orbit)
 			Circle4.addTo(L.KSP.CelestialBody.LAYTHE.overlays.Orbit)
 			Circle5.addTo(L.KSP.CelestialBody.LAYTHE.overlays.Orbit)
+			Circle0.addTo(L.KSP.CelestialBody.LAYTHE.overlays.Orbit)
 			if (localStorage.getItem("DisplayOrbitPath") == "true") {
 				PointLine01.addTo(L.KSP.CelestialBody.LAYTHE.overlays.Orbit)
 				PointLine12.addTo(L.KSP.CelestialBody.LAYTHE.overlays.Orbit)
@@ -231,12 +267,12 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 				PointLine45.addTo(L.KSP.CelestialBody.LAYTHE.overlays.Orbit)
 			}
 		} else if (Planet == 10) {
-			Circle0.addTo(L.KSP.CelestialBody.VALL.overlays.Orbit)
 			Circle1.addTo(L.KSP.CelestialBody.VALL.overlays.Orbit)
 			Circle2.addTo(L.KSP.CelestialBody.VALL.overlays.Orbit)
 			Circle3.addTo(L.KSP.CelestialBody.VALL.overlays.Orbit)
 			Circle4.addTo(L.KSP.CelestialBody.VALL.overlays.Orbit)
 			Circle5.addTo(L.KSP.CelestialBody.VALL.overlays.Orbit)
+			Circle0.addTo(L.KSP.CelestialBody.VALL.overlays.Orbit)
 			if (localStorage.getItem("DisplayOrbitPath") == "true") {
 				PointLine01.addTo(L.KSP.CelestialBody.VALL.overlays.Orbit)
 				PointLine12.addTo(L.KSP.CelestialBody.VALL.overlays.Orbit)
@@ -245,12 +281,12 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 				PointLine45.addTo(L.KSP.CelestialBody.VALL.overlays.Orbit)
 			}
 		} else if (Planet == 11) {
-			Circle0.addTo(L.KSP.CelestialBody.BOP.overlays.Orbit)
 			Circle1.addTo(L.KSP.CelestialBody.BOP.overlays.Orbit)
 			Circle2.addTo(L.KSP.CelestialBody.BOP.overlays.Orbit)
 			Circle3.addTo(L.KSP.CelestialBody.BOP.overlays.Orbit)
 			Circle4.addTo(L.KSP.CelestialBody.BOP.overlays.Orbit)
 			Circle5.addTo(L.KSP.CelestialBody.BOP.overlays.Orbit)
+			Circle0.addTo(L.KSP.CelestialBody.BOP.overlays.Orbit)
 			if (localStorage.getItem("DisplayOrbitPath") == "true") {
 				PointLine01.addTo(L.KSP.CelestialBody.BOP.overlays.Orbit)
 				PointLine12.addTo(L.KSP.CelestialBody.BOP.overlays.Orbit)
@@ -259,12 +295,12 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 				PointLine45.addTo(L.KSP.CelestialBody.BOP.overlays.Orbit)
 			}
 		} else if (Planet == 12) {
-			Circle0.addTo(L.KSP.CelestialBody.TYLO.overlays.Orbit)
 			Circle1.addTo(L.KSP.CelestialBody.TYLO.overlays.Orbit)
 			Circle2.addTo(L.KSP.CelestialBody.TYLO.overlays.Orbit)
 			Circle3.addTo(L.KSP.CelestialBody.TYLO.overlays.Orbit)
 			Circle4.addTo(L.KSP.CelestialBody.TYLO.overlays.Orbit)
 			Circle5.addTo(L.KSP.CelestialBody.TYLO.overlays.Orbit)
+			Circle0.addTo(L.KSP.CelestialBody.TYLO.overlays.Orbit)
 			if (localStorage.getItem("DisplayOrbitPath") == "true") {
 				PointLine01.addTo(L.KSP.CelestialBody.TYLO.overlays.Orbit)
 				PointLine12.addTo(L.KSP.CelestialBody.TYLO.overlays.Orbit)
@@ -273,12 +309,12 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 				PointLine45.addTo(L.KSP.CelestialBody.TYLO.overlays.Orbit)
 			}
 		} else if (Planet == 13) {
-			Circle0.addTo(L.KSP.CelestialBody.GILLY.overlays.Orbit)
 			Circle1.addTo(L.KSP.CelestialBody.GILLY.overlays.Orbit)
 			Circle2.addTo(L.KSP.CelestialBody.GILLY.overlays.Orbit)
 			Circle3.addTo(L.KSP.CelestialBody.GILLY.overlays.Orbit)
 			Circle4.addTo(L.KSP.CelestialBody.GILLY.overlays.Orbit)
 			Circle5.addTo(L.KSP.CelestialBody.GILLY.overlays.Orbit)
+			Circle0.addTo(L.KSP.CelestialBody.GILLY.overlays.Orbit)
 			if (localStorage.getItem("DisplayOrbitPath") == "true") {
 				PointLine01.addTo(L.KSP.CelestialBody.GILLY.overlays.Orbit)
 				PointLine12.addTo(L.KSP.CelestialBody.GILLY.overlays.Orbit)
@@ -287,12 +323,12 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 				PointLine45.addTo(L.KSP.CelestialBody.GILLY.overlays.Orbit)
 			}
 		} else if (Planet == 14) {
-			Circle0.addTo(L.KSP.CelestialBody.POL.overlays.Orbit)
 			Circle1.addTo(L.KSP.CelestialBody.POL.overlays.Orbit)
 			Circle2.addTo(L.KSP.CelestialBody.POL.overlays.Orbit)
 			Circle3.addTo(L.KSP.CelestialBody.POL.overlays.Orbit)
 			Circle4.addTo(L.KSP.CelestialBody.POL.overlays.Orbit)
 			Circle5.addTo(L.KSP.CelestialBody.POL.overlays.Orbit)
+			Circle0.addTo(L.KSP.CelestialBody.POL.overlays.Orbit)
 			if (localStorage.getItem("DisplayOrbitPath") == "true") {
 				PointLine01.addTo(L.KSP.CelestialBody.POL.overlays.Orbit)
 				PointLine12.addTo(L.KSP.CelestialBody.POL.overlays.Orbit)
@@ -301,12 +337,12 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 				PointLine45.addTo(L.KSP.CelestialBody.POL.overlays.Orbit)
 			}
 		} else if (Planet == 15) {
-			Circle0.addTo(L.KSP.CelestialBody.DRES.overlays.Orbit)
 			Circle1.addTo(L.KSP.CelestialBody.DRES.overlays.Orbit)
 			Circle2.addTo(L.KSP.CelestialBody.DRES.overlays.Orbit)
 			Circle3.addTo(L.KSP.CelestialBody.DRES.overlays.Orbit)
 			Circle4.addTo(L.KSP.CelestialBody.DRES.overlays.Orbit)
 			Circle5.addTo(L.KSP.CelestialBody.DRES.overlays.Orbit)
+			Circle0.addTo(L.KSP.CelestialBody.DRES.overlays.Orbit)
 			if (localStorage.getItem("DisplayOrbitPath") == "true") {
 				PointLine01.addTo(L.KSP.CelestialBody.DRES.overlays.Orbit)
 				PointLine12.addTo(L.KSP.CelestialBody.DRES.overlays.Orbit)
@@ -315,12 +351,12 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 				PointLine45.addTo(L.KSP.CelestialBody.DRES.overlays.Orbit)
 			}
 		} else if (Planet == 16) {
-			Circle0.addTo(L.KSP.CelestialBody.EELOO.overlays.Orbit)
 			Circle1.addTo(L.KSP.CelestialBody.EELOO.overlays.Orbit)
 			Circle2.addTo(L.KSP.CelestialBody.EELOO.overlays.Orbit)
 			Circle3.addTo(L.KSP.CelestialBody.EELOO.overlays.Orbit)
 			Circle4.addTo(L.KSP.CelestialBody.EELOO.overlays.Orbit)
 			Circle5.addTo(L.KSP.CelestialBody.EELOO.overlays.Orbit)
+			Circle0.addTo(L.KSP.CelestialBody.EELOO.overlays.Orbit)
 			if (localStorage.getItem("DisplayOrbitPath") == "true") {
 				PointLine01.addTo(L.KSP.CelestialBody.EELOO.overlays.Orbit)
 				PointLine12.addTo(L.KSP.CelestialBody.EELOO.overlays.Orbit)
