@@ -14,7 +14,7 @@ function SetUserConfig() {
 		}
 
 		if (StorageDetect) {
-			FinalPlayerData = "<span style='font-size: 20px;'>Settings</span><br><br><span style='font-size: 15px;'>Connect orbit dots with lines <input type='checkbox'  id='CheckSetting-OrbitLine' onclick='localStorage.setItem(\"DisplayOrbitPath\", document.getElementById(\"CheckSetting-OrbitLine\").checked);'></span>";
+			FinalPlayerData = "<span style='font-size: 20px;'>Settings</span><br><br><span style='font-size: 15px;'>Connect orbit dots with lines <input type='checkbox'  id='CheckSetting-OrbitLine' onclick='localStorage.setItem(\"DisplayOrbitPath\", document.getElementById(\"CheckSetting-OrbitLine\").checked);'><br><span style='font-size: 15px;'>Save last open planet <input type='checkbox' id='CheckSetting-LoadSavedPlanet' onclick='localStorage.setItem(\"LoadSavedPlanet\", document.getElementById(\"CheckSetting-LoadSavedPlanet\").checked);'><br><span style='font-size: 15px;'>Save layers and overlays <input type='checkbox' id='CheckSetting-LoadSavedLayers' onclick='localStorage.setItem(\"LoadSavedLayers\", document.getElementById(\"CheckSetting-LoadSavedLayers\").checked);'></span>";
 		} else {
 			FinalPlayerData = "<span style='font-size: 20px; color: red;'>Error: No web storage support</span><br><br>";
 		}
@@ -22,6 +22,13 @@ function SetUserConfig() {
 		if (localStorage.getItem("DisplayOrbitPath") == "true") {
 			document.getElementById("CheckSetting-OrbitLine").click()
 		}
+		if (localStorage.getItem("LoadSavedPlanet") != "false") {
+			document.getElementById("CheckSetting-LoadSavedPlanet").click()
+		}
+		if (localStorage.getItem("LoadSavedLayers") != "false") {
+			document.getElementById("CheckSetting-LoadSavedLayers").click()
+		}
+		
 	}
 	SetupUserConfig()
 }

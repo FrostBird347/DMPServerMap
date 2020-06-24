@@ -3,6 +3,7 @@ function SaveLayers() {
 		if (!LayersReady) {
 			SetupLayers()
 		} else {
+			GetOpenPlanet()
 			var OrbitB = document.getElementsByClassName("leaflet-control-layers-overlays")[0].children[0].firstElementChild,
 			SpaceCB = document.getElementsByClassName("leaflet-control-layers-overlays")[0].children[1].firstElementChild,
 			VesselB = document.getElementsByClassName("leaflet-control-layers-overlays")[0].children[2].firstElementChild,
@@ -19,7 +20,7 @@ function SaveLayers() {
 			SlopeM = document.getElementsByClassName("leaflet-control-layers-base")[0].children[4].firstElementChild,
 			BiomeM = document.getElementsByClassName("leaflet-control-layers-base")[0].children[5].firstElementChild,
 			LBiomeM = document.getElementsByClassName("leaflet-control-layers-base")[0].children[6].firstElementChild,
-			FinalLayersChecked = [OrbitB.checked, SpaceCB.checked, VesselB.checked, DebrisB.checked, KerbalB.checked, FlagB.checked, SpaceObjB.checked, AnomalyB.checked, POIB.checked, 0]
+			FinalLayersChecked = [OrbitB.checked, SpaceCB.checked, VesselB.checked, DebrisB.checked, KerbalB.checked, FlagB.checked, SpaceObjB.checked, AnomalyB.checked, POIB.checked, 0, OpenPlanet]
 			
 			if (SatM.checked) {
 				FinalLayersChecked[9] = 0

@@ -28,6 +28,9 @@
 		<script type="text/javascript" src="js/Map/resetMap.js"></script>
 		<script type="text/javascript" src="js/Map/MapFix.js"></script>
 		<script type="text/javascript" src="js/Map/SetupLayers.js"></script>
+		<script type="text/javascript" src="js/Map/GetOpenPlanet.js"></script>
+		<script type="text/javascript" src="js/Map/SetOpenPlanet.js"></script>
+		<script type="text/javascript" src="js/Map/ClickPlanet.js"></script>
 		<script type="text/javascript" src="js/Map/SaveLayers.js"></script>
 		<script type="text/javascript" src="js/Other/SetCredits.js"></script>
 		<script type="text/javascript" src="js/Other/sleep.js"></script>
@@ -46,22 +49,24 @@
 		<script type="text/javascript" src="js/UserConfig/SetupUserConfig.js"></script>
 		<script type="text/javascript" src="js/PageTitle/UpdatePageTitle.js"></script>
 		<script>
-			var LoadingJSON = '{"Main":{"V":["' + GetJSONVersion() +'"],"ID":[["0","0","0","0","0","Loading...","...","...","...","..."]],"Server":["Loading...","Loading...","Loading...","0",[["Loading...","Loading..."],["Loading...", "Loading..."],["Loading...", "Loading..."]],"0","Loading...","Loading...", "3"]}}'
-			var PlayerInfoSetupComplete = false;
-			var UserConfigSetupComplete = false;
-			var InvalidJSONVersion = false;
-			var UpdateMarkerJSON = JSON.parse(LoadingJSON)
-			var LastUpdateMarkerJSON = JSON.parse(LoadingJSON)
-			var JSONURL = getJSONUrl();
-			var MapMarkerArray = []
-			var MapID = []
-			var MapIDUpdate = []
-			var MapIDPlanet = []
-			var GetJSONSpeed = GetSavedJSONSpeed() * 1000
-			var CurrentVersion = GetVersion()
-			var DeepVesselsHidden = HideDeepVessels()
-			var SavedLayersVar
-			var LayersReady = false
+			var LoadingJSON = '{"Main":{"V":["' + GetJSONVersion() +'"],"ID":[["0","0","0","0","0","Loading...","...","...","...","..."]],"Server":["Loading...","Loading...","Loading...","0",[["Loading...","Loading..."],["Loading...", "Loading..."],["Loading...", "Loading..."]],"0","Loading...","Loading...", "3"]}}',
+			PlayerInfoSetupComplete = false,
+			UserConfigSetupComplete = false,
+			InvalidJSONVersion = false,
+			UpdateMarkerJSON = JSON.parse(LoadingJSON),
+			LastUpdateMarkerJSON = JSON.parse(LoadingJSON),
+			JSONURL = getJSONUrl(),
+			MapMarkerArray = [],
+			MapID = [],
+			MapIDUpdate = [],
+			MapIDPlanet = [],
+			GetJSONSpeed = GetSavedJSONSpeed() * 1000,
+			CurrentVersion = GetVersion(),
+			DeepVesselsHidden = HideDeepVessels(),
+			SavedLayersVar,
+			LayersReady = false,
+			OpenPlanet = "Kerbin",
+			PlanetSaveLock = true
 		</script>
 	</head>
 	<body onload="startMap(); MapFix();" style="padding: 0; margin: 0;">

@@ -24,56 +24,69 @@ function SetupLayers() {
 			SavedLayersVar = localStorage.getItem("SavedLayers").split(',')
 		}
 		
-		if (SavedLayersVar[0] == "true") {
-			SetCheck(OrbitB, true)
-		} else {
-			SetCheck(OrbitB, false)
+		if (localStorage.getItem("LoadSavedLayers") != "false") {
+			if (SavedLayersVar[0] == "true") {
+				SetCheck(OrbitB, true)
+			} else {
+				SetCheck(OrbitB, false)
+			}
+			if (SavedLayersVar[1] == "true") {
+				SetCheck(SpaceCB, true)
+			} else {
+				SetCheck(SpaceCB, false)
+			}
+			if (SavedLayersVar[2] == "true") {
+				SetCheck(VesselB, true)
+			} else {
+				SetCheck(VesselB, false)
+			}
+			if (SavedLayersVar[3] == "true") {
+				SetCheck(DebrisB, true)
+			} else {
+				SetCheck(DebrisB, false)
+			}
+			if (SavedLayersVar[4] == "true") {
+				SetCheck(KerbalB, true)
+			} else {
+				SetCheck(KerbalB, false)
+			}
+			if (SavedLayersVar[5] == "true") {
+				SetCheck(FlagB, true)
+			} else {
+				SetCheck(FlagB, false)
+			}
+			if (SavedLayersVar[6] == "true") {
+				SetCheck(SpaceObjB, true)
+			} else {
+				SetCheck(SpaceObjB, false)
+			}
+			if (SavedLayersVar[7] == "true") {
+				SetCheck(AnomalyB, true)
+			} else {
+				SetCheck(AnomalyB, false)
+			}
+			if (SavedLayersVar[8] == "true") {
+				SetCheck(POIB, true)
+			} else {
+				SetCheck(POIB, false)
+			}
 		}
-		if (SavedLayersVar[1] == "true") {
-			SetCheck(SpaceCB, true)
+			
+		if (SavedLayersVar[10] != undefined) {
+			OpenPlanet = SavedLayersVar[10]
+			ClickPlanet(OpenPlanet)
 		} else {
-			SetCheck(SpaceCB, false)
-		}
-		if (SavedLayersVar[2] == "true") {
-			SetCheck(VesselB, true)
-		} else {
-			SetCheck(VesselB, false)
-		}
-		if (SavedLayersVar[3] == "true") {
-			SetCheck(DebrisB, true)
-		} else {
-			SetCheck(DebrisB, false)
-		}
-		if (SavedLayersVar[4] == "true") {
-			SetCheck(KerbalB, true)
-		} else {
-			SetCheck(KerbalB, false)
-		}
-		if (SavedLayersVar[5] == "true") {
-			SetCheck(FlagB, true)
-		} else {
-			SetCheck(FlagB, false)
-		}
-		if (SavedLayersVar[6] == "true") {
-			SetCheck(SpaceObjB, true)
-		} else {
-			SetCheck(SpaceObjB, false)
-		}
-		if (SavedLayersVar[7] == "true") {
-			SetCheck(AnomalyB, true)
-		} else {
-			SetCheck(AnomalyB, false)
-		}
-		if (SavedLayersVar[8] == "true") {
-			SetCheck(POIB, true)
-		} else {
-			SetCheck(POIB, false)
+			SavedLayersVar[10] = "Kerbin"
 		}
 		
-		SetCheck(document.getElementsByClassName("leaflet-control-layers-base")[0].children[SavedLayersVar[9]].firstElementChild, true)
+		if (localStorage.getItem("LoadSavedLayers") != "false") {
+			SetCheck(document.getElementsByClassName("leaflet-control-layers-base")[0].children[SavedLayersVar[9]].firstElementChild, true)
+		}
 		
 		window.onbeforeunload = function() {
 			console.warn("Page is being closed!")
+			GetOpenPlanet()
+			PlanetSaveLock = true;
 			document.getElementsByClassName("leaflet-control-celestialbodies-list")[0].children[3].firstElementChild.click();
 			console.warn("Saving...")
 			SaveLayers();
@@ -81,6 +94,7 @@ function SetupLayers() {
 			return;
 		};
 		
+		PlanetSaveLock = false;
 		LayersReady = true
 	}
 }
