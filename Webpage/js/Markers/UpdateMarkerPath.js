@@ -14,31 +14,31 @@ function UpdateMarkerPath(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate,
 	var PointLine01 = new L.Polyline(Points01, {
 		color: CircleC,
 		weight: 3,
-		opacity: 0.85,
+		opacity: ( (element[11] / 100) * ( 0.85 - 0.70 ) ) + 0.70,
 		smoothFactor: 1
 	})
 	var PointLine12 = new L.Polyline(Points12, {
 		color: CircleC,
 		weight: 2.5,
-		opacity: 0.7,
+		opacity: ( (element[11] / 100) * ( 0.70 - 0.55 ) ) + 0.55,
 		smoothFactor: 1
 	})
 	var PointLine23 = new L.Polyline(Points23, {
 		color: CircleC,
 		weight: 2,
-		opacity: 0.55,
+		opacity: ( (element[11] / 100) * ( 0.55 - 0.40 ) ) + 0.40,
 		smoothFactor: 1
 	})
 	var PointLine34 = new L.Polyline(Points34, {
 		color: CircleC,
 		weight: 1.5,
-		opacity: 0.40,
+		opacity: ( (element[11] / 100) * ( 0.40 - 0.25 ) ) + 0.25,
 		smoothFactor: 1
 	})
 	var PointLine45 = new L.Polyline(Points45, {
 		color: CircleC,
 		weight: 1,
-		opacity: 0.25,
+		opacity: (element[11] / 100) * 0.25,
 		smoothFactor: 1
 	})
 	var CircleZC = '#ff1b1b';
