@@ -6,7 +6,7 @@ namespace MapUpdater
 
 		public static bool isRelease()
 		{
-			return true;
+			return false;
 		}
 		public static string GetVersion()
 		{
