@@ -47,6 +47,12 @@ async function MapFix() {
 		if (!LayersReady) {
 			SetupLayers()
 		}
+		var PlanetIconURL = "img/ui/favicon.png"
+		if (DynamicIcon()) {
+			PlanetIconURL = document.getElementsByClassName("leaflet-control-celestialbodies-toggle")[0].style.backgroundImage
+			PlanetIconURL = PlanetIconURL.substring(5, PlanetIconURL.length - 2)
+		}
+		$("link[rel*='icon']").attr("href", PlanetIconURL);
 	}
 }
 
