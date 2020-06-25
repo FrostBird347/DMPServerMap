@@ -93,3 +93,7 @@ function VAR() {
 		- `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]`
 	- For example `[false, false, true, false, false, true, true, false, false, 3, "Kerbin"]` is:
 		- <img src="https://i.imgur.com/X2m2spM.png" height="400">
+
+- `DynamicIcon`
+	- Default value is `false`.
+	- Changes the page favicon to the planet the user is viewing.
