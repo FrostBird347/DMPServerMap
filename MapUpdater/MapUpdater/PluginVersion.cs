@@ -3,9 +3,22 @@ namespace MapUpdater
 {
 	public static class PluginVersion
 	{
+
+		public static bool isRelease()
+		{
+			return false;
+		}
 		public static string GetVersion()
 		{
-			return "1.4.1";
+			string v = "1.4.1";
+			if (!isRelease())
+			{
+				return v + " - dev";
+			}
+			else
+			{
+				return v;
+			}
 		}
 
 		public static string GetJSONVersion()
