@@ -1,3 +1,7 @@
+function isRelease() {
+	return false;
+}
+
 function GetVersion() {
 	var v = "1.4.1"
 	if (!isRelease()) {
@@ -9,8 +13,4 @@ function GetVersion() {
 
 function GetJSONVersion() {
 	return "3"
-}
-
-function isRelease() {
-	return false;
 }
