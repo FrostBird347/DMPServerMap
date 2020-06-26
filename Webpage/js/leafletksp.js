@@ -7829,8 +7829,8 @@ Proj4js.Proj = Proj4js.Class({
 					TYPE_SATELLITE3: 4,
 					TYPE_BIOME: 5,
 					TYPE_LBIOME: 6,
-					DEFAULT_URL: "http://ksp.deringenieur.net/kmaps/tiles/{body}/{style}/{z}/{x}/{y}.png",
-					ALT_URL: "http://d3kmnwgldcmvsd.cloudfront.net/tiles/{body}/{style}/{z}/{x}/{y}.png",
+					DEFAULT_URL: "https://ksp.deringenieur.net/kmaps/tiles/{body}/{style}/{z}/{x}/{y}.png",
+					ALT_URL: "https://d3kmnwgldcmvsd.cloudfront.net/tiles/{body}/{style}/{z}/{x}/{y}.png",
 					ALT_URL2: "./img/tiles/AltTileLoad.png?{body}/{style}/{z}/{x}/{y}",
 					NODATA_URL: "./img/tiles/nodata_{body}.png?{style}/{z}/{x}/{y}"
 				},
