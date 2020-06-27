@@ -97,3 +97,7 @@ function VAR() {
 - `DynamicIcon`
 	- Default value is `false`.
 	- Changes the page favicon to the planet the user is viewing.
+
+- `DisplayTouchWarning`
+	- Default value is `true`.
+	- Displays a warning message for devices that have a touch screen.
