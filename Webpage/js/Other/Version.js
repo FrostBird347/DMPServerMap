@@ -1,9 +1,9 @@
 function isRelease() {
-	return false;
+	return true;
 }
 
 function GetVersion() {
-	var v = "1.4.2"
+	var v = "1.4.3"
 	if (!isRelease()) {
 		return v + " - dev"
 	} else {
