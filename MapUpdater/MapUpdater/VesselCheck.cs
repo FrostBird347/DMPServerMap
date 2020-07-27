@@ -13,7 +13,8 @@ namespace MapUpdater
 			string vesselID = Path.GetFileNameWithoutExtension(vesselFile);
 			string VesselPermissionsFile = Main.VesselPermissionFolder + "/" + vesselID + ".txt";
 			string VesselPermissions = FileReader.GetPermissionValue(VesselPermissionsFile, 2);
-			if (VesselPermissions == "PRIVATE" && Main.HidePrivateVessels)
+			bool VesselInvisible = VesselStealth.IsInisible(vesselFile);
+			if (VesselPermissions == "PRIVATE" && Main.HidePrivateVessels && VesselInvisible)
 			{
 				return true;
 			}

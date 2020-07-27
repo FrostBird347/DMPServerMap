@@ -41,7 +41,6 @@ namespace MapUpdater
 			}
 			Main.UploadFrequency = SetupConfigVarDouble(MapConfigFolder, "Upload_Frequency", 3);
 			Main.SOIAdd = SetupConfigVarDouble(MapConfigFolder, "SOI_Fix", 5);
-			Main.HidePrivateVessels = SetupConfigVarBool(MapConfigFolder, "HidePrivateVessels", false);
 			Main.PlayerPrivacy = SetupConfigVarDouble(MapConfigFolder, "PlayerPrivacy", 1);
 			Main.SendJSONSetting = SetupConfigVarBool(MapConfigFolder, "SendJSON", false);
 			Main.PostURL = SetupConfigVarString(MapConfigFolder, "PostURL", "https://httpbin.org/anything");
@@ -49,6 +48,9 @@ namespace MapUpdater
 			Main.SaveJSONSetting = SetupConfigVarBool(MapConfigFolder, "SaveJSON", false);
 			Main.JSONPath = SetupConfigVarString(MapConfigFolder, "SaveJSONPath", "PluginData/DMPServerMap-FrostBird347/SavedJSON.json");
 			Main.LocalPath = SetupConfigVarBool(MapConfigFolder, "LocalPath", true);
+			Main.HidePrivateVessels = SetupConfigVarBool(MapConfigFolder, "HidePrivateVessels", false);
+			VesselStealth.SetupConfig(SetupConfigVarString(MapConfigFolder, "HiddenPrivateVesselKey", "[0,0.5,0.5,0.5,0,0,0,0,0,0,0,0,0,0,0,0,0]"));
+			VesselStealth.StealthSpeed = SetupConfigVarString(MapConfigFolder, "HiddenPrivateVesselSpeed", "100");
 			Main.SetupFinished = true;
 		}
 

@@ -43,6 +43,7 @@
     <Compile Include="SendJSON.cs" />
     <Compile Include="VesselCheck.cs" />
     <Compile Include="PluginVersion.cs" />
+    <Compile Include="VesselStealth.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DarkMultiPlayer-Common">
