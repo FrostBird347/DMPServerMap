@@ -15,9 +15,6 @@ Values are stored as: `VAR = VALUE`.
 	- Default value is `5` meters.
 	- Value is added each planet's stored SOI or Sphere of Influence.
 	- See [#1](https://github.com/FrostBird347/DMPServerMap/issues/1) for more info.
-- `HidePrivateVessels`
-	- Default value is `False`.
-	- Ignore private vessels if set to `True`.
 - `PlayerPrivacy`
 	- Default value is `1`.
 	- Will send player info, depending on the value.
@@ -48,6 +45,22 @@ Values are stored as: `VAR = VALUE`.
 	- Default value is `True`.
 	- Use a path relative to the server to save the marker data if `True`.
 	- Use an absolute path to save the marker data if set to `False`.
+- `HidePrivateVessels`
+	- Default value is `False`.
+	- Ignore private vessels if set to `True`.
+- `HiddenPrivateVesselKey`
+	- Requires `HidePrivateVessels` to be set to `True`.
+	- Default value is `[0,0.5,0.5,0.5,0,0,0,0,0,0,0,0,0,0,0,0,0]`.
+	- Sorted by planet index.
+		- `[Kerbol, Kerbin, Mun, Minmus, Moho, Eve, Duna, Ike, Jool, Laythe, Vall, Bop, Tylo, Gilly, Pol, Dres, Eeloo]`.
+	- Values control how private vessels are hidden.
+		- `0` = Ignore all private vessels.
+		- `0.5` = Ignore all private vessels moving slower than `HiddenPrivateVesselSpeed`.
+		- `1` = Do not ignore any private vessels.
+- `HiddenPrivateVesselSpeed`
+	- Requires `HidePrivateVessels` to be set to `True`.
+	- Default value is `100`.
+	- Controls the speed value for `HiddenPrivateVesselKey`.
 
 ## Webpage
 
