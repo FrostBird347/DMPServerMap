@@ -200,4 +200,9 @@ function AddMarker(Marker, Type, Planet, MarkerIDIndex, MapID, MapUpdate, IsNewM
 		console.warn("UNKNOWN TYPE: " + Type + ". Marker not added!")
 		RemoveOldMarker(MapMarkerArray, MarkerIDIndex)
 	}
+	try {
+		setTimeout(function () {
+			MapMarkerArray[MarkerIDIndex].setOpacity(1)
+		}, 500);
+	} catch {}
 }

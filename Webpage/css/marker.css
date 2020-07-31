@@ -1,0 +1,4 @@
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+	transition: opacity 0.5s ease;
+}

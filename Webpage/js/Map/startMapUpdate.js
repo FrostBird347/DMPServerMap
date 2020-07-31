@@ -276,6 +276,7 @@ async function startMapUpdate() {
 						if (IsNewMarker != "Y") {
 							UpdateMarker(newmarker, MarkerMode, element[2], MarkerIDIndex, MapID, MapIDUpdate[MarkerIDIndex], IsNewMarker, element, icon, bindthing)
 						} else {
+							$.extend(newmarker[0].options, {opacity: 0})
 							AddMarker(newmarker, MarkerMode, element[2], MarkerIDIndex, MapID, MapIDUpdate[MarkerIDIndex], IsNewMarker, element, icon, bindthing)
 						}
 						MapIDUpdate[MarkerIDIndex] = "Y"
