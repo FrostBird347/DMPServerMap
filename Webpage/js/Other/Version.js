@@ -1,5 +1,5 @@
 function isRelease() {
-	return true;
+	return false;
 }
 
 function GetVersion() {
