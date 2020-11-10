@@ -277,3 +277,4 @@ function RemoveOldMarker(MapMarkerArray, MarkerIDIndex) {
 		MapIDUpdate[MarkerIDIndex] = "REMOVED"
 		MapIDPlanet[MarkerIDIndex] = "REMOVED"
 	}, 500);
+}
