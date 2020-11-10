@@ -6,11 +6,11 @@ namespace MapUpdater
 
 		public static bool isRelease()
 		{
-			return false;
+			return true;
 		}
 		public static string GetVersion()
 		{
-			string v = "1.4.5";
+			string v = "1.4.6";
 			if (!isRelease())
 			{
 				return v + " - dev";
