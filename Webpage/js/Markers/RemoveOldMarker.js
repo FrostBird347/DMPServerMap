@@ -272,9 +272,8 @@ function RemoveOldMarker(MapMarkerArray, MarkerIDIndex) {
 				L.KSP.CelestialBody.EELOO.overlays.Debris.removeLayer(MapMarkerArray[MarkerIDIndex])
 			} catch {}
 		}
+		MapMarkerArray[MarkerIDIndex] = "REMOVED"
+		MapID[MarkerIDIndex] = "REMOVED"
+		MapIDUpdate[MarkerIDIndex] = "REMOVED"
+		MapIDPlanet[MarkerIDIndex] = "REMOVED"
 	}, 500);
-	MapMarkerArray[MarkerIDIndex] = "REMOVED"
-	MapID[MarkerIDIndex] = "REMOVED"
-	MapIDUpdate[MarkerIDIndex] = "REMOVED"
-	MapIDPlanet[MarkerIDIndex] = "REMOVED"
-}
