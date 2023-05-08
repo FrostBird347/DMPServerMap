@@ -101,11 +101,11 @@ function VAR() {
 - `GetDefaultLayers`
 	- Default value is `[true, true, true, false, true, true, false, false, false, 0, "Kerbin"]`.
 	- Changes the default layer and overlay settings.
-	- <img src="https://i.imgur.com/9cZ1yOD.png" height="400">
+	- <img src="https://web.archive.org/web/20230508085952if_/https://i.imgur.com/9cZ1yOD.png" height="400">
 
 		- `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]`
 	- For example `[false, false, true, false, false, true, true, false, false, 3, "Kerbin"]` is:
-		- <img src="https://i.imgur.com/X2m2spM.png" height="400">
+		- <img src="https://web.archive.org/web/20230508090042if_/https://i.imgur.com/X2m2spM.png" height="400">
 
 - `DynamicIcon`
 	- Default value is `false`.
